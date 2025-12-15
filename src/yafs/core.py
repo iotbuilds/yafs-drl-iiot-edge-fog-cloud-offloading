@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-This module unifies the event-discrete simulation environment with the rest of modules: placement, topology, selection, population, utils and metrics.
+Core simulation engine for YAFS.
 
-
- NOTE: THIS VERSION IS A REDUCED ONE WITHOUT INCLUDE GEOGRAPHICAL LIBS
+This module integrates the discrete‑event simulation environment
+(:mod:`simpy`) with the rest of the framework components:
+placement, topology, selection, population, utilities, and metrics.
 
 """
 
@@ -26,24 +27,46 @@ NETWORK_LIMIT = 1000000000
 
 class Sim:
     """
+    Main simulation wrapper.
 
-    This class contains the cloud event-discrete simulation environment and it controls the structure variables.
+    This class contains the cloud/fog discrete‑event simulation
+    environment and coordinates the different structures used by
+    placement, population, selection, and metrics.
 
+    Parameters
+    ----------
+    topology :
+        Associated :class:`yafs.topology.Topology` of the environment.
+        There is only one topology per simulation.
 
-    Args:
-       topology (object) - the associate (:mod:`Topology`) of the environment. There is only one.
+    name_register : str, optional
+        File name for the event log (kept for backwards compatibility).
 
-    Kwargs:
-       name_register (str): database file name where are registered the events.
+    link_register : str, optional
+        File name for the link log (kept for backwards compatibility).
 
-       purge_register (boolean): True - clean the database
+    redis :
+        Reserved for historical Redis‑based logging (unused in this
+        reduced version).
 
-       logger (logger) - logger
+    purge_register : bool, optional
+        If ``True``, clear existing logs before running.
 
+    logger :
+        Logger instance. If ``None``, a module‑level logger is used.
 
-    **Main variables to coordinate with algorithm:**
+    default_results_path : str, optional
+        Base path for CSV metrics output consumed by :class:`yafs.stats.Stats`.
 
+    Notes
+    -----
+    The most important public methods are:
 
+    * :meth:`deploy_app` / :meth:`deploy_app2` – register applications
+      and their policies.
+    * :meth:`deploy_source`, :meth:`deploy_sink`, :meth:`deploy_module`
+      – create DES processes for sources, sinks, and service modules.
+    * :meth:`run` – start the simulation.
     """
     NODE_METRIC = "COMP_M"
     SOURCE_METRIC = "SRC_M"
@@ -1173,3 +1196,4 @@ class Sim:
             self.env.run(until) #This does not stop the simpy.simulation at time. We have to force the stop
 
         self.metrics.close()
+        

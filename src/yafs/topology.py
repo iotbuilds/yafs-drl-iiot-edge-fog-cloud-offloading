@@ -1,39 +1,33 @@
 # -*- coding: utf-8 -*-
 import logging
-
+import warnings
 
 import networkx as nx
-import warnings
 
 
 class Topology:
     """
-    This class unifies the functions to deal with **Complex Networks** as a network topology within of the simulator. In addition, it facilitates its creation, and assignment of attributes.
+    Wrapper around a NetworkX graph used as the simulation topology.
+
+    This class unifies the functions to deal with **Complex Networks** as
+    a network topology within the simulator. In addition, it facilitates
+    creation and assignment of attributes.
     """
 
     LINK_BW = "BW"
     "Link feature: Bandwidth"
 
     LINK_PR = "PR"
-    "Link feauture:  Propagation delay"
-
-    # LINK_LATENCY = "LATENCY"
-    # " A edge or a network link has a Bandwidth"
+    "Link feature: Propagation delay"
 
     NODE_IPT = "IPT"
-    "Node feature: IPS . Instructions per Simulation Time "
-
-
+    "Node feature: IPT. Instructions per simulation time unit."
 
     def __init__(self, logger=None):
-
-        # G is a nx.networkx graph
+        # G is a NetworkX graph.
         self.G = None
         self.nodeAttributes = {}
         self.logger = logger or logging.getLogger(__name__)
-
-
-
 
     def __init_uptimes(self):
         for key in self.nodeAttributes:
@@ -41,37 +35,37 @@ class Topology:
 
     def get_edges(self):
         """
-        Returns:
-            list: a list of graph edges, i.e.: ((1,0),(0,2),...)
+        Return a view of the graph edges, e.g. ``((1, 0), (0, 2), ...)``.
         """
         return self.G.edges
 
-    def get_edge(self,key):
+    def get_edge(self, key):
         """
-        Args:
-            key (str): a edge identifier, i.e. (1,9)
+        Return the attributes of a given edge.
 
-        Returns:
-            list: a list of edge attributes
+        Parameters
+        ----------
+        key : tuple
+            Edge identifier, e.g. ``(1, 9)``.
         """
         return self.G.edges[key]
 
     def get_nodes(self):
         """
-        Returns:
-            list: a list of all nodes features
+        Return a view of all nodes in the graph.
         """
         return self.G.nodes
 
     def get_node(self, key):
         """
-        Args:
-            key (int): a node identifier
+        Return the attributes of a given node.
 
-        Returns:
-            list: a list of node features
+        Parameters
+        ----------
+        key : hashable
+            Node identifier.
         """
-        return self.G.node[key]
+        return self.G.nodes[key]
 
 
     def get_info(self):
@@ -79,54 +73,57 @@ class Topology:
 
     def create_topology_from_graph(self, G):
         """
-        It generates the topology from a NetworkX graph
+        Generate the topology from an existing NetworkX graph.
 
-        Args:
-             G (*networkx.classes.graph.Graph*)
+        Parameters
+        ----------
+        G : :class:`networkx.Graph`
+            Graph instance to use as the topology.
         """
-        if isinstance(G, nx.classes.graph.Graph):
+        if isinstance(G, nx.Graph):
             self.G = G
         else:
-            raise TypeError
+            raise TypeError("G must be a networkx.Graph instance")
 
     def create_random_topology(self, nxGraphGenerator, params):
         """
-        It generates the topology from a Graph generators of NetworkX
+        Generate the topology from a NetworkX graph generator.
 
-        Args:
-             nxGraphGenerator (function): a graph generator function
-
-        Kwargs:
-            params (dict): a list of parameters of *nxGraphGenerator* function
+        Parameters
+        ----------
+        nxGraphGenerator : callable
+            Graph generator function (e.g. from :mod:`networkx.generators`).
+        params : list
+            Positional parameters to pass to ``nxGraphGenerator``.
         """
         try:
             self.G = nxGraphGenerator(*params)
-        except:
-            raise Exception
+        except Exception as exc:
+            raise Exception("Error generating topology from graph generator") from exc
 
     def load(self, data):
-        warnings.warn("The load function will merged with load_all_node_attr function",
+        warnings.warn(
+            "The load function will be merged with load_all_node_attr in a future version",
                       FutureWarning,
                       stacklevel=8
                       )
         """
-            It generates the topology from a JSON file
-            see project example: Tutorial_JSONModelling
+        Generate the topology from a JSON structure.
 
-            Args:
-                 data (str): a json
+        See the ``Tutorial_JSONModelling`` example for the expected
+        format.
         """
         self.G = nx.Graph()
         for edge in data["link"]:
             self.G.add_edge(edge["s"], edge["d"], BW=edge[self.LINK_BW],PR=edge[self.LINK_PR])
 
 
-        #TODO This part can be removed in next versions
+        # TODO This part can be removed in next versions.
         for node in data["entity"]:
             self.nodeAttributes[node["id"]] = node
         #end remove
 
-        # Correct way to use custom and mandatory topology attributes
+        # Correct way to use custom and mandatory topology attributes.
 
         valuesIPT = {}
         # valuesRAM = {}
@@ -141,12 +138,12 @@ class Topology:
             #     valuesRAM[node["id"]] = 0
 
 
-        nx.set_node_attributes(self.G,values=valuesIPT,name="IPT")
+        nx.set_node_attributes(self.G, values=valuesIPT, name="IPT")
         # nx.set_node_attributes(self.G,values=valuesRAM,name="RAM")
 
         self.__init_uptimes()
 
-    def load_all_node_attr(self,data):
+    def load_all_node_attr(self, data):
         self.G = nx.Graph()
         for edge in data["link"]:
             self.G.add_edge(edge["s"], edge["d"], BW=edge[self.LINK_BW], PR=edge[self.LINK_PR])
@@ -168,12 +165,12 @@ class Topology:
 
 
     def load_graphml(self,filename):
-        warnings.warn("The load_graphml function is deprecated and "
-                      "will be removed in version 2.0.0. "
-                      "Use NX.READ_GRAPHML function instead.",
-                      FutureWarning,
-                      stacklevel=8
-                      )
+        warnings.warn(
+            "The load_graphml function is deprecated and will be removed "
+            "in version 2.0.0. Use networkx.read_graphml instead.",
+            FutureWarning,
+            stacklevel=8,
+        )
 
         self.G = nx.read_graphml(filename)
         attEdges = {}
@@ -185,25 +182,29 @@ class Topology:
             attNodes[k] = {"IPT": 1}
         nx.set_node_attributes(self.G, values=attNodes)
         for k in self.G.nodes():
-            self.nodeAttributes[k] = self.G.node[k] #it has "id" att. TODO IMPROVE
+            # It has an "id" attribute. TODO: improve this mapping.
+            self.nodeAttributes[k] = self.G.nodes[k]
 
 
     def get_nodes_att(self):
         """
-        Returns:
-            A dictionary with the features of the nodes
+        Return a dictionary with the features of all nodes.
         """
         return self.nodeAttributes
 
-    def find_IDs(self,value):
+    def find_IDs(self, value):
         """
-        Search for nodes with the same attributes that value
+        Search for nodes with matching attributes.
 
-        Args:
-             value (dict). example value = {"model": "m-"}. Only one key is admitted
+        Parameters
+        ----------
+        value : dict
+            Example: ``{\"model\": \"m-\"}``. Only one key is admitted.
 
-        Returns:
-            A list with the ID of each node that have the same attribute that the value.value
+        Returns
+        -------
+        list
+            Node IDs with the same attribute value.
         """
         keyS = list(value.keys())[0]
 
@@ -218,19 +219,21 @@ class Topology:
 
     def size(self):
         """
-        Returns:
-            an int with the number of nodes
+        Return the number of nodes in the topology.
         """
         return len(self.G.nodes)
 
     def add_node(self, nodes, edges=None):
         """
-        Add a list of nodes in the topology
+        Add a new node connected to the given list of nodes.
 
-        Args:
-            nodes (list): a list of identifiers
-
-            edges (list): a list of destination edges
+        Parameters
+        ----------
+        nodes : list
+            List of existing node identifiers to which the new node will
+            be connected.
+        edges : list, optional
+            Unused parameter kept for backwards compatibility.
         """
         self.__idNode = + 1
         self.G.add_node(self.__idNode)
@@ -240,12 +243,13 @@ class Topology:
 
     def remove_node(self, id_node):
         """
-        Remove a node of the topology
+        Remove a node from the topology.
 
-        Args:
-            id_node (int): node identifier
+        Parameters
+        ----------
+        id_node : int
+            Node identifier.
         """
-
         self.G.remove_node(id_node)
         return self.size()
 

@@ -1,28 +1,34 @@
 """
-    This type of algorithm have two main functions:
+Population (workload) algorithms for YAFS.
 
-        *initial_allocation*: invoked at the start of the simulation
+Each population algorithm has two main responsibilities:
 
-        *run* invoked according to the assigned temporal distribution.
-
+* ``initial_allocation``: invoked at the start of the simulation.
+* ``run``: invoked during the simulation according to a temporal
+  activation distribution.
 """
 import logging
 
 class Population(object):
     """
-    A population algorithm controls how the message generation of the sensor modules is associated in the nodes of the topology.
-    This assignment is based on a generation controller to each message. And a generation control is assigned to a node or to several
-    in the topology both during the initiation and / or during the execution of the simulation.
+    Base class for population (workload) algorithms.
+
+    A population algorithm controls how the message generation of sensor
+    modules is associated with nodes in the topology. This association
+    is done through generation controllers that are bound to messages
+    and then assigned to one or more nodes, both at initialization and
+    optionally during the execution of the simulation.
 
     .. note:: A class interface
 
     Args:
-        name (str): associated name
+        name (str): Associated name.
 
-        activation_dist (function): a distribution function to active the *run* function in execution time
+        activation_dist (Distribution): Distribution that activates the
+            :meth:`run` method during execution.
 
     Kwargs:
-        param (dict): the parameters of the *activation_dist*
+        param (dict): Parameters for ``activation_dist``.
 
     """
     def __init__(self, name, activation_dist=None, logger=None):
@@ -30,75 +36,85 @@ class Population(object):
         self.name = name
         self.activation_dist = activation_dist
 
-        # self.id_process = -1
         self.src_control = []
         self.sink_control = []
 
     def set_sink_control(self, values):
         """
-        localization of sink modules
+        Register the location of sink modules.
+
+        Parameters
+        ----------
+        values :
+            Typically a dictionary describing the sink configuration
+            (e.g. model, number of instances, module name).
         """
         self.sink_control.append(values)
 
     def get_next_activation(self):
         """
-        Returns:
-            the next time to be activated in the simulation
+        Return the next simulation time at which this population should run.
         """
         return self.activation_dist.next()
 
 
-    def set_src_control(self,values):
+    def set_src_control(self, values):
         """
-        Stores the drivers of each message generator.
+        Store the controllers of each message generator (sources).
 
         Args:
-            values (dict):
+            values (dict): Configuration for a source controller.
         """
         self.src_control.append(values)
 
 
-    def initial_allocation(self,sim,app_name):
+    def initial_allocation(self, sim, app_name):
         """
-        Given an ecosystem and an application, it starts the allocation of pure sources in the topology.
+        Given an ecosystem and an application, start the allocation of
+        pure sources in the topology.
 
         .. attention:: override required
         """
-        self.run()
+        self.run(sim)
 
     # override
     def run(self, sim):
         """
-        This method will be invoked during the simulation to change the assignment of the modules that generate the messages.
+        Change the assignment of modules that generate messages.
 
         Args:
-            sim (:mod: yafs.core.Sim)
+            sim (:mod:`yafs.core.Sim`): Simulation object.
         """
-        self.logger.debug("Activiting - RUN - Population")
-        """ User definition of the Population evolution """
+        self.logger.debug("Activating - RUN - Population")
+        # User definition of the Population evolution should be provided
+        # in subclasses.
 
 
 
 
 class Statical(Population):
     """
-    This implementation of a population algorithm statically assigns the generation of a source in a node of the topology. It is only invoked in the initialization.
+    Static population algorithm.
+
+    This implementation statically assigns the generation of sources to
+    specific nodes in the topology. It is only invoked during the
+    initialization phase.
 
     Extends: :mod: Population
     """
 
-    def initial_allocation(self,sim,app_name):
-        #Assignment of SINK and SOURCE pure modules
+    def initial_allocation(self, sim, app_name):
+        # Assignment of SINK and SOURCE pure modules.
         for id_entity in sim.topology.nodeAttributes:
             entity = sim.topology.nodeAttributes[id_entity]
             for ctrl in self.sink_control:
-                #A node can have several sinks modules
-                if entity["model"]==ctrl["model"]:
-                    #In this node there is a sink
+                # A node can have several sink modules.
+                if entity["model"] == ctrl["model"]:
+                    # In this node there is a sink.
                     module = ctrl["module"]
                     for number in range(ctrl["number"]):
                         sim.deploy_sink(app_name, node=id_entity, module=module)
-            #end for sink control
+            # end for sink control
 
             for ctrl in self.src_control:
                 # A node can have several source modules
@@ -106,9 +122,12 @@ class Statical(Population):
                     msg = ctrl["message"]
                     dst = ctrl["distribution"]
                     for number in range(ctrl["number"]):
-                        idsrc = sim.deploy_source(app_name,id_node=id_entity,msg=msg,distribution=dst)
-                        # the idsrc can be used to control the deactivation of the process in a dynamic behaviour
+                        idsrc = sim.deploy_source(
+                            app_name, id_node=id_entity, msg=msg, distribution=dst
+                        )
+                        # The idsrc can be used to control the deactivation of
+                        # the process in a dynamic behaviour.
 
-            #end for src control
+            # end for src control
 
-        #end assignments
+        # end assignments

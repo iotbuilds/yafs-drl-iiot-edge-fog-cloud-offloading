@@ -90,7 +90,9 @@ class CustomStrategy():
         # We move all the service to other random node
         for service in current_services:
             for currentNode in current_services[service]:
-                newNode = random.sample(sim.topology.G.nodes(),1)[0]
+                # In newer NetworkX versions, G.nodes() returns a NodeView, which is not
+                # a sequence and breaks random.sample; cast to list first.
+                newNode = random.sample(list(sim.topology.G.nodes()), 1)[0]
                 if not self.is_already_deployed(sim,service,newNode):
                     self.undeploy_module(sim,service,currentNode)
                     self.deploy_module(sim,service,newNode)

@@ -1,10 +1,44 @@
 !.gitignore
 .gitconfig
-*.log
-**/__pycache__/
-*.pyc
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
 !.vscode/settings.json
 !.vscode/launch.json
+
+# Python bytecode / cache
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Packaging / build artifacts
 build/
+dist/
+*.egg-info/
+.eggs/
 src/yafs.egg-info/
 
+# Coverage / test artifacts
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+test-results/
+
+# Logs
+*.log
+
+# Results
+results/

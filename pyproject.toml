@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yafs"
+version = "3.1.0"
+description = "Yet Another Fog Simulator for Python (YAFS). https://yafs.readthedocs.io, MIT License"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Isaac Lera", email = "isaac.lera@uib.es" },
+    { name = "Carlos Guerrero", email = "carlos.guerrero@ouib.es" }
+]
+license = { text = "MIT License" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering",
+]
+urls = { Homepage = "https://yafs.readthedocs.io", Source = "https://github.com/acsicuib/YAFS" }
+dependencies = [
+    "simpy>=4.0.1",
+    "pandas>=1.4.3",
+    "networkx>=2.8.4",
+    "numpy>=1.23.0",
+    "tqdm>=4.64.0",
+    "matplotlib>=3.10.8",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["*.tests", "*.tests.*", "tests.*", "tests"]

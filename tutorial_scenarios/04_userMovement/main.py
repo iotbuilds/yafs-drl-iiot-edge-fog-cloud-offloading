@@ -40,7 +40,9 @@ class CustomStrategy():
         app = sim.apps[app_name]
         msg = app.get_message("M.USER.APP.%i" % app_name)
         dist = deterministic_distribution(30, name="Deterministic")
-        node = random.sample(sim.topology.G.nodes(), 1)[0]
+        # In newer NetworkX versions, G.nodes() returns a NodeView, which is not
+        # a sequence and breaks random.sample; cast to list first.
+        node = random.sample(list(sim.topology.G.nodes()), 1)[0]
         idDES = sim.deploy_source(app_name, id_node=node, msg=msg, distribution=dist)
         self.listUsers.append(idDES)
         self.placeAt[idDES] = node
@@ -65,7 +67,7 @@ class CustomStrategy():
         elif random.random()<0.8:
             # we move a user from one node to other
             userDES = random.sample(self.listUsers, 1)[0]
-            newNode = random.sample(sim.topology.G.nodes(), 1)[0]
+            newNode = random.sample(list(sim.topology.G.nodes()), 1)[0]
             logging.info(" Moving a user %i from node %i to %i" % (userDES, self.placeAt[userDES],newNode))
             sim.alloc_DES[userDES] = newNode
             self.placeAt[userDES] = newNode # only for log purporses.

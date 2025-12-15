@@ -1,20 +1,20 @@
 
 ![YAFS logo](https://github.com/acsicuib/YAFS/raw/master/docs/_static/yafs_logo.png)
 
-YAFS (Yet Another Fog Simulator) is a simulator tool based on Python of architectures such as: [Fog Computing](https://en.wikipedia.org/wiki/Fog_computing) ecosystems for several analysis regarding with the placement of resources, cost deployment, network design, ... [IoT environments](https://en.wikipedia.org/wiki/Internet_of_things) are the most evident fact of this type of architecture. YAFS is published at [IEEE](https://ieeexplore.ieee.org/document/8758823).
+YAFS (Yet Another Fog Simulator) is a Python-based simulator for architectures such as [Fog Computing](https://en.wikipedia.org/wiki/Fog_computing) ecosystems. It supports multiple types of analysis related to resource placement, deployment cost, network design, and more. [IoT environments](https://en.wikipedia.org/wiki/Internet_of_things) are the most common example of this type of architecture. YAFS is published in [IEEE](https://ieeexplore.ieee.org/document/8758823).
 
 
-The **highlights** points of YAFS are:
-* **Dynamic topology:** entities and network links can be created or removed along the simulation.
-* **Dynamic creation of messages sources:** sensors can generate messages from different point access along the simulation.
-* And for hence, the **placement allocation algorithm** and **the orchestration algorithm,** that are extended by the user, can run along the simulation.
-* The **topology of the network** is based on [Complex Network theory](https://en.wikipedia.org/wiki/Complex_network). Thus, the algorithms can obtain more valuable indicators from topological features.
-* The **results** are stored in a raw format in a nosql database. The simpler the format, the easier it is to perform any type of statistics.
+The **highlighted features** of YAFS are:
+* **Dynamic topology:** entities and network links can be created or removed during the simulation.
+* **Dynamic creation of message sources:** sensors can generate messages from different access points during the simulation.
+* **Placement and orchestration during runtime:** the **placement allocation algorithm** and **orchestration algorithm**, which are extended by the user, can be executed while the simulation is running.
+* **Network topology based on Complex Network theory:** the **topology of the network** is based on [Complex Network theory](https://en.wikipedia.org/wiki/Complex_network). Thus, algorithms can obtain more meaningful indicators from topological features.
+* **Simple, analysis-friendly output:** **results** are stored in a raw format in a NoSQL database. The simpler the format, the easier it is to perform any type of statistical analysis.
 
 
-YAFS is released under the MIT License. However, we would like to know in which project or publication have you used or mentioned YAFS.
+YAFS is released under the MIT License. However, we would like to know in which projects or publications you have used or mentioned YAFS.
 
-**Please consider use this cite when you use YAFS**:
+**Please consider using the following citation when you use YAFS**:
 
 ```bash
     Isaac Lera, Carlos Guerrero and Carlos Juiz. YAFS: A simulator for IoT scenarios in fog computing. IEEE Access. Vol. 7(1), pages 91745-91758,
@@ -41,43 +41,49 @@ Bibtex:
 Resources
 ---------
 
-YAFS tutorial (https://yafs.readthedocs.io/en/latest/introduction/index.html)
-and user guide (https://www.slideshare.net/wisaaco/yet-another-fog-simulator-yafs-user-guide) are a good starting
-point for you. You can also try out some of the Examples (https://yafs.readthedocs.io/en/latest/examples/index.html) shipped with
-YAFS but in any case you have to understand the main concepts of Cloud Computing and other related architectures to design and modelling your own model.
+The YAFS tutorial (`https://yafs.readthedocs.io/en/latest/introduction/index.html`)
+and user guide (`https://www.slideshare.net/wisaaco/yet-another-fog-simulator-yafs-user-guide`) are a good starting
+point. You can also try out some of the examples (`https://yafs.readthedocs.io/en/latest/examples/index.html`) shipped with
+YAFS, but in any case you should understand the main concepts of Cloud Computing and related architectures in order to design and model your own system.
 
 
 Installation
 ------------
 
-YAFS3 (the branch) supports Python 3.6+ (last compability check on Python 3.9.7)
+YAFS 3.1 (this branch) supports Python 3.12 (last compatibility check on Python 3.12).  YAFS uses [uv](https://docs.astral.sh/uv/) as python project manager.
 
 1. Clone the project in your local folder:
 
 ```bash
-git clone --branch YAFS3 https://github.com/acsicuib/YAFS
+git clone --branch YAFS3.1 https://github.com/acsicuib/YAFS
 ```
 
-2. Install dependencies. 
+2. Install dependencies:
 
 ```bash
 cd YAFS/
-pip install -r requirements.txt
+uv sync
+uv pip install -e .
 ```
 
 
 Getting started
 ---------------
 
-To run tutorial or example projects from a terminal, run the following code (please update the paths according with your system). Alternativaly, you can use a python editor such as: Pycharm, Visual Studio, etc.
+To run tutorial or example projects from a terminal, execute the following commands (please update the paths according to your system). Alternatively, you can use a Python editor such as PyCharm, Visual Studio Code, etc.
 
 ```bash
-export PYTHONPATH=$PYTHONPATH:~/YAFS/src/
-cd YAFS/tutorial_scenarios/01_basicExample
-python main.py
+uv run tutorial_scenarios/01_basicExample/main.py
 ```
 
-The tutorial scenarios are in the folder:
+Or, in case of subfolder dependencies such as `data/`, run:
+
+```bash
+cd tutorial_scenarios/02_serviceMovement
+uv run main.py
+```
+
+The available tutorial scenarios are:
 ```
 tutorial_scenarios
 ├── 01_basicExample
@@ -86,8 +92,8 @@ tutorial_scenarios
 └── 04_userMovement
 ```
 
-More complex examples or published projects are in the folder **examples**:
-Note: they are working with python 3.10.8
+More complex examples or published projects are in the **examples** folder:
+Note: these have been tested with Python 3.10.8.
 ```
 examples
 ├── ConquestService                 # tested. Published at [6]
@@ -108,16 +114,16 @@ examples
 ```
 
 
-The [YAFS tutorial](https://yafs.readthedocs.io/en/latest/introduction/index.html) is a good starting
-point for you. You can also try out some of the [Examples](https://yafs.readthedocs.io/en/latest/examples/index.html) shipped with
-YAFS but in any case you have to understand the main concepts of Cloud Computing and other related architectures to design and modelling your own model.
+The [YAFS tutorial](https://yafs.readthedocs.io/en/latest/introduction/index.html) is a good starting point.
+You can also try out some of the [examples](https://yafs.readthedocs.io/en/latest/examples/index.html) shipped with
+YAFS, but in any case you should understand the main concepts of Cloud Computing and related architectures to design and model your own system.
 
 
 Graph animations
 ----------------
-As you can implement events (custom strategies), you can generate plots of your network in each event. Thus, you can store png files and at the end of your simulation, you generate a video with the combination all of them using *ffmpeg* command.
+Because you can implement events (custom strategies), you can generate plots of your network at each event. Thus, you can store PNG files and, at the end of your simulation, generate a video by combining all of them using the `ffmpeg` command.
 
-You can find some examples in the following *src/examples*: DynamicWorkloads, ConquestService, and mobileTutorial. From *DynamicWorkload* folder and *ConquestService*, we have generate the following animations:
+You can find some examples in `src/examples`: `DynamicWorkload`, `ConquestService`, and `mobileTutorial`. From the `DynamicWorkload` and `ConquestService` folders, we have generated the following animations:
 
 ```
 ffmpeg -r 1 -i net_%03d.png -c:v libx264 -vf fps=1 -pix_fmt yuv420p out.mp4
@@ -139,24 +145,25 @@ ffmpeg -i out.mp4 -pix_fmt rgb24  out.gif
 Documentation and Help
 ----------------------
 
-The [documentation](https://yafs.readthedocs.io/en/latest/) contains a [tutorial](https://yafs.readthedocs.io/en/latest/introduction/index.html), the [architecture design](https://yafs.readthedocs.io/en/latest/architecture/index.html) explaining key
-concepts, a number of [examples](https://yafs.readthedocs.io/en/latest/examples/index.html) and the [API reference](https://yafs.readthedocs.io/en/latest/api_reference/index.html).
+The [documentation](https://yafs.readthedocs.io/en/latest/) contains a [tutorial](https://yafs.readthedocs.io/en/latest/introduction/index.html), an [architecture overview](https://yafs.readthedocs.io/en/latest/architecture/index.html) explaining key
+concepts, several [examples](https://yafs.readthedocs.io/en/latest/examples/index.html), and the [API reference](https://yafs.readthedocs.io/en/latest/api_reference/index.html).
 
 
-For more help, contact with the authors or You must dig through the [source code](https://github.com/acsicuib/YAFS)
+For more help, contact the authors or explore the [source code](https://github.com/acsicuib/YAFS).
 
 Changelog
 -----------
-- jun / 27 / 2022 Fixing bugs in old examples and tested the project in python 3.9.7 version. Improved examples and add code that analyse some basic results.
-- sep. / 12 / 2019 Fixing bugs - All projects work with the attributes defined in the graph var (topology class) using NX library to manage the attributes.
-- may / 23 / 2019 New improvements are included. Highlight that workloads/users and mobile endpoints can be represented through *gpx traces*. Geopositional libraries are required
-- june / 25 / 2018 Bug Fixed - The DES.src metric of the CSV results is fixed. Identifies the DES-process who sends the message
-- june / 20 / 2018 Messages from sources have an unique identifier that is copied in all the transmissions. We can trace each application invocation.
+- Dec 15, 2025: YAFS 3.1 is an extensively refactored version, with many improvements and updated compatibility with current libraries.
+- Jun 27, 2022: Fixed bugs in older examples and tested the project with Python 3.9.7. Improved examples and added code to analyze some basic results.
+- Sep 12, 2019: Fixed bugs. All projects now work with the attributes defined in the `graph` variable (topology class), using the NetworkX library to manage the attributes.
+- May 23, 2019: Included new improvements. Notably, workloads/users and mobile endpoints can be represented through *gpx traces* (geopositional libraries are required).
+- Jun 25, 2018: Bug fix. The `DES.src` metric of the CSV results is fixed and correctly identifies the DES process that sends each message.
+- Jun 20, 2018: Messages from sources now have a unique identifier that is copied in all transmissions, allowing each application invocation to be traced.
 
 Acknowledgment
 --------------
 
-- Authors acknowledge financial support through grant project ORDCOT with number TIN2017-88547-P (AEI/FEDER, UE)
+- The authors acknowledge financial support through grant project ORDCOT, number TIN2017-88547-P (AEI/FEDER, UE).
 - Thanks to the small community of contributors who have been improving the code and providing new suggestions over the years.
 
 
@@ -177,4 +184,4 @@ Placement Problem. FMEC 2019
 
 
 
-Please, [send us your reference to publish it](mailto:isaac.lera@uib.es)! and of course, feel free to add your references or works using YAFS! 
+Please [send us your reference so we can publish it](mailto:isaac.lera@uib.es)! And of course, feel free to add your references or works using YAFS! 

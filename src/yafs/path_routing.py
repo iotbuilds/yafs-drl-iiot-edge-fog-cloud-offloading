@@ -1,115 +1,157 @@
-from yafs.selection import Selection
-import networkx as nx
 from collections import Counter
 
+import networkx as nx
+
+from yafs.selection import Selection
+
+
 class DeviceSpeedAwareRouting(Selection):
+    """
+    Routing policy that selects the closest service instance (DES) in hops.
+
+    Among multiple instances at the same minimum distance, a simple
+    round‑robin mechanism is applied to balance the load.
+    """
 
     def __init__(self):
+        # Cache structures used by the selection interface.
         self.cache = {}
         self.counter = Counter(list())
         self.invalid_cache_value = True
 
+        # key: (node_src, service_name)
+        # value: (path, des_id)
         self.controlServices = {}
-        # key: a service
-        # value : a list of idDevices
+
         super(DeviceSpeedAwareRouting, self).__init__()
 
-    def compute_BEST_DES(self, node_src, alloc_DES, sim, DES_dst,message):
+    def compute_BEST_DES(self, node_src, alloc_DES, sim, DES_dst, message):
+        """
+        Compute the best DES instance to serve a request.
+
+        The best instance is the one with the shortest path (in hops)
+        from ``node_src``. If several instances share the same minimal
+        path length, a round‑robin policy is used between them.
+        """
         try:
-            bestLong = float('inf')
-            minPath = []
-            bestDES = []
-            moreDES = []
-            #print len(DES_dst)
-            for dev in DES_dst:
-                node_dst = alloc_DES[dev]
-                path = list(nx.shortest_path(sim.topology.G, source=node_src, target=node_dst))
-                long = len(path)
+            best_length = float("inf")
+            min_path = []
+            best_des = None
+            candidates_same_node = []
 
-                if long < bestLong:
-                    bestLong = long
-                    minPath = path
-                    bestDES = dev
-                    moreDES = []
-                elif long == bestLong:
-                    # Another instance service is deployed in the same node
-                    if len(moreDES)==0:
-                        moreDES.append(bestDES)
-                    moreDES.append(dev)
+            for des_id in DES_dst:
+                node_dst = alloc_DES[des_id]
+                path = list(
+                    nx.shortest_path(sim.topology.G, source=node_src, target=node_dst)
+                )
+                path_len = len(path)
 
+                if path_len < best_length:
+                    best_length = path_len
+                    min_path = path
+                    best_des = des_id
+                    candidates_same_node = []
+                elif path_len == best_length:
+                    # Another instance of the service is deployed at the same
+                    # distance (often in the same node).
+                    if len(candidates_same_node) == 0 and best_des is not None:
+                        candidates_same_node.append(best_des)
+                    candidates_same_node.append(des_id)
 
-            # There are two or more options in a node: #ROUND ROBIN Schedule
-            if len(moreDES)>0:
-                ### RETURN
-                bestValue = 0
-                minCounter =  float('inf')
-                for idx,service in enumerate(moreDES):
-                    if not service in self.counter:
-                        return minPath, service
-                    else:
-                        if minCounter < self.counter[service]:
-                            minCounter = self.counter
-                            bestValue = idx
-                return minPath, moreDES[bestValue]
+            # There are two or more options: apply round‑robin scheduling.
+            if len(candidates_same_node) > 0:
+                best_index = 0
+                min_counter = float("inf")
+                for idx, service in enumerate(candidates_same_node):
+                    # If this service has never been used, pick it immediately.
+                    if service not in self.counter:
+                        return min_path, service
+                    # Otherwise, keep the least used service.
+                    if self.counter[service] < min_counter:
+                        min_counter = self.counter[service]
+                        best_index = idx
+                return min_path, candidates_same_node[best_index]
             else:
-                return minPath, bestDES
+                return min_path, best_des
 
-        except (nx.NetworkXNoPath, nx.NodeNotFound) as e:
-            self.logger.warning("There is no path between two nodes: %s - %s " % (node_src, node_dst))
-            # print("Simulation must ends?)"
+        except (nx.NetworkXNoPath, nx.NodeNotFound):
+            self.logger.warning(
+                "There is no path between two nodes: %s - %s ", node_src, message.dst
+            )
+            # print("Simulation must end?)"
             return [], None
 
-    def get_path(self, sim, app_name, message, topology_src, alloc_DES, alloc_module, traffic, from_des):
-        node_src = topology_src #entity that sends the message
-        service = message.dst         # Name of the service
-        DES_dst = alloc_module[app_name][message.dst] #module sw that can serve the message
+    def get_path(
+        self, sim, app_name, message, topology_src, alloc_DES, alloc_module, traffic, from_des
+    ):
+        """
+        Return the path and DES destination for a given message.
+        """
+        node_src = topology_src  # Entity that sends the message.
+        service = message.dst  # Name of the service.
 
-        #The number of nodes control the updating of the cache. If the number of nodes changes, the cache is totally cleaned.
-        path, des = self.compute_BEST_DES(node_src, alloc_DES, sim, DES_dst,message)
+        # Software modules that can serve the message.
+        DES_dst = alloc_module[app_name][message.dst]
+
+        # The number of nodes controls the cache lifetime. If the topology
+        # changes, the cache is cleared elsewhere.
+        path, des = self.compute_BEST_DES(node_src, alloc_DES, sim, DES_dst, message)
 
         try:
             dc = int(des)
             self.counter[dc] += 1
             self.controlServices[(node_src, service)] = (path, des)
-        except TypeError: # The node is not linked with other nodes
+        except (TypeError, ValueError):
+            # The node is not linked with other nodes or des is None.
             return [], None
 
         return [path], [des]
 
     def clear_routing_cache(self):
+        """
+        Clear any cached routing decisions.
+        """
         self.invalid_cache_value = False
         self.cache = {}
         self.counter = Counter(list())
         self.controlServices = {}
 
-    def get_path_from_failure(self, sim, message, link, alloc_DES, alloc_module, traffic, ctime, from_des):
-
+    def get_path_from_failure(
+        self, sim, message, link, alloc_DES, alloc_module, traffic, ctime, from_des
+    ):
+        """
+        Recompute a path when a link fails.
+        """
         idx = message.path.index(link[0])
-        #print "IDX: ",idx
+        # print "IDX: ",idx
         if idx == len(message.path):
-            # The node who serves ... not possible case
-            return [],[]
+            # The node that serves the request – not a possible case here.
+            return [], []
         else:
-            node_src = message.path[idx] #In this point to the other entity the system fail
-            # print "SRC: ",node_src # 164
+            # From this point to the failed entity the system must re-route.
+            node_src = message.path[idx]
+            # print "SRC: ",node_src
 
-            node_dst = message.path[len(message.path)-1]
-            # print "DST: ",node_dst #261
-            # print "INT: ",message.dst_int #301
+            node_dst = message.path[len(message.path) - 1]
+            # print "DST: ",node_dst
+            # print "INT: ",message.dst_int
 
-            path, des = self.get_path(sim,message.app_name,message,node_src,alloc_DES,alloc_module,traffic,from_des)
-            if len(path[0])>0:
-                # print path # [[164, 130, 380, 110, 216]]
-                # print des # [40]
-
-                concPath = message.path[0:message.path.index(path[0][0])] + path[0]
-                # print concPath # [86, 242, 160, 164, 130, 380, 110, 216]
-                newINT = node_src #path[0][2]
-                # print newINT # 380
+            path, des = self.get_path(
+                sim,
+                message.app_name,
+                message,
+                node_src,
+                alloc_DES,
+                alloc_module,
+                traffic,
+                from_des,
+            )
+            if len(path[0]) > 0:
+                # Concatenate the previous path with the new path.
+                concPath = message.path[0 : message.path.index(path[0][0])] + path[0]
+                newINT = node_src
 
                 message.dst_int = newINT
                 return [concPath], des
             else:
-                return [],[]
-
-
+                return [], []

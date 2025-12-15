@@ -83,11 +83,14 @@ class CustomStrategy():
         self.activations += 1
         routing.invalid_cache_value = True # when the topology changes the cache of the Path.routing is outdated.
 
-        if random.random()<0.7:
+        if random.random() < 0.7:
         # We create a new node, between two other nodes.
-            node1 = random.sample(sim.topology.G.nodes(),1)[0]
-            node2 = random.sample(sim.topology.G.nodes(), 1)[0]
-            newId = list(sim.topology.G.nodes())[-1]
+            # In newer NetworkX versions, G.nodes() returns a NodeView, which is not
+            # a sequence and breaks random.sample; cast to list first.
+            nodes_list = list(sim.topology.G.nodes())
+            node1 = random.sample(nodes_list, 1)[0]
+            node2 = random.sample(nodes_list, 1)[0]
+            newId = nodes_list[-1]
             try:
                 newId = newId+1
             except:
@@ -105,7 +108,9 @@ class CustomStrategy():
             logging.info(" A new node is created between %i and %i with ID: %i"%(node1,node2,newId))
         else:
         # We drop a node.
-            code = random.sample(sim.topology.G.nodes(), 1)[0]
+            # Again, cast to list so random.sample sees a proper sequence.
+            nodes_list = list(sim.topology.G.nodes())
+            code = random.sample(nodes_list, 1)[0]
             try:
                 ## ONE WAY
                 # edges_to_remove = [e for e in sim.topology.G.edges() if int(code) in e]
