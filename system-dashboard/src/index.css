@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Palette: bright-blue #3B5BDB, deep-purple #5B21B6, indigo #4338CA, sky #60C8F5, violet #8B2FC9, orchid #C026D3, navy #2D2FA3 */
+    --background: 255 40% 98%;
+    --foreground: 240 35% 10%;
+    --card: 255 30% 100%;
+    --card-foreground: 240 35% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 35% 10%;
+    --primary: 228 70% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 55% 93%;
+    --secondary-foreground: 270 40% 20%;
+    --muted: 240 20% 94%;
+    --muted-foreground: 240 15% 47%;
+    --accent: 197 88% 67%;
+    --accent-foreground: 240 35% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 20% 88%;
+    --input: 240 20% 88%;
+    --ring: 228 70% 54%;
+    --radius: 0.625rem;
+
+    --chart-1: 228 70% 54%;
+    --chart-2: 197 88% 67%;
+    --chart-3: 280 65% 48%;
+    --chart-4: 295 80% 50%;
+    --chart-5: 237 63% 40%;
+
+    --status-normal: 145 65% 42%;
+    --status-warning: 38 92% 50%;
+    --status-critical: 0 72% 51%;
+    --status-edge: 228 70% 54%;
+    --status-fog: 280 65% 48%;
+    --status-cloud: 197 88% 67%;
+
+    --sidebar-background: 242 50% 14%;
+    --sidebar-foreground: 240 20% 88%;
+    --sidebar-primary: 228 70% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 242 45% 22%;
+    --sidebar-accent-foreground: 240 20% 92%;
+    --sidebar-border: 242 35% 24%;
+    --sidebar-ring: 228 70% 65%;
+  }
+
+  .dark {
+    --background: 242 42% 11%;
+    --foreground: 240 20% 93%;
+    --card: 242 40% 16%;
+    --card-foreground: 240 20% 93%;
+    --popover: 242 40% 16%;
+    --popover-foreground: 240 20% 93%;
+    --primary: 228 75% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 38% 22%;
+    --secondary-foreground: 240 20% 85%;
+    --muted: 242 35% 20%;
+    --muted-foreground: 240 15% 60%;
+    --accent: 197 88% 62%;
+    --accent-foreground: 240 35% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 242 30% 24%;
+    --input: 242 30% 24%;
+    --ring: 228 75% 62%;
+
+    --chart-1: 228 75% 62%;
+    --chart-2: 197 88% 62%;
+    --chart-3: 280 65% 55%;
+    --chart-4: 295 80% 58%;
+    --chart-5: 237 63% 55%;
+
+    --sidebar-background: 242 46% 9%;
+    --sidebar-foreground: 240 20% 85%;
+    --sidebar-primary: 228 75% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 242 42% 17%;
+    --sidebar-accent-foreground: 240 20% 92%;
+    --sidebar-border: 242 34% 20%;
+    --sidebar-ring: 228 75% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}

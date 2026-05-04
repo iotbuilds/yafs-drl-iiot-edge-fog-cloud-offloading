@@ -1,0 +1,21 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+dist/
+build/
+coverage/
+
+# Generated YAFS outputs
+yafs-drl/results/
+yafs-drl/dashboard_exports/
+yafs-drl/graphs/
+yafs-drl/local_cloud_storage/
+
+# Temporary/runtime files
+*.log
+.env
+.env.*
