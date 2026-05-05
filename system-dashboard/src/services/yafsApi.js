@@ -50,6 +50,8 @@ const CLOUD_POLICY_BY_STATUS = {
   },
 };
 
+const KPI_TREND_WINDOW_SECONDS = 300;
+
 let snapshotPromise = null;
 let snapshotLoadedAt = 0;
 
@@ -152,6 +154,46 @@ function groupBy(items, keyGetter) {
 function average(items, getter, fallback = 0) {
   if (!items.length) return fallback;
   return items.reduce((sum, item) => sum + number(getter(item)), 0) / items.length;
+}
+
+function trendDirection(current, previous, tolerance = 0) {
+  const currentValue = number(current, NaN);
+  const previousValue = number(previous, NaN);
+  if (!Number.isFinite(currentValue) || !Number.isFinite(previousValue)) return 'stable';
+  const delta = currentValue - previousValue;
+  if (Math.abs(delta) <= tolerance) return 'stable';
+  return delta > 0 ? 'up' : 'down';
+}
+
+function eventsInWindow(events, start, end) {
+  return events.filter(event => {
+    const timestamp = number(event.timestamp);
+    return timestamp > start && timestamp <= end;
+  });
+}
+
+function statusCountsAsOf(events, asOfTimestamp) {
+  const latestByNode = new Map();
+  events.forEach(event => {
+    const timestamp = number(event.timestamp);
+    const nodeId = event.node_id || event.source_sensor;
+    if (!nodeId || timestamp > asOfTimestamp) return;
+    const current = latestByNode.get(nodeId);
+    if (!current || timestamp >= number(current.timestamp)) {
+      latestByNode.set(nodeId, event);
+    }
+  });
+
+  return Array.from(latestByNode.values()).reduce((counts, event) => {
+    const status = event.event_level_3l || event.severity || 'unknown';
+    counts[status] = (counts[status] || 0) + 1;
+    return counts;
+  }, { normal: 0, warning: 0, critical: 0 });
+}
+
+function pathRatio(events, path) {
+  if (!events.length) return 0;
+  return events.filter(event => event.offloading_scenario === path).length / events.length;
 }
 
 function parseRoutePath(path) {
@@ -457,7 +499,41 @@ function transformTopology(rawTopology, edges, fogs, cloud) {
   };
 }
 
-function transformKpis(kpis, nodes, rawNodes, decisions, cloud) {
+function transformKpiTrends(events, maxTimestamp) {
+  const currentEnd = number(maxTimestamp);
+  const previousEnd = Math.max(0, currentEnd - KPI_TREND_WINDOW_SECONDS);
+  const previousStart = Math.max(0, previousEnd - KPI_TREND_WINDOW_SECONDS);
+  const currentWindow = eventsInWindow(events, previousEnd, currentEnd);
+  const previousWindow = eventsInWindow(events, previousStart, previousEnd);
+  const currentStatus = statusCountsAsOf(events, currentEnd);
+  const previousStatus = statusCountsAsOf(events, previousEnd);
+
+  return {
+    activeNodes: trendDirection(currentStatus.normal, previousStatus.normal),
+    warningNodes: trendDirection(currentStatus.warning, previousStatus.warning),
+    criticalNodes: trendDirection(currentStatus.critical, previousStatus.critical),
+    avgLatency: trendDirection(
+      average(currentWindow, event => event.estimated_delay, 0),
+      average(previousWindow, event => event.estimated_delay, 0),
+      0.01
+    ),
+    avgEnergy: trendDirection(
+      average(currentWindow, event => event.factor_energy_cost, 0),
+      average(previousWindow, event => event.factor_energy_cost, 0),
+      0.001
+    ),
+    avgCongestion: trendDirection(
+      average(currentWindow, event => event.factor_network_condition * 100, 0),
+      average(previousWindow, event => event.factor_network_condition * 100, 0),
+      0.1
+    ),
+    totalOffloaded: trendDirection(currentWindow.length, previousWindow.length),
+    localPct: trendDirection(pathRatio(currentWindow, 'local_edge'), pathRatio(previousWindow, 'local_edge'), 0.001),
+    cloudPct: trendDirection(pathRatio(currentWindow, 'cloud_escalation'), pathRatio(previousWindow, 'cloud_escalation'), 0.001),
+  };
+}
+
+function transformKpis(kpis, nodes, rawNodes, decisions, cloud, trends = {}) {
   const pathRatios = kpis.confirmed_10p?.offloading_ratio_path_distribution || {};
   return {
     totalNodes: kpis.confirmed_distribution?.total || rawNodes.length || 1000,
@@ -476,6 +552,7 @@ function transformKpis(kpis, nodes, rawNodes, decisions, cloud) {
     edgeToFogPct: pct(pathRatios.edge_to_fog),
     fogToFogPct: pct(pathRatios.fog_to_fog),
     cloudPct: pct(pathRatios.cloud_escalation),
+    trends,
   };
 }
 
@@ -559,7 +636,8 @@ async function loadSnapshot() {
     .map(decision => logFromDecision(decision, eventById, maxTimestamp))
     .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
   const transformedTopology = transformTopology(topology, edges, fogs, cloud);
-  const summary = transformKpis(kpis, sensorNodes, rawNodes, decisions, cloud);
+  const trends = transformKpiTrends(events, maxTimestamp);
+  const summary = transformKpis(kpis, sensorNodes, rawNodes, decisions, cloud, trends);
   const timeSeries = transformTimeSeries(events, maxTimestamp, cloudRecords);
 
   return {
