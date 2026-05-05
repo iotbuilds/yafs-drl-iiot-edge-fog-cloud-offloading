@@ -47,12 +47,12 @@ CONFIRMED_REQUIREMENTS = {
 }
 
 app = FastAPI(
-    title="Integrated IIoT DRL/YAFS Local Cloud API",
+    title="YAFS IIoT DRL Dashboard and Cloud API",
     version="4.0.0",
     description=(
-        "Dashboard-ready API for the confirmed YAFS-style/compatible IIoT DRL offloading simulation. "
-        "The API serves validated YAFS outputs: topology, 7S events, DRL decisions, 10P KPIs, "
-        "baseline comparison, cloud records, and report summaries."
+        "Dashboard and cloud API for the YAFS IIoT DRL offloading simulation. "
+        "The API validates and serves YAFS outputs including topology, seven-sensor events, "
+        "DRL decisions, 10 performance KPIs, baseline comparison, cloud records, and report summaries."
     ),
 )
 
@@ -105,7 +105,7 @@ def _latest_snapshot() -> dict[str, Any]:
 def root():
     return {
         "status": "ok",
-        "service": "Integrated IIoT DRL/YAFS Local Cloud API",
+        "service": "YAFS IIoT DRL Dashboard and Cloud API",
         "docs": "/docs",
         "confirmed_requirements": CONFIRMED_REQUIREMENTS,
         "key_endpoints": [
