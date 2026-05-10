@@ -10,7 +10,7 @@ Integrated 1000-node IIoT dynamic task offloading package mapped to the project 
 - **Scenarios:** normal, warning, critical, repeated warning, edge-to-edge, edge-to-fog, fog-to-fog, cloud escalation, congestion, node overload/failure, 24h shift report.
 - **Cloud/dashboard exports:** events, node status, offloading decisions, KPIs, baseline comparison, shift report, cloud records, topology image.
 
-## Run
+## Run the simulation
 
 ```bash
 cd yafs-drl
@@ -19,6 +19,38 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python main.py
 python topology/visualize_topology.py
+```
+
+## Run the API
+
+Start the API after the simulation outputs are available:
+
+```bash
+cd yafs-drl
+source .venv/bin/activate
+uvicorn src.dashboard_api.main:app --host 127.0.0.1 --port 8002
+```
+
+Open the API documentation:
+
+```text
+http://127.0.0.1:8002/docs
+```
+
+## Run with the dashboard
+
+Keep the API terminal running, then open a second terminal:
+
+```bash
+cd system-dashboard
+npm install
+VITE_YAFS_API_PROXY_TARGET=http://127.0.0.1:8002 npm run dev -- --host 127.0.0.1 --port 5174
+```
+
+Open the dashboard:
+
+```text
+http://127.0.0.1:5174
 ```
 
 ## Outputs

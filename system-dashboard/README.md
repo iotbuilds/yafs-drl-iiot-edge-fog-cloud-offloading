@@ -10,9 +10,25 @@ Frontend dashboard for the YAFS IIoT DQN offloading simulation. The dashboard co
 - Dark and light mode chart tooltips.
 - Pages for overview, topology, 7S sensors, 7F factors, offloading logs, analytics, tables, and report export.
 
+## Requirements
+
+- Node.js and npm.
+- The YAFS DQN API running at http://127.0.0.1:8002.
+
 ## Run
 
+Start the API from the `yafs-drl` folder first. Then open a second terminal for the dashboard:
+
 ```bash
+cd system-dashboard
 npm install
 VITE_YAFS_API_PROXY_TARGET=http://127.0.0.1:8002 npm run dev -- --host 127.0.0.1 --port 5174
 ```
+
+Open the dashboard:
+
+```text
+http://127.0.0.1:5174
+```
+
+If the API is stopped, the dashboard status indicator changes to inactive.
