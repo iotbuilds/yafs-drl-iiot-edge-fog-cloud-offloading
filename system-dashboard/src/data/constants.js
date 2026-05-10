@@ -26,7 +26,7 @@ export const FACTOR_THRESHOLDS = {
   latency: { unit: 'ms', normalMax: 5, warningMax: 15, label: 'Delay' },
   energy: { unit: '', normalMax: 0.3, warningMax: 0.6, label: 'Energy Consumption' },
   congestion: { unit: '%', normalMax: 35, warningMax: 70, label: 'Network Condition' },
-  cpu: { unit: '%', normalMax: 40, warningMax: 75, label: 'Node Computing Capacity' },
+  cpu: { unit: '%', normalMax: 40, warningMax: 75, label: 'Computational Load' },
   memory: { unit: '%', normalMax: 35, warningMax: 70, label: 'Bandwidth Cost' },
   priority: { unit: 'KB', normalMax: 256, warningMax: 512, label: 'Task Size', max: 600 },
   hopCount: { unit: 'hops', normalMax: 2, warningMax: 4, label: 'Hop Count' },

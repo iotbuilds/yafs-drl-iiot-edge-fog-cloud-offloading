@@ -1,0 +1,139 @@
+% =========================================================
+% Report-ready figure placements for:
+% Performance Measures and Results Evaluation
+% =========================================================
+%
+% Copy the folder "performance_results" into your LaTeX project as:
+% Figures/performance_results
+%
+% If you keep a different folder name, change only this line.
+\newcommand{\perfFigPath}{Figures/performance_results}
+
+% Required packages in the LaTeX preamble:
+% \usepackage{graphicx}
+% \usepackage{float}
+
+% =========================================================
+% Placement 1:
+% Add after Table~\ref{tab:overall_performance_comparison}
+% and after the Notes block.
+% =========================================================
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/01_drl_vs_baselines_latency.png}
+\caption{Average latency comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:drl_baseline_latency}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/02_deadline_success_rate.png}
+\caption{Deadline success rate comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:drl_baseline_deadline_success}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/03_network_congestion.png}
+\caption{Average network congestion comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:drl_baseline_congestion}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/06_energy_cost.png}
+\caption{Average energy cost comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:drl_baseline_energy}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/07_throughput.png}
+\caption{Throughput comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:drl_baseline_throughput}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/08_fairness_load_balancing.png}
+\caption{Fairness and load balancing comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:drl_baseline_fairness}
+\end{figure}
+
+The figures show that the proposed DRL strategy provides a strong multi-objective trade-off. Although some fixed baselines may perform well on a single isolated metric, the DRL policy maintains high deadline success while reducing latency, congestion, and cloud dependency.
+
+% =========================================================
+% Placement 2:
+% Add after Table~\ref{tab:offloading_distribution_cards}
+% in the Offloading Path Distribution subsection.
+% =========================================================
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{\perfFigPath/04_offloading_path_distribution.png}
+\caption{Offloading path distribution across DRL and baseline strategies.}
+\label{fig:offloading_path_distribution}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\textwidth]{\perfFigPath/09_drl_path_distribution.png}
+\caption{Detailed DRL offloading path distribution across local edge, edge-to-edge, edge-to-fog, fog-to-fog, and cloud escalation paths.}
+\label{fig:drl_path_distribution}
+\end{figure}
+
+The DRL path distribution confirms that most tasks were processed close to the data source. Specifically, 83.21\% of tasks were processed locally at the edge, while only 0.21\% were escalated to the cloud.
+
+% =========================================================
+% Placement 3:
+% Add after Table~\ref{tab:offloading_behavior_cards}
+% or immediately after Table~\ref{tab:layer_processing_ratio}.
+% =========================================================
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/05_cloud_escalation_ratio.png}
+\caption{Cloud escalation ratio comparison between the proposed DRL strategy and baseline strategies.}
+\label{fig:cloud_escalation_ratio}
+\end{figure}
+
+This figure highlights the low cloud dependency of the proposed system. The DRL policy escalated only 0.21\% of tasks to the cloud, compared with 44.03\% for the rule-based static baseline and 100\% for the cloud-only baseline.
+
+% =========================================================
+% Placement 4:
+% Add after Table~\ref{tab:drl_behavior_cards}
+% in the DRL Behavior subsection.
+% =========================================================
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\perfFigPath/11_drl_reward_convergence.png}
+\caption{DRL reward convergence during the simulation.}
+\label{fig:drl_reward_convergence}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{\perfFigPath/12_exploration_vs_exploitation.png}
+\caption{Exploration and exploitation behavior of the DRL policy.}
+\label{fig:drl_exploration_exploitation}
+\end{figure}
+
+The DRL behavior figures provide learning evidence for the proposed offloading policy. The policy selected exploitation in 91.87\% of decisions and exploration in 8.13\%, showing that the learned policy dominated while still allowing limited exploration.
+
+% =========================================================
+% Placement 5:
+% Add after Table~\ref{tab:cloud_policy_records}
+% in the Three-Level Cloud Policy Result subsection.
+% =========================================================
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{\perfFigPath/10_cloud_transmission_records.png}
+\caption{Three-level cloud transmission records for critical updates, warning updates, and normal summaries.}
+\label{fig:cloud_transmission_records}
+\end{figure}
+
+The cloud transmission records verify the confirmed 3L policy. Critical events were updated every 1 minute, warning events every 3 minutes, and normal readings were aggregated at the edge before being transmitted as 5-minute summary records.
+

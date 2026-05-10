@@ -59,7 +59,7 @@ export default function Reports() {
     };
 
     // Title
-    addTitle('IIoT DRL Task Offloading Dashboard Report', 16);
+    addTitle('IIoT DQN Task Offloading Dashboard Report', 16);
     y += 2;
     addText(`Generated: ${new Date().toLocaleString()} | Range: ${RANGE_LABELS[range] || 'Full Simulation'}`);
     addLine();
@@ -151,11 +151,11 @@ export default function Reports() {
       'Use 5-minute normal summaries for cloud review instead of sending all normal raw readings.',
       'Consider load balancing for congested edge servers.',
       'Review fog-to-cloud offloading patterns for optimization.',
-      'Monitor DRL reward trends for model convergence.',
+      'Monitor DQN reward trends for model convergence.',
     ];
     recs.forEach(r => { checkPage(8); addText(`- ${r}`); });
 
-    doc.save(`IIoT_DRL_Report_${new Date().toISOString().slice(0, 10)}.pdf`);
+    doc.save(`IIoT_DQN_Report_${new Date().toISOString().slice(0, 10)}.pdf`);
     setGenerating(false);
   };
 
@@ -221,7 +221,7 @@ export default function Reports() {
           <CardContent>
             <div className="bg-muted/50 rounded-xl p-6 space-y-4 border border-border/50">
               <div className="text-center">
-                <h3 className="font-bold text-lg">IIoT DRL Task Offloading</h3>
+                <h3 className="font-bold text-lg">IIoT DQN Task Offloading</h3>
                 <h4 className="font-semibold text-sm">Dashboard Report</h4>
                 <p className="text-xs text-muted-foreground mt-1">Range: {RANGE_LABELS[range] || 'Full Simulation'}</p>
               </div>

@@ -61,7 +61,7 @@ export default function Analytics() {
                     <XAxis dataKey="name" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
                     <YAxis tick={{ fontSize: 10 }} domain={[0, 100]} stroke="hsl(var(--muted-foreground))" />
                     <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12 }} />
-                    <Bar dataKey="cpu" fill="#3B82F6" name="CPU %" radius={[3,3,0,0]} />
+                    <Bar dataKey="cpu" fill="#3B82F6" name="Computational Load %" radius={[3,3,0,0]} />
                     <Bar dataKey="memory" fill="#8B5CF6" name="Memory %" radius={[3,3,0,0]} />
                     <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
                   </BarChart>
@@ -74,7 +74,7 @@ export default function Analytics() {
               <CardContent className="p-0 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead><tr className="border-b bg-muted/50">
-                    {['Server', 'Load', 'CPU', 'Mem', 'Nodes', 'Tasks', 'Fwd→Fog'].map(h => (
+                    {['Server', 'Load', 'Comp. Load', 'Mem', 'Nodes', 'Tasks', 'Fwd→Fog'].map(h => (
                       <th key={h} className="p-2 text-left text-xs font-semibold text-muted-foreground">{h}</th>
                     ))}
                   </tr></thead>
@@ -116,7 +116,7 @@ export default function Analytics() {
                     <XAxis dataKey="name" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
                     <YAxis tick={{ fontSize: 10 }} domain={[0, 100]} stroke="hsl(var(--muted-foreground))" />
                     <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12 }} />
-                    <Bar dataKey="cpu" fill="#8B5CF6" name="CPU %" radius={[3,3,0,0]} />
+                    <Bar dataKey="cpu" fill="#8B5CF6" name="Computational Load %" radius={[3,3,0,0]} />
                     <Bar dataKey="memory" fill="#EC4899" name="Memory %" radius={[3,3,0,0]} />
                     <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
                   </BarChart>
@@ -129,7 +129,7 @@ export default function Analytics() {
               <CardContent className="p-0 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead><tr className="border-b bg-muted/50">
-                    {['Server', 'Load', 'CPU', 'Mem', 'From Edge', 'F→F', 'To Cloud', 'Delay'].map(h => (
+                    {['Server', 'Load', 'Comp. Load', 'Mem', 'From Edge', 'F→F', 'To Cloud', 'Delay'].map(h => (
                       <th key={h} className="p-2 text-left text-xs font-semibold text-muted-foreground">{h}</th>
                     ))}
                   </tr></thead>

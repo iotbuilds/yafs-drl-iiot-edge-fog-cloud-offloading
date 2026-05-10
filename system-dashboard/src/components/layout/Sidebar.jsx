@@ -34,7 +34,7 @@ export default function Sidebar({ collapsed, onToggle }) {
         </div>
         {!collapsed && (
           <span className="ml-3 text-sm font-bold text-sidebar-foreground tracking-tight truncate">
-            IIoT DRL Dashboard
+            IIoT DQN Dashboard
           </span>
         )}
       </div>

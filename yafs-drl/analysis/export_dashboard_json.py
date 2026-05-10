@@ -45,25 +45,8 @@ def export_all(root: Path = ROOT) -> None:
         "deadline_compliance": round(float(merged["deadline_met"].mean()), 6),
         "offloading_performance": merged["offloading_scenario"].value_counts().to_dict(),
         "cloud_role": "one centralized cloud node for analytics/API/dashboard/storage/reporting/escalation",
-        "cloud_transmission_policy_3l": {
-            "critical": "cloud update every 1 minute",
-            "warning": "cloud update every 3 minutes; repeated_warning remains a flag under warning",
-            "normal": "edge aggregated normal summary every 5 minutes; raw normal readings are not all sent to cloud",
-        },
     }
-    cloud_path = out / "cloud_records.json"
-    cloud_records = json.loads(cloud_path.read_text()) if cloud_path.exists() else []
-    cloud_counts = {}
-    for record in cloud_records:
-        record_type = record.get("type", "unknown")
-        cloud_counts[record_type] = cloud_counts.get(record_type, 0) + 1
-    shift["cloud_record_counts"] = cloud_counts
-    shift["repeated_warning_flags"] = sum(1 for record in cloud_records if record.get("severity") == "warning" and record.get("repeated_warning"))
     (out / "shift_report.json").write_text(json.dumps(shift, indent=2))
-    (out / "report_summary.json").write_text(json.dumps({
-        "title": "YAFS 3L Cloud Transmission Report Summary",
-        **shift,
-    }, indent=2))
 
 if __name__ == "__main__":
     export_all()

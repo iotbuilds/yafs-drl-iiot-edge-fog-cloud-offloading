@@ -30,7 +30,7 @@ export default function Overview() {
       <div>
         <h1 className="text-2xl font-bold tracking-tight">System Overview</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Multi-objective DRL task offloading, real-time monitoring
+          Multi-objective DQN task offloading, real-time monitoring
         </p>
       </div>
 

@@ -50,7 +50,7 @@ export default function Offloading() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Offloading Decisions</h1>
-        <p className="text-sm text-muted-foreground">DRL task offloading decision analysis — {logs.length} decisions logged</p>
+        <p className="text-sm text-muted-foreground">DQN task offloading decision analysis — {logs.length} decisions logged</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -92,10 +92,10 @@ export default function Offloading() {
           </CardContent>
         </Card>
 
-        {/* DRL Reward trend */}
+        {/* DQN Reward trend */}
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-semibold">DRL Reward Trend</CardTitle>
+            <CardTitle className="text-sm font-semibold">DQN Reward Trend</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={240}>

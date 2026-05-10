@@ -1,4 +1,4 @@
-"""7F severity-aware DRL/Q-learning offloading selector.
+"""Legacy 7F severity-aware DRL offloading selector.
 
 State = confirmed 7F factors plus routing context.
 Action = one of: local_edge, edge_to_edge, edge_to_fog, fog_to_fog, cloud_escalation.

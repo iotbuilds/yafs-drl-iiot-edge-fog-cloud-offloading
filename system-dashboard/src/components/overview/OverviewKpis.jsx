@@ -19,7 +19,7 @@ export default function OverviewKpis({ kpis }) {
     { title: 'Avg Latency', value: kpis.avgLatency, suffix: 'ms', icon: Timer, color: 'bg-cyan-500/10', trend: trends.avgLatency || 'stable', tooltip: 'Average task processing latency across all nodes' },
     { title: 'Avg Energy', value: kpis.avgEnergy, suffix: 'J', icon: Zap, color: 'bg-yellow-500/10', trend: trends.avgEnergy || 'stable', tooltip: 'Average energy consumption per task' },
     { title: 'Avg Congestion', value: kpis.avgCongestion, suffix: '%', icon: Wifi, color: 'bg-orange-500/10', trend: trends.avgCongestion || 'stable', tooltip: 'Average network congestion level' },
-    { title: 'Tasks Offloaded', value: kpis.totalOffloaded, icon: GitBranch, color: 'bg-indigo-500/10', trend: trends.totalOffloaded || 'stable', tooltip: 'Total DRL offloading decisions made' },
+    { title: 'Tasks Offloaded', value: kpis.totalOffloaded, icon: GitBranch, color: 'bg-indigo-500/10', trend: trends.totalOffloaded || 'stable', tooltip: 'Total DQN offloading decisions made' },
     { title: 'Local Processing', value: kpis.localPct, suffix: '%', icon: Server, color: 'bg-emerald-500/10', trend: trends.localPct || 'stable', tooltip: 'Tasks processed locally at source node' },
     { title: 'Cloud Offload', value: kpis.cloudPct, suffix: '%', icon: ArrowUpRight, color: 'bg-gray-500/10', trend: trends.cloudPct || 'stable', tooltip: 'Tasks offloaded to cloud (Edge→Cloud + Fog→Cloud)' },
   ];

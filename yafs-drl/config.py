@@ -38,26 +38,18 @@ SENSOR_DISTRIBUTION = {
 
 EVENT_LEVELS = ["normal", "warning", "critical"]
 
-# DRL task deadlines are simulation processing targets.
+# Confirmed 3L timing rules. Critical/Warning are event-triggered; Normal is periodic.
 DEADLINES = {
     "critical": 10.0,
     "warning": 30.0,
-    "normal": 300.0,
+    "normal": 120.0,  # 2 minutes for periodic monitoring/dashboard/cloud analytics summaries.
 }
-
-# Confirmed 3L cloud transmission/update policy.
-CLOUD_TRANSMISSION_INTERVALS = {
-    "critical": 60.0,
-    "warning": 180.0,
-    "normal": 300.0,
-}
-
 TRANSFER_RULES = {
-    "critical": "cloud_update_every_1_minute",
-    "warning": "cloud_update_every_3_minutes",
-    "normal": "edge_aggregated_normal_summary_every_5_minutes",
+    "critical": "event_triggered_immediate_priority_fastest_path_deadline_10s",
+    "warning": "event_triggered_prompt_balanced_edge_fog_deadline_30s",
+    "normal": "periodic_monitoring_summary_every_2_minutes",
 }
-EVENT_INTERVAL = 60.0
+EVENT_INTERVAL = 120.0
 DEFAULT_STEPS = 100
 EVENTS_PER_STEP = 100
 FINAL_EVENT_COUNT = DEFAULT_STEPS * EVENTS_PER_STEP

@@ -18,7 +18,7 @@ This package keeps the integrated YAFS/DRL implementation as the core and adds d
 | Edge-to-fog | `results/latest_scenario_validation.csv`, `/api/scenarios` |
 | Fog-to-fog | `results/latest_scenario_validation.csv`, `/api/scenarios` |
 | Cloud escalation | `results/latest_scenario_validation.csv`, `/api/scenarios` |
-| 3L cloud transmission policy | `dashboard_exports/requirements_validation.json`, `/api/requirements-validation` |
+| 12h/24h deadline behavior | `dashboard_exports/requirements_validation.json`, `/api/requirements-validation` |
 | Dashboard outputs | `dashboard_exports/*.json` |
 | Graph outputs | `graphs/*.png` |
 

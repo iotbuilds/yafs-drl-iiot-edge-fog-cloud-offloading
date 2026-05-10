@@ -52,7 +52,7 @@ export default function Factors7F() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">7F Decision Factors</h1>
-        <p className="text-sm text-muted-foreground">Seven factors driving DRL offloading decisions</p>
+        <p className="text-sm text-muted-foreground">Seven factors driving DQN offloading decisions</p>
       </div>
 
       {/* Charts row */}

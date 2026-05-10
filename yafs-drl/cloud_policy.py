@@ -1,136 +1,74 @@
 """Cloud/API/dashboard policy for the single centralized cloud node.
 
 Rules from confirmed requirements:
-- Critical: transmit/update to cloud every 1 minute.
-- Warning: transmit/update to cloud every 3 minutes.
-- Normal: aggregate at edge and transmit one normal summary per node per 5-minute window.
+- Critical: event-triggered, immediate, target <= 10 seconds
+- Warning: event-triggered, prompt, target <= 30 seconds
+- Normal: periodic monitoring summary every 2 minutes
 """
 from __future__ import annotations
 from collections import Counter, defaultdict
 from statistics import mean
 from typing import List, Optional
 
-from config import CLOUD_TRANSMISSION_INTERVALS
-
 class CloudPolicy:
-    STATUS_LEVELS = {"normal", "warning", "critical"}
-
-    def __init__(self):
-        self.normal_windows = defaultdict(list)
-        self.abnormal_normal_windows = set()
-        self.update_windows = defaultdict(list)
-        self.update_records = {}
+    def __init__(self, normal_window_size: int = 250, warning_window_size: int = 100):
+        self.normal_buffer: List[dict] = []
+        self.warning_buffer: List[dict] = []
+        self.critical_alerts: List[dict] = []
         self.timeline: List[dict] = []
         self.status_trace: List[dict] = []
+        self.normal_window_size = normal_window_size
+        self.warning_window_size = warning_window_size
 
     def handle(self, event: dict, decision: dict) -> Optional[dict]:
         severity = event["severity"]
         record = self._merge_event_decision(event, decision)
-        if severity not in self.STATUS_LEVELS:
-            self._append_trace(event, decision, cloud_record_type="unknown", sent_to_cloud=False)
-            return None
-
         if severity == "normal":
-            window = self._window_key(event, "normal")
-            self.normal_windows[window].append(record)
-            self._append_trace(
-                event,
-                decision,
-                cloud_record_type="normal_5min_edge_aggregate_pending",
-                sent_to_cloud=False,
-                represented_in_cloud=True,
-            )
+            self.normal_buffer.append(record)
+            self._append_trace(event, decision, cloud_record_type="buffered_for_2min_summary", sent_to_cloud=False)
             return None
-
-        normal_window = self._window_key(event, "normal")
-        self.abnormal_normal_windows.add(normal_window)
-        update = self._record_status_update(event, decision, record, severity)
-        self._append_trace(
-            event,
-            decision,
-            cloud_record_type=update["type"],
-            sent_to_cloud=update["count"] == 1,
-            represented_in_cloud=True,
-        )
-        return update if update["count"] == 1 else None
-
-    def flush_normal_summaries(self, timestamp: float | None = None, *, final: bool = False) -> List[dict]:
-        summaries = []
-        for window, records in list(self.normal_windows.items()):
-            node_id, window_start = window
-            interval = CLOUD_TRANSMISSION_INTERVALS["normal"]
-            if not final and timestamp is not None and window_start + interval > timestamp:
-                continue
-            if window in self.abnormal_normal_windows:
-                del self.normal_windows[window]
-                continue
-            summary = self._normal_summary(node_id, window_start, records)
-            self.timeline.append(summary)
-            summaries.append(summary)
-            del self.normal_windows[window]
-        return summaries
+        if severity == "warning":
+            self.warning_buffer.append(record)
+            summary = self._summary("warning_summary", self.warning_buffer[-self.warning_window_size:], event, decision)
+            self._append_trace(event, decision, cloud_record_type="warning_summary", sent_to_cloud=True)
+            return summary
+        if severity == "critical":
+            alert = {"type": "critical_alert", **record, **self._delivery_fields(event, decision)}
+            self.critical_alerts.append(alert)
+            self._append_trace(event, decision, cloud_record_type="critical_alert", sent_to_cloud=True)
+            return alert
+        self._append_trace(event, decision, cloud_record_type="unknown", sent_to_cloud=False)
+        return None
 
     def periodic_normal_summary(self, timestamp: float) -> Optional[dict]:
-        summaries = self.flush_normal_summaries(timestamp)
-        return summaries[0] if summaries else None
-
-    def periodic_normal_summaries(self, timestamp: float) -> List[dict]:
-        return self.flush_normal_summaries(timestamp)
-
-    def finalize(self) -> List[dict]:
-        return self.flush_normal_summaries(final=True)
-
-    def _record_status_update(self, event: dict, decision: dict, record: dict, severity: str) -> dict:
-        key = self._window_key(event, severity)
-        self.update_windows[key].append(record)
-        records = self.update_windows[key]
-        update = self.update_records.get(key)
-        if update is None:
-            update = {
-                "type": f"{severity}_update",
-                "severity": severity,
-                "node_id": event.get("node_id"),
-                "sensor_type": event.get("dominant_sensor_type") or event.get("sensor_type"),
-                "window_start": key[1],
-                "window_end": key[1] + CLOUD_TRANSMISSION_INTERVALS[severity],
-                "cloud_update_interval_seconds": CLOUD_TRANSMISSION_INTERVALS[severity],
-                "cloud_policy": self._policy_name(severity),
-                "normal_raw_records_sent": False,
-            }
-            self.update_records[key] = update
-            self.timeline.append(update)
-        update.update(self._summary_fields(records, event, decision))
-        if severity == "warning":
-            update["repeated_warning"] = len(records) > 1
-        return update
-
-    def _normal_summary(self, node_id: str, window_start: float, records: List[dict]) -> dict:
-        latest = records[-1]
-        sensor_type = latest.get("dominant_sensor_type") or latest.get("sensor_type")
-        return {
+        window = self.normal_buffer[-self.normal_window_size:]
+        if not window:
+            return None
+        counts_by_sensor = Counter(r["dominant_sensor_type"] for r in window)
+        layers = Counter(r["selected_layer"] for r in window)
+        paths = Counter(r["offloading_scenario"] for r in window)
+        avg_by_sensor = defaultdict(list)
+        for r in window:
+            avg_by_sensor[r["dominant_sensor_type"]].append(float(r["reading_value"]))
+        summary = {
             "type": "normal_summary",
             "severity": "normal",
-            "node_id": node_id,
-            "sensor_type": sensor_type,
-            "window_start": window_start,
-            "window_end": window_start + CLOUD_TRANSMISSION_INTERVALS["normal"],
-            "cloud_update_interval_seconds": CLOUD_TRANSMISSION_INTERVALS["normal"],
-            "cloud_policy": self._policy_name("normal"),
-            "count": len(records),
-            "first_event_id": records[0].get("event_id"),
-            "latest_event_id": latest.get("event_id"),
-            "avg_reading": round(mean(float(r.get("reading_value", 0)) for r in records), 4),
-            "selected_layer_counts": dict(Counter(r["selected_layer"] for r in records)),
-            "path_distribution": dict(Counter(r["offloading_scenario"] for r in records)),
-            "avg_latency": round(mean(float(r.get("estimated_delay", 0)) for r in records), 4),
-            "avg_energy_cost": round(mean(float(r.get("factor_energy_cost", 0)) for r in records), 6),
-            "normal_raw_records_sent": False,
-            "raw_normal_policy": "edge_aggregated_one_summary_per_node_per_5min_window",
-            "latest": latest,
+            "timestamp": timestamp,
+            "periodic_window": "2_minutes",
+            "count": len(window),
+            "sensor_counts": dict(counts_by_sensor),
+            "avg_reading_by_sensor": {k: round(mean(v), 4) for k, v in avg_by_sensor.items()},
+            "offloading_ratio": dict(layers),
+            "path_distribution": dict(paths),
+            "avg_latency": round(mean(float(r.get("estimated_delay", 0)) for r in window), 4),
+            "avg_energy_cost": round(mean(float(r.get("factor_energy_cost", 0)) for r in window), 6),
+            "raw_normal_policy": "periodic_summary_not_all_raw_data",
         }
+        self.timeline.append(summary)
+        return summary
 
     def periodic_summary(self, timestamp: float) -> dict:
-        recent = self.timeline[-500:]
+        recent = self.normal_buffer[-250:] + self.warning_buffer[-250:] + self.critical_alerts[-50:]
         if not recent:
             return {"type": "periodic_summary", "timestamp": timestamp, "counts": {}}
         counts = Counter(r["severity"] for r in recent)
@@ -165,11 +103,13 @@ class CloudPolicy:
             "deadline_met": bool(delivery_delay <= deadline),
         }
 
-    def _summary_fields(self, records: List[dict], event: dict, decision: dict) -> dict:
+    def _summary(self, kind: str, records: List[dict], event: dict, decision: dict) -> dict:
         counts = Counter(r["severity"] for r in records)
         layers = Counter(r["selected_layer"] for r in records)
         paths = Counter(r["offloading_scenario"] for r in records)
         return {
+            "type": kind,
+            "severity": event["severity"],
             "count": len(records),
             "counts": dict(counts),
             "offloading_ratio": dict(layers),
@@ -178,27 +118,7 @@ class CloudPolicy:
             **self._delivery_fields(event, decision),
         }
 
-    def _window_key(self, event: dict, severity: str) -> tuple[str, float]:
-        interval = CLOUD_TRANSMISSION_INTERVALS[severity]
-        timestamp = float(event.get("timestamp", 0))
-        return event.get("node_id"), timestamp - (timestamp % interval)
-
-    def _policy_name(self, severity: str) -> str:
-        if severity == "critical":
-            return "critical_update_every_1_minute"
-        if severity == "warning":
-            return "warning_update_every_3_minutes_repeated_warning_flag_only"
-        return "normal_edge_aggregate_summary_every_5_minutes"
-
-    def _append_trace(
-        self,
-        event: dict,
-        decision: dict,
-        cloud_record_type: str,
-        sent_to_cloud: bool,
-        represented_in_cloud: bool = False,
-    ) -> None:
-        severity = event.get("severity")
+    def _append_trace(self, event: dict, decision: dict, cloud_record_type: str, sent_to_cloud: bool) -> None:
         self.status_trace.append({
             "event_id": event.get("event_id"),
             "node_id": event.get("node_id"),
@@ -211,8 +131,5 @@ class CloudPolicy:
             "decision_reason": decision.get("decision_reason"),
             "cloud_record_type": cloud_record_type,
             "sent_to_cloud": sent_to_cloud,
-            "represented_in_cloud": represented_in_cloud,
-            "cloud_update_interval_seconds": CLOUD_TRANSMISSION_INTERVALS.get(severity),
-            "normal_raw_records_sent": False,
             **self._delivery_fields(event, decision),
         })

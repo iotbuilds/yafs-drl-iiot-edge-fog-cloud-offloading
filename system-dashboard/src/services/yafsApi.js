@@ -51,9 +51,11 @@ const CLOUD_POLICY_BY_STATUS = {
 };
 
 const KPI_TREND_WINDOW_SECONDS = 300;
+const SIMULATION_REPLAY_SPEED = Number(viteMeta.env?.VITE_YAFS_SIM_REPLAY_SPEED) || 60;
 
 let snapshotPromise = null;
 let snapshotLoadedAt = 0;
+let simulationReplayStartedAt = Date.now();
 
 function buildUrl(path, params = {}) {
   const query = new URLSearchParams();
@@ -117,6 +119,24 @@ function toTitle(value) {
 function simTimestampToDate(timestamp, maxTimestamp) {
   const offsetSeconds = Math.max(0, number(maxTimestamp) - number(timestamp));
   return new Date(Date.now() - offsetSeconds * 1000).toISOString();
+}
+
+function currentSimulationTimestamp(maxTimestamp) {
+  const elapsedRealSeconds = Math.max(0, (Date.now() - simulationReplayStartedAt) / 1000);
+  const current = elapsedRealSeconds * SIMULATION_REPLAY_SPEED;
+  if (current > maxTimestamp) {
+    simulationReplayStartedAt = Date.now();
+    return maxTimestamp;
+  }
+  return current;
+}
+
+function formatSimulationTime(seconds) {
+  const total = Math.max(0, Math.round(number(seconds)));
+  const hours = Math.floor(total / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return `T+${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
 function getThresholdStatus(thresholds, value) {
@@ -307,7 +327,7 @@ function decisionFromEvent(event) {
   const decisionType = PATH_TO_DECISION[event.offloading_scenario] || toTitle(event.offloading_scenario) || 'N/A';
   return {
     type: decisionType,
-    reason: event.decision_reason || event.failure_congestion_reason || 'YAFS DRL decision output',
+    reason: event.decision_reason || event.failure_congestion_reason || 'YAFS DQN decision output',
     confidence: event.score === undefined || event.score === null
       ? null
       : rounded(Math.max(0, Math.min(99.9, (1 - number(event.score, 0.1)) * 100)), 1),
@@ -563,7 +583,7 @@ function cloudRecordTimestamp(record) {
   );
 }
 
-function transformTimeSeries(events, maxTimestamp, cloudRecords = []) {
+function transformTimeSeries(events, maxTimestamp, cloudRecords = [], visibleMaxTimestamp = maxTimestamp) {
   const bucketCount = 24;
   const max = Math.max(1, number(maxTimestamp));
   const bucketSize = Math.max(1, Math.ceil(max / bucketCount));
@@ -574,21 +594,26 @@ function transformTimeSeries(events, maxTimestamp, cloudRecords = []) {
   }));
 
   events.forEach(event => {
+    if (number(event.timestamp) > visibleMaxTimestamp) return;
     const index = Math.min(bucketCount - 1, Math.floor(number(event.timestamp) / bucketSize));
     buckets[index].events.push(event);
   });
 
   cloudRecords.forEach(record => {
-    const index = Math.min(bucketCount - 1, Math.floor(cloudRecordTimestamp(record) / bucketSize));
+    const timestamp = cloudRecordTimestamp(record);
+    if (timestamp > visibleMaxTimestamp) return;
+    const index = Math.min(bucketCount - 1, Math.floor(timestamp / bucketSize));
     buckets[index].cloudRecords.push(record);
   });
 
-  return buckets.map(bucket => {
+  const visibleBucketCount = Math.max(1, Math.min(bucketCount, Math.floor(number(visibleMaxTimestamp) / bucketSize) + 1));
+
+  return buckets.slice(0, visibleBucketCount).map(bucket => {
     const items = bucket.events;
-    const time = simTimestampToDate(bucket.index * bucketSize, maxTimestamp);
+    const simulationTime = bucket.index * bucketSize;
     return {
-      time,
-      label: new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      time: simulationTime,
+      label: formatSimulationTime(simulationTime),
       avgLatency: rounded(average(items, item => item.estimated_delay, 0), 3),
       avgEnergy: rounded(average(items, item => item.factor_energy_cost, 0), 3),
       avgCongestion: rounded(average(items, item => item.factor_network_condition * 100, 0), 1),
@@ -617,6 +642,7 @@ async function loadSnapshot() {
   const decisions = asItems(decisionsPayload);
   const cloudRecords = asItems(cloudPayload);
   const maxTimestamp = Math.max(...events.map(event => number(event.timestamp)), 0);
+  const visibleMaxTimestamp = currentSimulationTimestamp(maxTimestamp);
   const eventById = new Map(events.map(event => [event.event_id, event]));
   const latestBySensor = latestEventsBySensor(events);
   const sensorNodes = rawNodes
@@ -638,7 +664,7 @@ async function loadSnapshot() {
   const transformedTopology = transformTopology(topology, edges, fogs, cloud);
   const trends = transformKpiTrends(events, maxTimestamp);
   const summary = transformKpis(kpis, sensorNodes, rawNodes, decisions, cloud, trends);
-  const timeSeries = transformTimeSeries(events, maxTimestamp, cloudRecords);
+  const timeSeries = transformTimeSeries(events, maxTimestamp, cloudRecords, visibleMaxTimestamp);
 
   return {
     raw: { kpis, topology, nodes: rawNodes, events, decisions, cloudRecords, report },

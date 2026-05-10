@@ -30,7 +30,7 @@ export function LatencyEnergyChart({ data }) {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="label" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
             <YAxis tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
-            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12 }} />
+            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12, color: 'hsl(var(--foreground))' }} labelStyle={{ color: 'hsl(var(--foreground))' }} itemStyle={{ color: 'hsl(var(--foreground))' }} />
             <Area type="monotone" dataKey="avgLatency" stroke="#3B82F6" fill="url(#latGrad)" name="Latency (ms)" />
             <Area type="monotone" dataKey="avgEnergy" stroke="#F59E0B" fill="url(#engGrad)" name="Energy (J)" />
             <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
@@ -45,7 +45,7 @@ export function CongestionCpuChart({ data }) {
   return (
     <Card>
       <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-semibold">Congestion & CPU Over Time</CardTitle>
+        <CardTitle className="text-sm font-semibold">Congestion & Computational Load Over Time</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={240}>
@@ -53,9 +53,9 @@ export function CongestionCpuChart({ data }) {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="label" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
             <YAxis tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
-            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12 }} />
+            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12, color: 'hsl(var(--foreground))' }} labelStyle={{ color: 'hsl(var(--foreground))' }} itemStyle={{ color: 'hsl(var(--foreground))' }} />
             <Line type="monotone" dataKey="avgCongestion" stroke="#EF4444" name="Congestion (%)" dot={false} strokeWidth={2} />
-            <Line type="monotone" dataKey="avgCPU" stroke="#06B6D4" name="CPU (%)" dot={false} strokeWidth={2} />
+            <Line type="monotone" dataKey="avgCPU" stroke="#06B6D4" name="Computational Load (%)" dot={false} strokeWidth={2} />
             <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
           </LineChart>
         </ResponsiveContainer>
@@ -94,7 +94,7 @@ export function OffloadingPieChart({ kpis }) {
                 <Cell key={i} fill={COLORS[i]} />
               ))}
             </Pie>
-            <Tooltip formatter={(v) => `${v}%`} contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12 }} />
+            <Tooltip formatter={(v) => `${v}%`} contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12, color: 'hsl(var(--foreground))' }} labelStyle={{ color: 'hsl(var(--foreground))' }} itemStyle={{ color: 'hsl(var(--foreground))' }} />
             <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
           </PieChart>
         </ResponsiveContainer>
@@ -113,7 +113,7 @@ export function NodeStatusChart({ kpis }) {
   return (
     <Card>
       <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-semibold">Node Status Distribution</CardTitle>
+        <CardTitle className="text-sm font-semibold">Sensor Status Distribution</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={240}>
@@ -121,7 +121,7 @@ export function NodeStatusChart({ kpis }) {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="name" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
             <YAxis tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
-            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12 }} />
+            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: 8, fontSize: 12, color: 'hsl(var(--foreground))' }} labelStyle={{ color: 'hsl(var(--foreground))' }} itemStyle={{ color: 'hsl(var(--foreground))' }} />
             <Bar dataKey="value" name="Nodes" radius={[6, 6, 0, 0]}>
               {data.map((entry, i) => (
                 <Cell key={i} fill={entry.fill} />
