@@ -1,39 +1,39 @@
 {
   "critical": {
     "events": 1591,
-    "avg_latency": 2.60967,
+    "avg_latency": 2.733964,
     "deadline_success_rate": 0.986172,
-    "avg_energy_cost": 0.23144,
+    "avg_energy_cost": 0.219258,
     "path_distribution": {
-      "local_edge": 1168,
-      "edge_to_edge": 233,
-      "edge_to_fog": 92,
-      "fog_to_fog": 74,
+      "local_edge": 1041,
+      "edge_to_fog": 236,
+      "edge_to_edge": 223,
+      "fog_to_fog": 67,
       "cloud_escalation": 24
     }
   },
   "normal": {
     "events": 5898,
-    "avg_latency": 2.500174,
+    "avg_latency": 2.452817,
     "deadline_success_rate": 1.0,
-    "avg_energy_cost": 0.137448,
+    "avg_energy_cost": 0.149037,
     "path_distribution": {
-      "local_edge": 2950,
-      "edge_to_fog": 1265,
-      "edge_to_edge": 1070,
-      "fog_to_fog": 613
+      "local_edge": 3056,
+      "edge_to_edge": 1310,
+      "edge_to_fog": 879,
+      "fog_to_fog": 653
     }
   },
   "warning": {
     "events": 2511,
-    "avg_latency": 2.216269,
+    "avg_latency": 2.286847,
     "deadline_success_rate": 1.0,
-    "avg_energy_cost": 0.177655,
+    "avg_energy_cost": 0.182371,
     "path_distribution": {
-      "local_edge": 1539,
-      "edge_to_edge": 470,
-      "edge_to_fog": 371,
-      "fog_to_fog": 131
+      "local_edge": 1526,
+      "edge_to_edge": 533,
+      "fog_to_fog": 231,
+      "edge_to_fog": 221
     }
   }
 }

@@ -1,18 +1,18 @@
 {
   "drl_10p": {
-    "latency": 2.446306,
-    "energy_consumption": 0.162498,
+    "latency": 2.455872,
+    "energy_consumption": 0.16858,
     "deadline_success_rate": 0.9978,
     "throughput": 9978,
     "offloading_ratio_path_distribution": {
-      "local_edge": 0.5657,
-      "edge_to_edge": 0.1773,
-      "edge_to_fog": 0.1728,
-      "fog_to_fog": 0.0818,
+      "local_edge": 0.5623,
+      "edge_to_edge": 0.2066,
+      "edge_to_fog": 0.1336,
+      "fog_to_fog": 0.0951,
       "cloud_escalation": 0.0024
     },
-    "congestion_score": 0.109345,
-    "decision_efficiency_score": 0.080862
+    "congestion_score": 0.111491,
+    "decision_efficiency_score": 0.087268
   },
   "baseline_10b": {
     "cloud_only": {
@@ -92,5 +92,5 @@
       "baseline_fairness_load_balancing": 0.029086
     }
   },
-  "latency_improvement_percent_vs_rule_based": 39.413
+  "latency_improvement_percent_vs_rule_based": 39.176
 }

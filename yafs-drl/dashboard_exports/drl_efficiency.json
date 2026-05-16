@@ -1,7 +1,7 @@
 {
-  "score_mean": 0.080862,
-  "score_std": 0.043694,
-  "reward_mean": 0.261168,
+  "score_mean": 0.087268,
+  "score_std": 0.042255,
+  "reward_mean": 0.254762,
   "q_learning_policy": true,
   "state_uses_7f": true,
   "action_space": [

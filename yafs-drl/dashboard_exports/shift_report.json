@@ -5,10 +5,10 @@
   "critical_count": 1591,
   "deadline_compliance": 0.9978,
   "offloading_performance": {
-    "local_edge": 5657,
-    "edge_to_edge": 1773,
-    "edge_to_fog": 1728,
-    "fog_to_fog": 818,
+    "local_edge": 5623,
+    "edge_to_edge": 2066,
+    "edge_to_fog": 1336,
+    "fog_to_fog": 951,
     "cloud_escalation": 24
   },
   "cloud_role": "one centralized cloud node for analytics/API/dashboard/storage/reporting/escalation",
@@ -265,7 +265,7 @@
         "paper": "Distributed task offloading in edge computing: A multi-objective adaptive deep reinforcement learning algorithm",
         "source_file": "PAPERS L10/1-s2.0-S0952197625026843-main.pdf",
         "supports": "Multi-objective DRL task offloading with adaptive decisions.",
-        "implemented_mapping": "DQN route selection using latency, congestion, energy, task size, bandwidth, compute pressure, reliability, and deadline."
+        "implemented_mapping": "DQN route selection using latency, congestion, energy, task size, bandwidth, node computing capacity, and deadline."
       },
       {
         "paper": "Energy-efficient task offloading in the Industrial Internet of Things: A Lyapunov-guided multi-agent deep reinforcement learning approach",
@@ -294,8 +294,8 @@
       {
         "paper": "Reliable and efficient computation offloading for dependency-aware tasks in IIoT using evolutionary multi-objective optimization",
         "source_file": "PAPERS L10/1-s2.0-S0167739X25002183-main.pdf",
-        "supports": "IIoT computation offloading with reliability and multi-objective optimization.",
-        "implemented_mapping": "Reliability risk is retained as a DRL factor and deadline success is reported."
+        "supports": "IIoT computation offloading with multi-objective optimization over delay, network, energy, task, bandwidth, and compute capacity factors.",
+        "implemented_mapping": "Deadline success and compute-capacity-aware offloading are reported; reliability is not used as a DRL scoring factor."
       },
       {
         "paper": "Dynamic offloading strategy for computational energy efficiency of wireless power transfer based MEC networks in industry 5.0",
@@ -306,20 +306,20 @@
     ],
     "dynamic_resource_allocation": {
       "purpose": "Show that resource state is updated after each offloading decision, so later DRL decisions see changed node load and link traffic.",
-      "avg_node_load_before": 0.017311,
-      "avg_node_load_after": 0.100727,
+      "avg_node_load_before": 0.015648,
+      "avg_node_load_after": 0.096906,
       "avg_link_load_before": 2e-06,
-      "avg_link_load_after": 4.2e-05,
-      "avg_processing_time": 7.466783
+      "avg_link_load_after": 4.7e-05,
+      "avg_processing_time": 7.450243
     },
     "averages": {
       "event_payload_kb": 33.891,
       "protocol_security_overhead_kb": 5.653,
       "task_size_kb": 39.544,
       "task_cpu_cycles": 55572971.906,
-      "compute_demand_ratio": 0.085952,
-      "decision_metadata_kb": 4.181,
-      "total_transfer_kb": 43.726
+      "compute_demand_ratio": 0.083536,
+      "decision_metadata_kb": 4.187,
+      "total_transfer_kb": 43.732
     },
     "severity_examples": {
       "critical": {

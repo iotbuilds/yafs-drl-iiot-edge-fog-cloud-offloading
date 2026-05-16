@@ -69,13 +69,12 @@ class FactorWeights:
     task_size: float
     bandwidth: float
     compute: float
-    reliability: float = 0.05
 
 # Severity is not a 7F factor; it changes urgency/deadline/reward weighting.
 SEVERITY_WEIGHTS = {
-    "normal": FactorWeights(delay=0.14, hops=0.10, congestion=0.16, energy=0.25, task_size=0.10, bandwidth=0.14, compute=0.08, reliability=0.03),
-    "warning": FactorWeights(delay=0.23, hops=0.12, congestion=0.20, energy=0.13, task_size=0.10, bandwidth=0.13, compute=0.09, reliability=0.05),
-    "critical": FactorWeights(delay=0.34, hops=0.12, congestion=0.19, energy=0.05, task_size=0.08, bandwidth=0.15, compute=0.08, reliability=0.09),
+    "normal": FactorWeights(delay=0.14, hops=0.10, congestion=0.16, energy=0.25, task_size=0.10, bandwidth=0.14, compute=0.11),
+    "warning": FactorWeights(delay=0.23, hops=0.12, congestion=0.20, energy=0.13, task_size=0.10, bandwidth=0.13, compute=0.14),
+    "critical": FactorWeights(delay=0.34, hops=0.12, congestion=0.19, energy=0.05, task_size=0.08, bandwidth=0.15, compute=0.17),
 }
 
 DRL_ACTIONS = ["local_edge", "edge_to_edge", "edge_to_fog", "fog_to_fog", "cloud_escalation"]

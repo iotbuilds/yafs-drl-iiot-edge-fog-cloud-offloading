@@ -68,7 +68,6 @@ def compute_kpis(events_csv: str | Path, decisions_csv: str | Path, out_json: st
                 "model_types": df.get("model_type", pd.Series(dtype=str)).value_counts().to_dict(),
                 "avg_dqn_q_value": round(float(df.get("dqn_q_value", pd.Series([0])).mean()), 6),
                 "avg_dqn_loss": round(float(df.get("dqn_loss", pd.Series([0])).mean()), 6),
-                "avg_reliability_risk_support": round(float(df.get("factor_reliability_risk", pd.Series([0])).mean()), 6),
                 "avg_compute_demand_ratio": round(float(df.get("factor_compute_demand_ratio", pd.Series([0])).mean()), 6),
                 "avg_task_cpu_cycles": round(float(df.get("task_cpu_cycles", pd.Series([0])).mean()), 3),
             },

@@ -4,7 +4,7 @@ This note documents how the current implementation is positioned against the lit
 
 ## Current Implementation Position
 
-The current system keeps the DRL policy flexible. It does not assign fixed computation stages to edge, fog, or cloud. Instead, each event is evaluated dynamically and routed to the most suitable candidate path based on severity, deadline, delay, hops, congestion, energy, task size, bandwidth cost, compute pressure, reliability risk, and dynamic resource state.
+The current system keeps the DRL policy flexible. It does not assign fixed computation stages to edge, fog, or cloud. Instead, each event is evaluated dynamically and routed to the most suitable candidate path based on severity, deadline, delay, hops, congestion, energy, task size, bandwidth cost, node computing capacity, and dynamic resource state.
 
 The event model is now single-sensor history based:
 
@@ -24,8 +24,8 @@ The event model is now single-sensor history based:
 | Computation offloading action | `selected_layer`, `destination`, `route_path`, `offloading_scenario` | DRL chooses local edge, edge-to-edge, edge-to-fog, fog-to-fog, or cloud escalation. |
 | Dynamic resource allocation | `dynamic_node_load_*`, `dynamic_link_load_*` | Assigned tasks reserve compute and link load; later events observe changed capacity/congestion. |
 | Network condition and bandwidth cost | `factor_network_condition`, `factor_bandwidth_cost` | Route scoring includes congestion and data-size-to-bandwidth burden. |
-| Reliability-aware offloading | `factor_reliability_risk` | Path reliability remains part of the decision score. |
-| Multi-objective optimization | 7F factor score and reward | The DQN decision balances latency, hops, congestion, energy, size, bandwidth, compute, and reliability. |
+| Node computing capacity-aware offloading | `factor_compute_pressure`, `factor_compute_demand_ratio`, `factor_target_compute_capacity_cycles` | Node computing capacity is the seventh decision factor. |
+| Multi-objective optimization | 7F factor score and reward | The DQN decision balances latency, hops, congestion, energy, size, bandwidth, and compute capacity. |
 
 ## Paper Examples from the Provided LR Files
 
@@ -36,14 +36,14 @@ The event model is now single-sensor history based:
 | An advanced deep reinforcement learning algorithm for three-layer D2D-edge-cloud computing architecture for efficient task offloading in the Internet of Things | Layered IoT task offloading | Supports layered actions across local edge, edge-to-edge, edge/fog, fog/fog, and cloud escalation. |
 | Multi-objective task offloading optimization using deep reinforcement learning with resource distribution clustering | Resource-aware multi-objective DRL offloading | Supports comparing candidate resource conditions before choosing a route. |
 | Deep reinforcement learning for optimizing computation latency in wireless-powered Multi-Access Edge Computing systems: A partial offloading approach | Computation latency, CPU/resource management | Supports separating data size from computation demand through `task_cpu_cycles`. |
-| Reliable and efficient computation offloading for dependency-aware tasks in IIoT using evolutionary multi-objective optimization | IIoT reliability and multi-objective offloading | Supports keeping reliability risk and deadline success in the reported model. |
+| Reliable and efficient computation offloading for dependency-aware tasks in IIoT using evolutionary multi-objective optimization | IIoT multi-objective offloading | Supports deadline-aware and resource-aware offloading in the reported model. |
 | Dynamic offloading strategy for computational energy efficiency of wireless power transfer based MEC networks in Industry 5.0 | Dynamic offloading, task computational model, local/edge computational model, resource allocation | Supports dynamic node load and task CPU demand without requiring fixed layer-specific computation roles. |
 
 ## Recommended Thesis Wording
 
 The proposed implementation models each IIoT event as a single-sensor task rather than a combined 7S snapshot. Each sensor event carries its current reading, same-sensor historical context, threshold status, severity, priority/deadline, and modeled communication overhead. The resulting `task_size_kb` represents the network transfer burden, while `task_cpu_cycles` represents the computation burden required to validate, classify, extract features, analyze history, aggregate, and package the event.
 
-The DRL policy is not restricted to fixed layer-specific computation roles. Instead, it evaluates candidate destinations and paths dynamically using latency, hop count, congestion, energy, task size, bandwidth cost, compute pressure, reliability risk, severity deadline, and current simulated resource load. After each offloading decision, the selected node and traversed links reserve compute and traffic load for a simulated duration. This allows subsequent decisions to react to changing resource availability, which better reflects dynamic computation offloading behavior described in the literature.
+The DRL policy is not restricted to fixed layer-specific computation roles. Instead, it evaluates candidate destinations and paths dynamically using latency, hop count, congestion, energy, task size, bandwidth cost, node computing capacity, severity deadline, and current simulated resource load. After each offloading decision, the selected node and traversed links reserve compute and traffic load for a simulated duration. This allows subsequent decisions to react to changing resource availability, which better reflects dynamic computation offloading behavior described in the literature.
 
 ## What Is Not Modeled
 

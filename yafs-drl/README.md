@@ -5,7 +5,6 @@ Integrated 1000-node IIoT dynamic task offloading package mapped to the project 
 - **7S sensor readings:** vibration, temperature, pressure, current, acoustic, flow rate, humidity.
 - **7F DQN decision factors:** delay, hop count, congestion/network condition, energy, task size, bandwidth, compute capacity.
 - **DQN policy:** PyTorch neural Q-network with epsilon-greedy exploration, replay memory, Bellman targets, Adam optimization, target-network synchronization, and learned action values.
-- **Reliability support metric:** link reliability is kept as an additional topology-aware qualitative feature (`factor_reliability_risk`), not counted as one of the core 7F factors.
 - **Topology:** 700 sensor nodes, 220 edge nodes, 79 fog nodes, 1 cloud node.
 - **Scenarios:** normal, warning, critical, repeated warning, edge-to-edge, edge-to-fog, fog-to-fog, cloud escalation, congestion, node overload/failure, 24h shift report.
 - **Cloud/dashboard exports:** events, node status, offloading decisions, KPIs, baseline comparison, shift report, cloud records, topology image.

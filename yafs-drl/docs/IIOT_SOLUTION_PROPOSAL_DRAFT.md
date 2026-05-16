@@ -6,7 +6,7 @@ Industrial facilities depend on continuous equipment operation, stable productio
 
 The proposed solution uses distributed IIoT sensors, edge gateways, fog nodes, and a private cloud dashboard. Each sensor produces single-sensor events such as temperature, vibration, current, pressure, humidity, acoustic, or flow-rate readings. The system analyzes the current reading against its own recent history to detect threshold violations, spikes, trends, volatility, and anomaly risk. A Deep Reinforcement Learning (DRL) policy then decides whether the task should be processed locally at the edge, forwarded to another edge gateway, routed to a fog node, transferred between fog nodes, or escalated to the cloud. This follows the general direction of adaptive and energy-aware task offloading research in edge and IIoT networks [3], [4].
 
-The project was implemented and evaluated using a YAFS-based simulation environment with 700 sensor nodes, 220 edge gateways, 79 fog nodes, and one private cloud node. The dashboard reports latency, congestion, task size, CPU-cycle demand, energy cost, reliability risk, dynamic node load, dynamic link load, offloading decisions, and cloud monitoring records. The solution aims to improve equipment visibility, reduce response delay, balance computing resources, and support safer, more reliable industrial operations.
+The project was implemented and evaluated using a YAFS-based simulation environment with 700 sensor nodes, 220 edge gateways, 79 fog nodes, and one private cloud node. The dashboard reports latency, congestion, task size, CPU-cycle demand, energy cost, node computing capacity pressure, dynamic node load, dynamic link load, offloading decisions, and cloud monitoring records. The solution aims to improve equipment visibility, reduce response delay, balance computing resources, and support safer industrial operations.
 
 ## 2. Industrial Problem and Pain Point
 
@@ -33,7 +33,7 @@ The proposed architecture has four main layers:
 
 In the implemented simulation, each sensor node represents one physical sensor type. One event is generated from one sensor reading, not from a combined group of seven sensors. The event includes the current reading, recent history from the same sensor, timestamp, sensor ID, edge gateway, severity, deadline, payload size, and computation demand. The algorithm classifies the reading into normal, warning, or critical levels and calculates spike, trend, volatility, and anomaly scores.
 
-After the event is created, the DRL policy evaluates candidate processing paths. The policy considers delay, hop count, congestion, energy cost, task size, bandwidth cost, compute pressure, reliability risk, severity deadline, dynamic node load, and dynamic link load. The selected route is then recorded and shown in the cloud dashboard. These factors reflect common objectives used in computation offloading studies, especially latency, energy, reliability, resource pressure, and task demand [1], [5], [6].
+After the event is created, the DRL policy evaluates candidate processing paths. The policy considers delay, hop count, congestion, energy cost, task size, bandwidth cost, node computing capacity, severity deadline, dynamic node load, and dynamic link load. The selected route is then recorded and shown in the cloud dashboard. These factors reflect common objectives used in computation offloading studies, especially latency, energy, resource pressure, and task demand [1], [5], [6].
 
 ## 4. Sensors and Information Used
 
@@ -152,7 +152,7 @@ The implemented dashboard acts as the digital twin interface. It includes plant 
 
 The solution uses edge and fog computing to avoid sending every event directly to the cloud. Edge gateways are close to the sensors and can support fast local processing. Fog nodes provide additional intermediate capacity and can reduce pressure on both edge and cloud layers.
 
-The implemented policy does not assign fixed computation roles such as “edge always performs stage one” or “fog always performs stage two.” Instead, the DRL policy dynamically evaluates candidate destinations for each event. This is more flexible because the best decision depends on current severity, deadline, available capacity, link condition, congestion, and reliability. This design is aligned with adaptive offloading and layered edge-cloud decision models, where the offloading action changes according to task and resource conditions [3], [4].
+The implemented policy does not assign fixed computation roles such as “edge always performs stage one” or “fog always performs stage two.” Instead, the DRL policy dynamically evaluates candidate destinations for each event. This is more flexible because the best decision depends on current severity, deadline, available capacity, link condition, and congestion. This design is aligned with adaptive offloading and layered edge-cloud decision models, where the offloading action changes according to task and resource conditions [3], [4].
 
 The system supports these offloading scenarios:
 
@@ -181,7 +181,7 @@ The proposed IIoT solution can provide several business and operational benefits
 
 This proposal presents a practical IIoT solution for smart industrial monitoring using sensors, edge/fog/cloud infrastructure, DRL-based offloading, and a private cloud dashboard. The implemented YAFS simulation demonstrates how single-sensor events can be classified, sized, processed, routed, and reported across a large topology of 700 sensors, 220 edge gateways, 79 fog nodes, and one cloud node.
 
-The main contribution is not only detecting abnormal sensor readings, but also deciding where each event should be processed based on network, compute, energy, reliability, and deadline conditions. This makes the solution suitable for industrial environments where real-time response, resource efficiency, and operational visibility are important. The proposed approach therefore connects the practical IIoT monitoring problem with current research directions in DRL-based task offloading, latency-aware processing, energy-aware routing, and dynamic resource allocation [1]-[7].
+The main contribution is not only detecting abnormal sensor readings, but also deciding where each event should be processed based on network, compute capacity, energy, and deadline conditions. This makes the solution suitable for industrial environments where real-time response, resource efficiency, and operational visibility are important. The proposed approach therefore connects the practical IIoT monitoring problem with current research directions in DRL-based task offloading, latency-aware processing, energy-aware routing, and dynamic resource allocation [1]-[7].
 
 ## References
 

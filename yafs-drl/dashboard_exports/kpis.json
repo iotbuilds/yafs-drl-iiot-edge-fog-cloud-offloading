@@ -1,11 +1,11 @@
 {
   "total_events": 10000,
   "confirmed_10p": {
-    "latency": 2.446306,
-    "energy_consumption": 0.162498,
+    "latency": 2.455872,
+    "energy_consumption": 0.16858,
     "deadline_success_rate": 0.9978,
     "throughput": 9978,
-    "network_overhead_bytes": 581795863,
+    "network_overhead_bytes": 600398971,
     "event_payload_bytes": 347042724,
     "protocol_security_overhead_bytes": 57890165,
     "payload_component_bytes": {
@@ -53,27 +53,27 @@
       }
     },
     "dynamic_resource_metrics": {
-      "avg_node_load_before": 0.017311,
-      "avg_node_load_after": 0.100727,
-      "avg_available_compute_before": 835584964.311,
-      "avg_available_compute_after": 780033706.025,
-      "avg_processing_time": 7.466783,
+      "avg_node_load_before": 0.015648,
+      "avg_node_load_after": 0.096906,
+      "avg_available_compute_before": 839620318.912,
+      "avg_available_compute_after": 784057347.916,
+      "avg_processing_time": 7.450243,
       "avg_link_load_before": 2e-06,
-      "avg_link_load_after": 4.2e-05
+      "avg_link_load_after": 4.7e-05
     },
-    "decision_metadata_bytes": 42818304,
-    "total_transfer_bytes_est": 447751194,
+    "decision_metadata_bytes": 42878156,
+    "total_transfer_bytes_est": 447811047,
     "offloading_ratio_path_distribution": {
-      "local_edge": 0.5657,
-      "edge_to_edge": 0.1773,
-      "edge_to_fog": 0.1728,
-      "fog_to_fog": 0.0818,
+      "local_edge": 0.5623,
+      "edge_to_edge": 0.2066,
+      "edge_to_fog": 0.1336,
+      "fog_to_fog": 0.0951,
       "cloud_escalation": 0.0024
     },
-    "congestion_score": 0.109345,
+    "congestion_score": 0.111491,
     "drl_model_efficiency": {
-      "avg_reward": 0.261168,
-      "avg_score": 0.080862,
+      "avg_reward": 0.254762,
+      "avg_score": 0.087268,
       "policy_modes": {
         "pytorch_dqn_policy_exploitation": 9232,
         "pytorch_dqn_epsilon_exploration": 768
@@ -81,14 +81,13 @@
       "model_types": {
         "PyTorch-DQN": 10000
       },
-      "avg_dqn_q_value": 1.752132,
-      "avg_dqn_loss": 0.032253,
-      "avg_reliability_risk_support": 0.032201,
-      "avg_compute_demand_ratio": 0.085952,
+      "avg_dqn_q_value": 1.725897,
+      "avg_dqn_loss": 0.031755,
+      "avg_compute_demand_ratio": 0.083536,
       "avg_task_cpu_cycles": 55572971.906
     },
     "scalability_performance": "see dashboard_exports/scalability_validation.json",
-    "fairness_load_balancing": 0.621365
+    "fairness_load_balancing": 0.627277
   },
   "severity_counts_3l": {
     "normal": 5898,
@@ -96,28 +95,28 @@
     "critical": 1591
   },
   "offloading_ratios": {
-    "edge": 0.743,
-    "fog": 0.2546,
+    "edge": 0.7689,
+    "fog": 0.2287,
     "cloud": 0.0024
   },
   "path_distribution": {
-    "local_edge": 5657,
-    "edge_to_edge": 1773,
-    "edge_to_fog": 1728,
-    "fog_to_fog": 818,
+    "local_edge": 5623,
+    "edge_to_edge": 2066,
+    "edge_to_fog": 1336,
+    "fog_to_fog": 951,
     "cloud_escalation": 24
   },
   "avg_latency_by_status": {
-    "critical": 2.6097,
-    "normal": 2.5002,
-    "warning": 2.2163
+    "critical": 2.734,
+    "normal": 2.4528,
+    "warning": 2.2868
   },
   "deadline_success_by_status": {
     "critical": 0.9862,
     "normal": 1.0,
     "warning": 1.0
   },
-  "network_bytes_transmitted_est": 581795863,
+  "network_bytes_transmitted_est": 600398971,
   "event_payload_bytes_est": 347042724,
   "protocol_security_overhead_bytes_est": 57890165,
   "payload_component_bytes_est": {
@@ -165,27 +164,27 @@
     }
   },
   "dynamic_resource_metrics": {
-    "avg_node_load_before": 0.017311,
-    "avg_node_load_after": 0.100727,
-    "avg_available_compute_before": 835584964.311,
-    "avg_available_compute_after": 780033706.025,
-    "avg_processing_time": 7.466783,
+    "avg_node_load_before": 0.015648,
+    "avg_node_load_after": 0.096906,
+    "avg_available_compute_before": 839620318.912,
+    "avg_available_compute_after": 784057347.916,
+    "avg_processing_time": 7.450243,
     "avg_link_load_before": 2e-06,
-    "avg_link_load_after": 4.2e-05
+    "avg_link_load_after": 4.7e-05
   },
-  "decision_metadata_bytes_est": 42818304,
-  "total_transfer_bytes_est": 447751194,
-  "avg_congestion_score": 0.109345,
-  "avg_energy_cost": 0.162498,
+  "decision_metadata_bytes_est": 42878156,
+  "total_transfer_bytes_est": 447811047,
+  "avg_congestion_score": 0.111491,
+  "avg_energy_cost": 0.16858,
   "failure_reasons": {
-    "none": 7645,
-    "edge-to-edge reroute; dominant 7F factor=network_condition/congestion": 731,
-    "edge-to-fog processing; dominant 7F factor=network_condition/congestion": 679,
-    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=delay": 343,
-    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=network_condition/congestion": 247,
-    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=hop_count": 227,
-    "local edge processing; dominant 7F factor=network_condition/congestion": 127,
-    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=task_cpu_cycles": 1
+    "none": 7499,
+    "edge-to-edge reroute; dominant 7F factor=network_condition/congestion": 799,
+    "edge-to-fog processing; dominant 7F factor=network_condition/congestion": 632,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=delay": 467,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=network_condition/congestion": 261,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=hop_count": 222,
+    "local edge processing; dominant 7F factor=network_condition/congestion": 119,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=energy": 1
   },
   "top_risky_nodes": {
     "sensor_0347": 24,

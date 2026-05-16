@@ -10,7 +10,6 @@ This version is patched to follow `DRL_IIoT_Confirmed_Requirements.docx`.
 - **3L timing**: critical ≤ 10 s, warning ≤ 30 s, normal periodic every 2 minutes
 - **7F DRL factors**: delay, hop count, network condition/congestion, energy consumption, task size, bandwidth, node computing capacity
 - **DQN model**: PyTorch neural Q-network with epsilon-greedy exploration, reward learning, replay memory, target-network Bellman updates, Adam optimization, and learned action values.
-- **Reliability**: retained as an extra topology-aware support/qualitative metric through `factor_reliability_risk`; it is not counted as a core 7F factor.
 - **Actions/paths**: local_edge, edge_to_edge, edge_to_fog, fog_to_fog, cloud_escalation
 - **Final event count**: 10,000 events
 - **Baselines**: local_only, edge_only, cloud_only, random, rule_based_static_cloud_fog

@@ -125,7 +125,7 @@ class DRLQSelector:
         score = (
             w.delay * factors["delay"] + w.hops * factors["hop_count"] + w.congestion * factors["network_condition"] +
             w.energy * factors["energy_cost"] + w.task_size * factors["task_size"] + w.bandwidth * factors["bandwidth_cost"] +
-            w.compute * factors["compute_pressure"] + w.reliability * factors["reliability_risk"]
+            w.compute * factors["compute_pressure"]
         )
         scenario = self._scenario(layer, src, dst, path)
         if scenario == "cloud_escalation" and event["severity"] == "normal":

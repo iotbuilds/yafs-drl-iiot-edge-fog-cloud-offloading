@@ -36,7 +36,7 @@ yafs-drl-iiot-edge-fog-cloud-offloading/
 - Sensor model: one sensor reading generates one event.
 - Sensor types: vibration, temperature, pressure, current, acoustic, flow rate, humidity.
 - Severity classes: normal, warning, and critical.
-- DQN decision factors: delay, hop count, network condition/congestion, energy consumption, task size, bandwidth, and node computing capacity.
+- DQN decision factors: delay, hop count, network condition/congestion, energy consumption, task size, bandwidth, and node computing capacity. Reliability is retained only as optional topology metadata and is not used in the DQN score.
 - DQN implementation: PyTorch neural Q-network with replay memory, Bellman targets, Adam optimization, and target-network synchronization.
 - Offloading actions: local edge, edge-to-edge, edge-to-fog, fog-to-fog, and cloud escalation.
 - Main quantitative performance measures: 10 measures including latency, energy, deadline success, throughput, network overhead, offloading path distribution, congestion score, decision efficiency, scalability, and fairness/load balancing.

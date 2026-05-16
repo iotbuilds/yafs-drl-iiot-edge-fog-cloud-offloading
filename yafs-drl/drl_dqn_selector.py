@@ -203,7 +203,7 @@ class DRLDQNSelector(DRLQSelector):
         for action in DRL_ACTIONS:
             candidate = action_options.get(action)
             if candidate is None:
-                values.extend([0.0] * 12)
+                values.extend([0.0] * 11)
                 continue
             values.extend([
                 1.0,
@@ -214,7 +214,6 @@ class DRLDQNSelector(DRLQSelector):
                 float(candidate.get("factor_task_size", 0.0)),
                 float(candidate.get("factor_bandwidth_cost", 0.0)),
                 float(candidate.get("factor_compute_pressure", 0.0)),
-                float(candidate.get("factor_reliability_risk", 0.0)),
                 float(candidate.get("factor_compute_demand_ratio", 0.0)),
                 float(candidate.get("factor_task_cpu_cycles", 0.0)),
                 float(candidate.get("factor_target_compute_capacity_cycles", 0.0)),
@@ -224,5 +223,5 @@ class DRLDQNSelector(DRLQSelector):
     def _state_vector_size(self) -> int:
         event_features = len(EVENT_LEVELS) + len(SENSOR_TYPES) + 2
         source_features = 3
-        action_features = len(DRL_ACTIONS) * 12
+        action_features = len(DRL_ACTIONS) * 11
         return event_features + source_features + action_features
