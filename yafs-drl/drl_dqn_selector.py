@@ -114,6 +114,7 @@ class DRLDQNSelector(DRLQSelector):
         self.target.copy_from(self.online)
 
     def select(self, event: dict) -> dict:
+        self._release_completed_loads(float(event.get("timestamp", 0.0)))
         source_edge = event["edge_gateway"]
         severity = event["severity"]
         candidates = self._candidate_nodes(source_edge, severity)
@@ -164,6 +165,7 @@ class DRLDQNSelector(DRLQSelector):
             "model_type": "DQN",
         })
         self.action_counts[decision["offloading_scenario"]] += 1
+        self._reserve_dynamic_load(event, decision)
         return decision
 
     def _learn_from_previous(self, next_state: np.ndarray) -> None:
@@ -213,7 +215,7 @@ class DRLDQNSelector(DRLQSelector):
         for action in DRL_ACTIONS:
             candidate = action_options.get(action)
             if candidate is None:
-                values.extend([0.0] * 9)
+                values.extend([0.0] * 12)
                 continue
             values.extend([
                 1.0,
@@ -225,11 +227,14 @@ class DRLDQNSelector(DRLQSelector):
                 float(candidate.get("factor_bandwidth_cost", 0.0)),
                 float(candidate.get("factor_compute_pressure", 0.0)),
                 float(candidate.get("factor_reliability_risk", 0.0)),
+                float(candidate.get("factor_compute_demand_ratio", 0.0)),
+                float(candidate.get("factor_task_cpu_cycles", 0.0)),
+                float(candidate.get("factor_target_compute_capacity_cycles", 0.0)),
             ])
         return np.array(values, dtype=float)
 
     def _state_vector_size(self) -> int:
         event_features = len(EVENT_LEVELS) + len(SENSOR_TYPES) + 2
         source_features = 3
-        action_features = len(DRL_ACTIONS) * 9
+        action_features = len(DRL_ACTIONS) * 12
         return event_features + source_features + action_features

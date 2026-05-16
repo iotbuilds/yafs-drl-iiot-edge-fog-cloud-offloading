@@ -30,6 +30,10 @@ def root():
 def health():
     return {"status":"ok","dashboard_exports":DASH.exists(),"results":RESULTS.exists()}
 
+@app.get("/api/health")
+def api_health():
+    return health()
+
 @app.get("/api/kpis")
 def kpis(): return read_json(DASH/"kpis.json")
 

@@ -39,6 +39,12 @@ def metrics_for(name, events, decisions):
     df = events.merge(decisions, on="event_id", suffixes=("", "_decision"))
     hops = decisions["route_path"].apply(route_len) if "route_path" in decisions else pd.Series([1] * len(decisions))
     network_bytes = int((df["task_size_kb"] * 1024 * hops.values).sum()) if len(df) else 0
+    event_payload_bytes = int((df.get("event_payload_kb", pd.Series([0] * len(df))) * 1024).sum()) if len(df) else 0
+    protocol_overhead_bytes = int((df.get("protocol_security_overhead_kb", pd.Series([0] * len(df))) * 1024).sum()) if len(df) else 0
+    decision_metadata_bytes = int((df.get("decision_metadata_kb", pd.Series([0] * len(df))) * 1024).sum()) if len(df) else 0
+    total_transfer_bytes = int((df.get("total_transfer_kb", df["task_size_kb"]) * 1024).sum()) if len(df) else 0
+    payload_component_bytes = payload_components(df)
+    compute_stage_totals = compute_stages(df)
     scenario_counts = decisions.get("offloading_scenario", pd.Series(dtype=str)).value_counts().to_dict()
     layers = decisions.get("selected_layer", pd.Series(dtype=str)).value_counts(normalize=True).round(4).to_dict()
     score = pd.to_numeric(decisions.get("score", pd.Series(dtype=float)), errors="coerce")
@@ -52,6 +58,13 @@ def metrics_for(name, events, decisions):
         "throughput": int(decisions["deadline_met"].sum()) if "deadline_met" in decisions else int(len(df)),
         "throughput_rate": round(float(decisions["deadline_met"].mean()), 6) if "deadline_met" in decisions and len(decisions) else 0,
         "network_overhead_bytes": network_bytes,
+        "event_payload_bytes": event_payload_bytes,
+        "protocol_security_overhead_bytes": protocol_overhead_bytes,
+        "payload_component_bytes": payload_component_bytes,
+        "compute_stage_cycles": compute_stage_totals,
+        "decision_metadata_bytes": decision_metadata_bytes,
+        "total_transfer_bytes_est": total_transfer_bytes,
+        "avg_compute_demand_ratio": round(float(decisions.get("factor_compute_demand_ratio", pd.Series([0])).mean()), 6) if len(decisions) else 0,
         "avg_congestion": round(float(decisions.get("factor_network_condition", pd.Series([0])).mean()), 6) if len(decisions) else 0,
         "deadline_success_rate": round(float(decisions["deadline_met"].mean()), 6) if "deadline_met" in decisions and len(decisions) else 0,
         "score_mean": round(float(score.mean()), 6) if len(score.dropna()) else None,
@@ -88,9 +101,46 @@ def scenario_table(events, drl):
             "avg_energy_cost": round(float(group.get("factor_energy_cost", pd.Series([0])).mean()), 6),
             "throughput_rate": round(float(group["deadline_met"].mean()), 6),
             "network_overhead_bytes": int((group["task_size_kb"] * 1024).sum()),
+            "event_payload_bytes": int((group.get("event_payload_kb", pd.Series([0] * len(group))) * 1024).sum()),
+            "protocol_security_overhead_bytes": int((group.get("protocol_security_overhead_kb", pd.Series([0] * len(group))) * 1024).sum()),
+            "payload_component_bytes": payload_components(group),
+            "compute_stage_cycles": compute_stages(group),
+            "decision_metadata_bytes": int((group.get("decision_metadata_kb", pd.Series([0] * len(group))) * 1024).sum()),
+            "total_transfer_bytes_est": int((group.get("total_transfer_kb", group["task_size_kb"]) * 1024).sum()),
+            "avg_compute_demand_ratio": round(float(group.get("factor_compute_demand_ratio", pd.Series([0])).mean()), 6),
             "main_decision_reason": str(group["decision_reason"].mode().iloc[0]) if "decision_reason" in group and not group.empty else "",
         })
     return rows
+
+def payload_components(df: pd.DataFrame) -> dict:
+    component_cols = [
+        "payload_event_metadata_kb",
+        "payload_sensor_sample_window_kb",
+        "payload_waveform_fault_window_kb",
+        "payload_diagnostic_logs_kb",
+        "payload_machine_context_kb",
+        "payload_calculated_features_kb",
+        "payload_device_security_metadata_kb",
+    ]
+    return {
+        col.replace("payload_", "").replace("_kb", ""): int((df.get(col, pd.Series([0] * len(df))) * 1024).sum())
+        for col in component_cols
+    }
+
+def compute_stages(df: pd.DataFrame) -> dict:
+    stage_cols = [
+        "intake_validation_cycles",
+        "threshold_classification_cycles",
+        "feature_extraction_cycles",
+        "history_analysis_cycles",
+        "aggregation_cycles",
+        "cloud_analytics_cycles",
+        "decision_packaging_cycles",
+    ]
+    return {
+        col.replace("_cycles", ""): int(df.get(col, pd.Series([0] * len(df))).sum())
+        for col in stage_cols
+    }
 
 def scalability_table(events, drl):
     rows = []

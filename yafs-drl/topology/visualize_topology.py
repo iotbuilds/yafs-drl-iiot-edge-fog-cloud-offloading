@@ -213,6 +213,7 @@ def build_graph():
     edge_groups = create_edges(sensor_nodes, edge_nodes, fog_nodes, cloud_nodes)
 
     G = nx.Graph()
+    attr_rng = random.Random(RANDOM_SEED)
 
     for node in sensor_nodes:
         G.add_node(node, role="sensor")
@@ -228,9 +229,26 @@ def build_graph():
 
     for edge_type, edges in edge_groups.items():
         for u, v in edges:
-            G.add_edge(u, v, edge_type=edge_type)
+            G.add_edge(u, v, edge_type=edge_type, **link_metrics(edge_type, attr_rng))
 
     return G, pos, sensor_nodes, edge_nodes, fog_nodes, cloud_nodes, edge_groups
+
+
+def link_metrics(edge_type, rng):
+    params = {
+        "sensor_to_edge": (20, 90, 0.2, 2.0),
+        "edge_to_edge": (50, 180, 0.5, 4.0),
+        "edge_to_fog": (100, 280, 1.0, 6.0),
+        "fog_to_fog": (140, 350, 1.0, 5.0),
+        "fog_to_cloud": (180, 550, 5.0, 18.0),
+    }[edge_type]
+    bw_min, bw_max, pr_min, pr_max = params
+    return {
+        "BW": round(rng.uniform(bw_min, bw_max), 3),
+        "PR": round(rng.uniform(pr_min, pr_max), 3),
+        "congestion": round(rng.uniform(0.03, 0.55), 3),
+        "reliability": round(rng.uniform(0.88, 0.999), 3),
+    }
 
 
 # ============================================================
@@ -254,7 +272,12 @@ def export_topology_json(G, pos):
         links.append({
             "source": u,
             "target": v,
-            "type": attrs.get("edge_type", "unknown")
+            "type": attrs.get("edge_type", attrs.get("kind", "unknown")),
+            "bandwidth": round(float(attrs.get("BW", 0.0)), 3),
+            "bandwidth_mbps": round(float(attrs.get("BW", 0.0)), 3),
+            "latency": round(float(attrs.get("PR", 0.0)), 3),
+            "congestion": round(float(attrs.get("congestion", 0.0)), 3),
+            "reliability": round(float(attrs.get("reliability", 0.0)), 3)
         })
 
     data = {
