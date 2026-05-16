@@ -1,0 +1,318 @@
+[
+  {
+    "strategy": "local_only",
+    "nodes": 1000,
+    "events": 10000,
+    "avg_latency": 0.8,
+    "avg_energy_cost": 0.254374,
+    "throughput": 10000,
+    "throughput_rate": 1.0,
+    "network_overhead_bytes": 404932890,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "decision_metadata_bytes": 0,
+    "total_transfer_bytes_est": 404932890,
+    "avg_compute_demand_ratio": 0.0,
+    "avg_congestion": 0.05,
+    "deadline_success_rate": 1.0,
+    "score_mean": 0.8,
+    "reward_mean": null,
+    "score_std": 0.0,
+    "fairness_load_balancing": 0.770443,
+    "offloading_ratios": {
+      "edge": 1.0
+    },
+    "scenario_counts": {
+      "local_edge": 10000
+    },
+    "local_edge_count": 10000,
+    "edge_to_edge_count": 0,
+    "edge_to_fog_count": 0,
+    "fog_to_fog_count": 0,
+    "cloud_escalation_count": 0
+  },
+  {
+    "strategy": "edge_only",
+    "nodes": 1000,
+    "events": 10000,
+    "avg_latency": 3.094847,
+    "avg_energy_cost": 0.279068,
+    "throughput": 10000,
+    "throughput_rate": 1.0,
+    "network_overhead_bytes": 809865781,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "decision_metadata_bytes": 0,
+    "total_transfer_bytes_est": 404932890,
+    "avg_compute_demand_ratio": 0.0,
+    "avg_congestion": 0.302103,
+    "deadline_success_rate": 1.0,
+    "score_mean": 3.094847,
+    "reward_mean": null,
+    "score_std": 1.167485,
+    "fairness_load_balancing": 0.735291,
+    "offloading_ratios": {
+      "edge": 1.0
+    },
+    "scenario_counts": {
+      "edge_to_edge": 10000
+    },
+    "local_edge_count": 0,
+    "edge_to_edge_count": 10000,
+    "edge_to_fog_count": 0,
+    "fog_to_fog_count": 0,
+    "cloud_escalation_count": 0
+  },
+  {
+    "strategy": "cloud_only",
+    "nodes": 1000,
+    "events": 10000,
+    "avg_latency": 15.481212,
+    "avg_energy_cost": 0.0001,
+    "throughput": 8589,
+    "throughput_rate": 0.8589,
+    "network_overhead_bytes": 1214798671,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "decision_metadata_bytes": 0,
+    "total_transfer_bytes_est": 404932890,
+    "avg_compute_demand_ratio": 0.0,
+    "avg_congestion": 0.284442,
+    "deadline_success_rate": 0.8589,
+    "score_mean": 15.481212,
+    "reward_mean": null,
+    "score_std": 4.363158,
+    "fairness_load_balancing": 1.0,
+    "offloading_ratios": {
+      "cloud": 1.0
+    },
+    "scenario_counts": {
+      "cloud_escalation": 10000
+    },
+    "local_edge_count": 0,
+    "edge_to_edge_count": 0,
+    "edge_to_fog_count": 0,
+    "fog_to_fog_count": 0,
+    "cloud_escalation_count": 10000
+  },
+  {
+    "strategy": "random",
+    "nodes": 1000,
+    "events": 10000,
+    "avg_latency": 6.549434,
+    "avg_energy_cost": 0.230902,
+    "throughput": 9953,
+    "throughput_rate": 0.9953,
+    "network_overhead_bytes": 1983581733,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "decision_metadata_bytes": 0,
+    "total_transfer_bytes_est": 404932890,
+    "avg_compute_demand_ratio": 0.0,
+    "avg_congestion": 0.295144,
+    "deadline_success_rate": 0.9953,
+    "score_mean": 6.549434,
+    "reward_mean": null,
+    "score_std": 1.974068,
+    "fairness_load_balancing": 0.517761,
+    "offloading_ratios": {
+      "edge": 0.567,
+      "fog": 0.4195,
+      "cloud": 0.0135
+    },
+    "scenario_counts": {
+      "edge_to_edge": 5517,
+      "fog_to_fog": 2831,
+      "edge_to_fog": 1364,
+      "local_edge": 153,
+      "cloud_escalation": 135
+    },
+    "local_edge_count": 153,
+    "edge_to_edge_count": 5517,
+    "edge_to_fog_count": 1364,
+    "fog_to_fog_count": 2831,
+    "cloud_escalation_count": 135
+  },
+  {
+    "strategy": "rule_based_static_cloud_fog",
+    "nodes": 1000,
+    "events": 10000,
+    "avg_latency": 4.037678,
+    "avg_energy_cost": 0.189577,
+    "throughput": 8589,
+    "throughput_rate": 0.8589,
+    "network_overhead_bytes": 873680466,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "decision_metadata_bytes": 0,
+    "total_transfer_bytes_est": 404932890,
+    "avg_compute_demand_ratio": 0.0,
+    "avg_congestion": 0.150482,
+    "deadline_success_rate": 0.8589,
+    "score_mean": 4.037678,
+    "reward_mean": null,
+    "score_std": 5.459147,
+    "fairness_load_balancing": 0.125023,
+    "offloading_ratios": {
+      "edge": 0.5898,
+      "fog": 0.2511,
+      "cloud": 0.1591
+    },
+    "scenario_counts": {
+      "local_edge": 5898,
+      "edge_to_fog": 2511,
+      "cloud_escalation": 1591
+    },
+    "local_edge_count": 5898,
+    "edge_to_edge_count": 0,
+    "edge_to_fog_count": 2511,
+    "fog_to_fog_count": 0,
+    "cloud_escalation_count": 1591
+  },
+  {
+    "strategy": "drl_7f",
+    "nodes": 1000,
+    "events": 10000,
+    "avg_latency": 2.446306,
+    "avg_energy_cost": 0.162498,
+    "throughput": 9978,
+    "throughput_rate": 0.9978,
+    "network_overhead_bytes": 581795863,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "decision_metadata_bytes": 42818304,
+    "total_transfer_bytes_est": 447751194,
+    "avg_compute_demand_ratio": 0.085952,
+    "avg_congestion": 0.109345,
+    "deadline_success_rate": 0.9978,
+    "score_mean": 0.080862,
+    "reward_mean": 0.261168,
+    "score_std": 0.043694,
+    "fairness_load_balancing": 0.621365,
+    "offloading_ratios": {
+      "edge": 0.743,
+      "fog": 0.2546,
+      "cloud": 0.0024
+    },
+    "scenario_counts": {
+      "local_edge": 5657,
+      "edge_to_edge": 1773,
+      "edge_to_fog": 1728,
+      "fog_to_fog": 818,
+      "cloud_escalation": 24
+    },
+    "local_edge_count": 5657,
+    "edge_to_edge_count": 1773,
+    "edge_to_fog_count": 1728,
+    "fog_to_fog_count": 818,
+    "cloud_escalation_count": 24
+  }
+]

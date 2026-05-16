@@ -1,0 +1,74 @@
+{
+  "confirmed_topology_distribution": {
+    "expected": {
+      "sensor": 700,
+      "edge": 220,
+      "fog": 79,
+      "cloud": 1
+    },
+    "actual": {
+      "edge": 220,
+      "fog": 79,
+      "cloud": 1,
+      "sensor": 700
+    },
+    "passed": true
+  },
+  "confirmed_7s_distribution": {
+    "actual": {
+      "vibration": 120,
+      "temperature": 120,
+      "pressure": 100,
+      "current": 100,
+      "acoustic": 100,
+      "flow_rate": 80,
+      "humidity": 80
+    },
+    "passed": true
+  },
+  "confirmed_3l_only": {
+    "levels_found": [
+      "critical",
+      "normal",
+      "warning"
+    ],
+    "passed": true
+  },
+  "event_count": {
+    "actual": 10000,
+    "target": 10000,
+    "passed": true
+  },
+  "timing_rules": {
+    "critical_deadline_target_seconds": 10,
+    "warning_deadline_target_seconds": 30,
+    "normal_periodic_seconds": 120,
+    "critical_deadline_success_rate": 0.986172,
+    "warning_deadline_success_rate": 1.0,
+    "normal_deadline_success_rate": 1.0
+  },
+  "cloud_record_counts": {
+    "critical_alert": 1591,
+    "warning_summary": 2511,
+    "normal_summary": 100,
+    "periodic_summary": 100
+  },
+  "normal_periodic_cloud_summary_present": true,
+  "offloading_paths_present": {
+    "local_edge": true,
+    "edge_to_edge": true,
+    "edge_to_fog": true,
+    "fog_to_fog": true,
+    "cloud_escalation": true
+  },
+  "exports_present": {
+    "kpis.json": true,
+    "events.json": true,
+    "nodes.json": true,
+    "topology.json": true,
+    "status_metrics.json": true,
+    "comparison.json": true,
+    "paths.json": true
+  },
+  "overall_passed": true
+}

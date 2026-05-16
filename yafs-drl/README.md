@@ -1,108 +1,133 @@
 # YAFS IIoT DQN Offloading System
 
-Integrated 1000-node IIoT dynamic task offloading package for edge-fog-cloud computing. The current system uses a DQN-based offloading selector for multi-objective decisions and exports results for the dashboard/API layer.
+Integrated 1000-node IIoT dynamic task offloading package mapped to the project requirements. The current system uses a PyTorch-based DQN offloading selector for multi-objective edge-fog-cloud decisions.
 
-## Confirmed Simulation Model
+- **7S sensor readings:** vibration, temperature, pressure, current, acoustic, flow rate, humidity.
+- **7F DQN decision factors:** delay, hop count, congestion/network condition, energy, task size, bandwidth, compute capacity.
+- **DQN policy:** PyTorch neural Q-network with epsilon-greedy exploration, replay memory, Bellman targets, Adam optimization, target-network synchronization, and learned action values.
+- **Reliability support metric:** link reliability is kept as an additional topology-aware qualitative feature (`factor_reliability_risk`), not counted as one of the core 7F factors.
+- **Topology:** 700 sensor nodes, 220 edge nodes, 79 fog nodes, 1 cloud node.
+- **Scenarios:** normal, warning, critical, repeated warning, edge-to-edge, edge-to-fog, fog-to-fog, cloud escalation, congestion, node overload/failure, 24h shift report.
+- **Cloud/dashboard exports:** events, node status, offloading decisions, KPIs, baseline comparison, shift report, cloud records, topology image.
 
-- Topology: 1000 total nodes.
-- Node distribution: 700 sensors, 220 edge nodes, 79 fog nodes, and 1 cloud node.
-- Sensor/event model: one sensor reading is one event.
-- Sensor types: vibration, temperature, pressure, current, acoustic, flow rate, humidity.
-- Event severity classes: normal, warning, critical.
-- DQN decision factors: delay, hop count, network condition/congestion, energy consumption, task size, bandwidth, and node computing capacity.
-- Reliability is kept as a support/topology-risk signal where available, but it is not counted as one of the core 7F factors.
-- Offloading actions: local edge, edge-to-edge, edge-to-fog, fog-to-fog, and cloud escalation.
-
-## Computations Included
-
-- 1000-node topology generation.
-- Sensor event generation from the seven sensor types.
-- Severity classification for normal, warning, and critical events.
-- Payload size, protocol/security overhead, and computation-demand estimation.
-- DQN offloading decision computation.
-- Dynamic node/link load updates after decisions.
-- Baseline comparison against local-only, edge-only, cloud-only, random, and rule-based static cloud/fog strategies.
-- KPI computation for latency, energy, deadline success, throughput, network overhead, offloading path distribution, congestion score, decision efficiency, scalability, and fairness/load balancing.
-- Cloud export generation for normal summaries, warning summaries, critical alerts, and dashboard/API records.
-
-## Run The Simulation
+## Run the simulation
 
 ```bash
 cd yafs-drl
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python main.py
-```
-
-## Run Analysis And Exports
-
-```bash
 python analysis/compute_kpis.py
 python analysis/compare_baseline.py
 python analysis/validate_requirements.py
 python analysis/export_dashboard_json.py
 ```
 
-## Run The API
+## Run the API
 
-The dashboard API is located in `system-dashboard/backend`. To serve this folder's exports:
+Start the API after the simulation outputs are available:
 
 ```bash
-cd ../system-dashboard/backend
-export YAFS_DATA_ROOT=../../yafs-drl
-dotnet restore
-dotnet run
+cd yafs-drl
+source .venv/bin/activate
+uvicorn src.dashboard_api.main:app --host 127.0.0.1 --port 8002
 ```
 
-API URL:
+Open the API documentation:
 
 ```text
-http://127.0.0.1:8002
+http://127.0.0.1:8002/docs
 ```
 
-## Run With The Dashboard
+## Run with the dashboard
 
 Keep the API terminal running, then open a second terminal:
 
 ```bash
-cd system-dashboard/frontend
+cd system-dashboard
+cd frontend
 npm install
 npm start
 ```
 
-Dashboard URL:
+Open the dashboard:
 
 ```text
 http://127.0.0.1:4200
 ```
 
-## Main Outputs
+## Outputs
 
 ```text
+results/events.csv
+results/offloading_decisions.csv
+results/baseline_decisions.csv
+topology/iiot_topology_1000.graphml
+topology/topology_summary.json
 dashboard_exports/events.json
 dashboard_exports/offloading_decisions.json
-dashboard_exports/nodes.json
 dashboard_exports/node_status.json
 dashboard_exports/kpis.json
 dashboard_exports/baseline_comparison.json
-dashboard_exports/comparison.json
-dashboard_exports/paths.json
+dashboard_exports/shift_report.json
 dashboard_exports/cloud_records.json
-dashboard_exports/status_condition_trace.json
-dashboard_exports/status_metrics.json
 dashboard_exports/topology.json
-topology/iiot_topology_1000.graphml
-topology/topology_summary.json
 ```
-
-## Cloud Policy
-
-- Normal readings are aggregated into summaries.
-- Warning readings generate warning summaries.
-- Critical readings generate critical cloud alerts.
-- Exported cloud records are used by the dashboard and API.
 
 ## Notes
 
-This package is YAFS-ready and can also run standalone to validate the 7S/7F logic before binding it to another YAFS environment.
+This package is YAFS-ready and can also run standalone to validate the 7F/7S logic before binding it to a specific YAFS version. Use `yafs_adapter_notes.py` for how to plug the selector/population into your existing YAFS folder.
+
+
+## Updated validation additions
+
+This version adds the missing requirement checks:
+
+1. **Normal cloud summaries**
+   - Normal raw readings are buffered at edge/cloud policy.
+   - Aggregated `normal_summary` records are sent every demo interval.
+   - This avoids sending all normal raw data to cloud while still supporting dashboard trends.
+
+2. **Status-condition trace**
+   - `results/status_condition_trace.csv`
+   - `dashboard_exports/status_condition_trace.json`
+   - These files show:
+     - when the condition was triggered
+     - whether it was sent to cloud
+     - record type sent to cloud
+     - selected layer
+     - estimated delivery delay
+     - deadline
+     - deadline_met
+
+3. **12h / 24h validation**
+   - Critical events use compressed 12h deadline = 120 simulation seconds.
+   - Warning events use compressed 24h deadline = 240 simulation seconds.
+   - Run:
+     ```bash
+     python analysis/validate_requirements.py
+     ```
+
+4. **Fog-to-fog validation**
+   - A small reproducible stress scenario is included to force fog-to-fog rerouting when a selected fog path is congested/overloaded.
+   - The result appears as `offloading_scenario = fog-to-fog`.
+
+## Recommended run
+
+```bash
+python main.py
+python analysis/compute_kpis.py
+python analysis/compare_baseline.py
+python analysis/validate_requirements.py
+```
+
+Useful quick checks:
+
+```bash
+grep -c "normal_summary" dashboard_exports/cloud_records.json
+grep -c "warning_summary" dashboard_exports/cloud_records.json
+grep -c "critical_alert" dashboard_exports/cloud_records.json
+grep -c "fog-to-fog" results/offloading_decisions.csv
+python -m json.tool dashboard_exports/requirements_validation.json
+```

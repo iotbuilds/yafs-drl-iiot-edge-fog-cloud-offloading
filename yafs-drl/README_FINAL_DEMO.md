@@ -6,7 +6,7 @@ This package is built from the previously integrated validated YAFS implementati
 
 - 1000-node IIoT topology
 - seven sensor types and thresholds
-- 7-factor DQN selector
+- PyTorch 7-factor DQN selector
 - edge-to-edge, edge-to-fog, fog-to-fog, and cloud escalation
 - cloud policy for normal summaries, warning summaries, and critical alerts
 - baseline validation

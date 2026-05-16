@@ -1,0 +1,162 @@
+[
+  {
+    "scenario": "cloud_escalation",
+    "count": 24,
+    "avg_latency": 14.708521,
+    "avg_energy_cost": 0.0,
+    "throughput_rate": 0.083333,
+    "network_overhead_bytes": 2650250,
+    "event_payload_bytes": 2359271,
+    "protocol_security_overhead_bytes": 290978,
+    "payload_component_bytes": {
+      "event_metadata": 43126,
+      "sensor_sample_window": 1133443,
+      "waveform_fault_window": 647541,
+      "diagnostic_logs": 215168,
+      "machine_context": 119697,
+      "calculated_features": 133385,
+      "device_security_metadata": 66909
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 232932150,
+      "threshold_classification": 559037160,
+      "feature_extraction": 1397592900,
+      "history_analysis": 931728600,
+      "aggregation": 419277870,
+      "cloud_analytics": 559037160,
+      "decision_packaging": 559037160
+    },
+    "decision_metadata_bytes": 115507,
+    "total_transfer_bytes_est": 2765757,
+    "avg_compute_demand_ratio": 0.037665,
+    "main_decision_reason": "selective cloud escalation; dominant 7F factor=delay"
+  },
+  {
+    "scenario": "edge_to_edge",
+    "count": 1773,
+    "avg_latency": 3.113113,
+    "avg_energy_cost": 0.125152,
+    "throughput_rate": 1.0,
+    "network_overhead_bytes": 68175714,
+    "event_payload_bytes": 58243778,
+    "protocol_security_overhead_bytes": 9931935,
+    "payload_component_bytes": {
+      "event_metadata": 1939727,
+      "sensor_sample_window": 26910839,
+      "waveform_fault_window": 10273913,
+      "diagnostic_logs": 5837207,
+      "machine_context": 4978681,
+      "calculated_features": 5363347,
+      "device_security_metadata": 2940060
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 6014812878,
+      "threshold_classification": 14791338383,
+      "feature_extraction": 26743054931,
+      "history_analysis": 15053896557,
+      "aggregation": 7249772257,
+      "cloud_analytics": 6895342509,
+      "decision_packaging": 14665083646
+    },
+    "decision_metadata_bytes": 7897651,
+    "total_transfer_bytes_est": 76073365,
+    "avg_compute_demand_ratio": 0.0885,
+    "main_decision_reason": "edge-to-edge reroute; dominant 7F factor=network_condition/congestion"
+  },
+  {
+    "scenario": "edge_to_fog",
+    "count": 1728,
+    "avg_latency": 3.677441,
+    "avg_energy_cost": 0.114547,
+    "throughput_rate": 1.0,
+    "network_overhead_bytes": 52287296,
+    "event_payload_bytes": 43988490,
+    "protocol_security_overhead_bytes": 8298806,
+    "payload_component_bytes": {
+      "event_metadata": 1763444,
+      "sensor_sample_window": 20063510,
+      "waveform_fault_window": 5782735,
+      "diagnostic_logs": 4546183,
+      "machine_context": 4457896,
+      "calculated_features": 4719642,
+      "device_security_metadata": 2655076
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 4614088295,
+      "threshold_classification": 11362806153,
+      "feature_extraction": 17864505681,
+      "history_analysis": 9043980833,
+      "aggregation": 4547810413,
+      "cloud_analytics": 3507036701,
+      "decision_packaging": 11325804589
+    },
+    "decision_metadata_bytes": 7697203,
+    "total_transfer_bytes_est": 59984499,
+    "avg_compute_demand_ratio": 0.026807,
+    "main_decision_reason": "edge-to-fog processing; dominant 7F factor=network_condition/congestion"
+  },
+  {
+    "scenario": "fog_to_fog",
+    "count": 818,
+    "avg_latency": 6.284273,
+    "avg_energy_cost": 0.085265,
+    "throughput_rate": 1.0,
+    "network_overhead_bytes": 25549730,
+    "event_payload_bytes": 21528506,
+    "protocol_security_overhead_bytes": 4021224,
+    "payload_component_bytes": {
+      "event_metadata": 821539,
+      "sensor_sample_window": 9881304,
+      "waveform_fault_window": 3078882,
+      "diagnostic_logs": 2195346,
+      "machine_context": 2098828,
+      "calculated_features": 2209724,
+      "device_security_metadata": 1242881
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 2251835214,
+      "threshold_classification": 5501958602,
+      "feature_extraction": 9219790142,
+      "history_analysis": 4911159678,
+      "aggregation": 2411585884,
+      "cloud_analytics": 2218387638,
+      "decision_packaging": 5518183984
+    },
+    "decision_metadata_bytes": 3936870,
+    "total_transfer_bytes_est": 29486601,
+    "avg_compute_demand_ratio": 0.030612,
+    "main_decision_reason": "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=delay"
+  },
+  {
+    "scenario": "local_edge",
+    "count": 5657,
+    "avg_latency": 1.254261,
+    "avg_energy_cost": 0.200707,
+    "throughput_rate": 1.0,
+    "network_overhead_bytes": 256269898,
+    "event_payload_bytes": 220922678,
+    "protocol_security_overhead_bytes": 35347220,
+    "payload_component_bytes": {
+      "event_metadata": 6613836,
+      "sensor_sample_window": 102786854,
+      "waveform_fault_window": 43946590,
+      "diagnostic_logs": 21703318,
+      "machine_context": 17171749,
+      "calculated_features": 18661122,
+      "device_security_metadata": 10039205
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 22599353780,
+      "threshold_classification": 55418320150,
+      "feature_extraction": 107715682702,
+      "history_analysis": 63462958766,
+      "aggregation": 30007100658,
+      "cloud_analytics": 31247334842,
+      "decision_packaging": 54908090196
+    },
+    "decision_metadata_bytes": 23171072,
+    "total_transfer_bytes_est": 279440970,
+    "avg_compute_demand_ratio": 0.111427,
+    "main_decision_reason": "local edge processing; dominant 7F factor=energy"
+  }
+]

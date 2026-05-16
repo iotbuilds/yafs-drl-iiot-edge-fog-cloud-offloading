@@ -1,0 +1,39 @@
+{
+  "critical": {
+    "events": 1591,
+    "avg_latency": 2.60967,
+    "deadline_success_rate": 0.986172,
+    "avg_energy_cost": 0.23144,
+    "path_distribution": {
+      "local_edge": 1168,
+      "edge_to_edge": 233,
+      "edge_to_fog": 92,
+      "fog_to_fog": 74,
+      "cloud_escalation": 24
+    }
+  },
+  "normal": {
+    "events": 5898,
+    "avg_latency": 2.500174,
+    "deadline_success_rate": 1.0,
+    "avg_energy_cost": 0.137448,
+    "path_distribution": {
+      "local_edge": 2950,
+      "edge_to_fog": 1265,
+      "edge_to_edge": 1070,
+      "fog_to_fog": 613
+    }
+  },
+  "warning": {
+    "events": 2511,
+    "avg_latency": 2.216269,
+    "deadline_success_rate": 1.0,
+    "avg_energy_cost": 0.177655,
+    "path_distribution": {
+      "local_edge": 1539,
+      "edge_to_edge": 470,
+      "edge_to_fog": 371,
+      "fog_to_fog": 131
+    }
+  }
+}

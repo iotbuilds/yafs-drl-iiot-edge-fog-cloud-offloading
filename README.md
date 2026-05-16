@@ -2,7 +2,7 @@
 
 This repository contains the final IIoT edge-fog-cloud offloading project:
 
-- `yafs-drl/` contains the YAFS/DRL simulation, event generation, DQN offloading logic, baseline comparison, KPI computation, cloud policy, validation scripts, and dashboard/API exports.
+- `yafs-drl/` contains the YAFS/DRL simulation, event generation, PyTorch DQN offloading logic, baseline comparison, KPI computation, cloud policy, validation scripts, and dashboard/API exports.
 - `system-dashboard/` contains the ASP.NET Core API and Angular dashboard used to view the simulation outputs, cloud records, topology, KPI tables, path distribution, baseline comparison, and validation results.
 
 ## Final Folder Structure
@@ -37,6 +37,7 @@ yafs-drl-iiot-edge-fog-cloud-offloading/
 - Sensor types: vibration, temperature, pressure, current, acoustic, flow rate, humidity.
 - Severity classes: normal, warning, and critical.
 - DQN decision factors: delay, hop count, network condition/congestion, energy consumption, task size, bandwidth, and node computing capacity.
+- DQN implementation: PyTorch neural Q-network with replay memory, Bellman targets, Adam optimization, and target-network synchronization.
 - Offloading actions: local edge, edge-to-edge, edge-to-fog, fog-to-fog, and cloud escalation.
 - Main quantitative performance measures: 10 measures including latency, energy, deadline success, throughput, network overhead, offloading path distribution, congestion score, decision efficiency, scalability, and fairness/load balancing.
 

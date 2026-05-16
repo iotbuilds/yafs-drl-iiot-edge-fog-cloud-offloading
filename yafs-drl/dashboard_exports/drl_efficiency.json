@@ -1,0 +1,15 @@
+{
+  "score_mean": 0.080862,
+  "score_std": 0.043694,
+  "reward_mean": 0.261168,
+  "q_learning_policy": true,
+  "state_uses_7f": true,
+  "action_space": [
+    "local_edge",
+    "edge_to_edge",
+    "edge_to_fog",
+    "fog_to_fog",
+    "cloud_escalation"
+  ],
+  "interpretation": "Reward/score trend shows DRL-style Q-policy decision efficiency. Lower score and stable reward indicate more stable 7F decisions."
+}

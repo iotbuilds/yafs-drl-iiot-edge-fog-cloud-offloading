@@ -1,17 +1,19 @@
-"""DQN-based 7S/7F topology-aware offloading selector.
+"""PyTorch DQN-based 7S/7F topology-aware offloading selector.
 
-This keeps the Bellman reward-learning formulation used by ``DRLQSelector`` but replaces
-the tabular Q lookup with a small neural approximator implemented in NumPy.
-The public decision schema remains dashboard/API compatible.
+The selector keeps the same dashboard/API decision schema as ``DRLQSelector``,
+but uses a real PyTorch neural Q-network, replay memory, Bellman targets,
+Adam optimization, and a target network for DQN-style learning.
 """
 from __future__ import annotations
 
 import random
-from collections import defaultdict, deque
+from collections import deque
 from dataclasses import dataclass
 
 import networkx as nx
 import numpy as np
+import torch
+from torch import nn
 
 from config import DEADLINES, DRL_ACTIONS, EVENT_LEVELS, SEED, SENSOR_TYPES
 from drl_q_selector import DRLQSelector
@@ -27,65 +29,26 @@ class DQNHyperParams:
     hidden_size: int = 64
     train_after: int = 48
     target_sync_interval: int = 100
+    gradient_clip: float = 1.0
 
 
-class _NumpyQNetwork:
-    def __init__(self, input_size: int, output_size: int, hidden_size: int, rng: np.random.Generator):
-        scale1 = np.sqrt(2.0 / max(input_size, 1))
-        scale2 = np.sqrt(2.0 / hidden_size)
-        self.w1 = rng.normal(0.0, scale1, (input_size, hidden_size))
-        self.b1 = np.zeros(hidden_size)
-        self.w2 = rng.normal(0.0, scale2, (hidden_size, hidden_size))
-        self.b2 = np.zeros(hidden_size)
-        self.w3 = rng.normal(0.0, 0.01, (hidden_size, output_size))
-        self.b3 = np.zeros(output_size)
+class _TorchQNetwork(nn.Module):
+    def __init__(self, input_size: int, output_size: int, hidden_size: int):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, output_size),
+        )
 
-    def copy_from(self, other: "_NumpyQNetwork") -> None:
-        for name in ("w1", "b1", "w2", "b2", "w3", "b3"):
-            setattr(self, name, getattr(other, name).copy())
-
-    def forward(self, x: np.ndarray) -> tuple[np.ndarray, tuple[np.ndarray, np.ndarray, np.ndarray]]:
-        z1 = x @ self.w1 + self.b1
-        h1 = np.maximum(z1, 0.0)
-        z2 = h1 @ self.w2 + self.b2
-        h2 = np.maximum(z2, 0.0)
-        out = h2 @ self.w3 + self.b3
-        return out, (h1, z2, h2)
-
-    def train_batch(self, states: np.ndarray, actions: np.ndarray, targets: np.ndarray, lr: float) -> float:
-        q_values, (h1, z2, h2) = self.forward(states)
-        chosen = q_values[np.arange(len(states)), actions]
-        error = chosen - targets
-        loss = float(np.mean(error ** 2))
-
-        grad_out = np.zeros_like(q_values)
-        grad_out[np.arange(len(states)), actions] = (2.0 / len(states)) * error
-
-        grad_w3 = h2.T @ grad_out
-        grad_b3 = grad_out.sum(axis=0)
-        grad_h2 = grad_out @ self.w3.T
-        grad_z2 = grad_h2 * (z2 > 0.0)
-        grad_w2 = h1.T @ grad_z2
-        grad_b2 = grad_z2.sum(axis=0)
-        grad_h1 = grad_z2 @ self.w2.T
-        grad_z1 = grad_h1 * (h1 > 0.0)
-        grad_w1 = states.T @ grad_z1
-        grad_b1 = grad_z1.sum(axis=0)
-
-        for grad in (grad_w1, grad_b1, grad_w2, grad_b2, grad_w3, grad_b3):
-            np.clip(grad, -1.0, 1.0, out=grad)
-
-        self.w1 -= lr * grad_w1
-        self.b1 -= lr * grad_b1
-        self.w2 -= lr * grad_w2
-        self.b2 -= lr * grad_b2
-        self.w3 -= lr * grad_w3
-        self.b3 -= lr * grad_b3
-        return loss
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.net(x)
 
 
 class DRLDQNSelector(DRLQSelector):
-    """DQN selector with the same output contract as DRLQSelector."""
+    """PyTorch DQN selector with the same output contract as DRLQSelector."""
 
     def __init__(
         self,
@@ -101,17 +64,25 @@ class DRLDQNSelector(DRLQSelector):
             gamma=self.params.gamma,
             seed=seed,
         )
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        torch.set_num_threads(1)
+
         self.action_to_index = {action: i for i, action in enumerate(DRL_ACTIONS)}
         self.index_to_action = {i: action for action, i in self.action_to_index.items()}
-        self.np_rng = np.random.default_rng(seed)
+        self.device = torch.device("cpu")
         self.replay = deque(maxlen=self.params.replay_capacity)
         self.previous_transition: tuple[np.ndarray, int, float] | None = None
         self.training_steps = 0
         self.last_loss = 0.0
         self.input_size = self._state_vector_size()
-        self.online = _NumpyQNetwork(self.input_size, len(DRL_ACTIONS), self.params.hidden_size, self.np_rng)
-        self.target = _NumpyQNetwork(self.input_size, len(DRL_ACTIONS), self.params.hidden_size, self.np_rng)
-        self.target.copy_from(self.online)
+        self.online = _TorchQNetwork(self.input_size, len(DRL_ACTIONS), self.params.hidden_size).to(self.device)
+        self.target = _TorchQNetwork(self.input_size, len(DRL_ACTIONS), self.params.hidden_size).to(self.device)
+        self.target.load_state_dict(self.online.state_dict())
+        self.target.eval()
+        self.optimizer = torch.optim.Adam(self.online.parameters(), lr=self.params.learning_rate)
+        self.loss_fn = nn.MSELoss()
 
     def select(self, event: dict) -> dict:
         self._release_completed_loads(float(event.get("timestamp", 0.0)))
@@ -130,17 +101,16 @@ class DRLDQNSelector(DRLQSelector):
         action_options = self._best_candidate_by_action(scored)
         state_vector = self._encode_state(event, source_edge, action_options)
         valid_actions = sorted(self.action_to_index[a] for a in action_options)
-        q_values, _ = self.online.forward(state_vector.reshape(1, -1))
-        q_values = q_values[0]
+        q_values = self._predict_q_values(state_vector)
 
         if self.rng.random() < self.epsilon:
             action_index = self.rng.choice(valid_actions)
-            policy_mode = "dqn_epsilon_exploration"
+            policy_mode = "pytorch_dqn_epsilon_exploration"
         else:
             masked = np.full(len(DRL_ACTIONS), -1e9)
             masked[valid_actions] = q_values[valid_actions]
             action_index = int(np.argmax(masked))
-            policy_mode = "dqn_policy_exploitation"
+            policy_mode = "pytorch_dqn_policy_exploitation"
 
         action_name = self.index_to_action[action_index]
         decision = dict(action_options[action_name])
@@ -154,7 +124,7 @@ class DRLDQNSelector(DRLQSelector):
         decision["q_value"] = round(float(q_values[action_index]), 6)
         decision["dqn_q_value"] = decision["q_value"]
         decision["dqn_action"] = action_name
-        decision["model_type"] = "DQN"
+        decision["model_type"] = "PyTorch-DQN"
         decision["dqn_loss"] = round(float(self.last_loss), 6)
         decision["state_7f"] = self._state(event, source_edge)
         self.reward_trace.append({
@@ -162,11 +132,19 @@ class DRLDQNSelector(DRLQSelector):
             "reward": decision["reward"],
             "score": decision["score"],
             "action": decision["offloading_scenario"],
-            "model_type": "DQN",
+            "model_type": "PyTorch-DQN",
         })
         self.action_counts[decision["offloading_scenario"]] += 1
         self._reserve_dynamic_load(event, decision)
         return decision
+
+    def _predict_q_values(self, state_vector: np.ndarray) -> np.ndarray:
+        self.online.eval()
+        with torch.no_grad():
+            state = torch.as_tensor(state_vector, dtype=torch.float32, device=self.device).unsqueeze(0)
+            q_values = self.online(state).squeeze(0).cpu().numpy()
+        self.online.train()
+        return q_values
 
     def _learn_from_previous(self, next_state: np.ndarray) -> None:
         if self.previous_transition is not None:
@@ -178,16 +156,26 @@ class DRLDQNSelector(DRLQSelector):
 
         batch_size = min(self.params.batch_size, len(self.replay))
         batch = self.rng.sample(list(self.replay), batch_size)
-        states = np.vstack([row[0] for row in batch])
-        actions = np.array([row[1] for row in batch], dtype=int)
-        rewards = np.array([row[2] for row in batch], dtype=float)
-        next_states = np.vstack([row[3] for row in batch])
-        next_q, _ = self.target.forward(next_states)
-        targets = rewards + self.gamma * np.max(next_q, axis=1)
-        self.last_loss = self.online.train_batch(states, actions, targets, self.params.learning_rate)
+        states = torch.as_tensor(np.vstack([row[0] for row in batch]), dtype=torch.float32, device=self.device)
+        actions = torch.as_tensor([row[1] for row in batch], dtype=torch.long, device=self.device).unsqueeze(1)
+        rewards = torch.as_tensor([row[2] for row in batch], dtype=torch.float32, device=self.device)
+        next_states = torch.as_tensor(np.vstack([row[3] for row in batch]), dtype=torch.float32, device=self.device)
+
+        q_selected = self.online(states).gather(1, actions).squeeze(1)
+        with torch.no_grad():
+            next_q = self.target(next_states).max(dim=1).values
+            targets = rewards + self.gamma * next_q
+
+        loss = self.loss_fn(q_selected, targets)
+        self.optimizer.zero_grad()
+        loss.backward()
+        nn.utils.clip_grad_norm_(self.online.parameters(), self.params.gradient_clip)
+        self.optimizer.step()
+
+        self.last_loss = float(loss.detach().cpu().item())
         self.training_steps += 1
         if self.training_steps % self.params.target_sync_interval == 0:
-            self.target.copy_from(self.online)
+            self.target.load_state_dict(self.online.state_dict())
 
     def _best_candidate_by_action(self, scored: list[dict]) -> dict[str, dict]:
         best: dict[str, dict] = {}
@@ -231,7 +219,7 @@ class DRLDQNSelector(DRLQSelector):
                 float(candidate.get("factor_task_cpu_cycles", 0.0)),
                 float(candidate.get("factor_target_compute_capacity_cycles", 0.0)),
             ])
-        return np.array(values, dtype=float)
+        return np.array(values, dtype=np.float32)
 
     def _state_vector_size(self) -> int:
         event_features = len(EVENT_LEVELS) + len(SENSOR_TYPES) + 2
