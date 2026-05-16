@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+
+# .NET
+backend/bin/
+backend/obj/
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vite-temp/
+
+# Environment
+.env
+.venv/
+__pycache__/

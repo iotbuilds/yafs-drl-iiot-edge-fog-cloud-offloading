@@ -1,0 +1,37 @@
+[
+  {
+    "path": "cloud_escalation",
+    "count": 24,
+    "ratio": 0.0024,
+    "avg_latency": 14.708521,
+    "deadline_success_rate": 0.083333
+  },
+  {
+    "path": "edge_to_edge",
+    "count": 5875,
+    "ratio": 0.5875,
+    "avg_latency": 3.197074,
+    "deadline_success_rate": 1.0
+  },
+  {
+    "path": "edge_to_fog",
+    "count": 1242,
+    "ratio": 0.1242,
+    "avg_latency": 4.150108,
+    "deadline_success_rate": 1.0
+  },
+  {
+    "path": "fog_to_fog",
+    "count": 770,
+    "ratio": 0.077,
+    "avg_latency": 6.427362,
+    "deadline_success_rate": 1.0
+  },
+  {
+    "path": "local_edge",
+    "count": 2089,
+    "ratio": 0.2089,
+    "avg_latency": 1.099544,
+    "deadline_success_rate": 1.0
+  }
+]

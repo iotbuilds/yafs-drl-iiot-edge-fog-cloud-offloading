@@ -1,0 +1,26 @@
+{
+  "nodes": 1000,
+  "edges": 3057,
+  "confirmed_distribution": {
+    "sensor": 700,
+    "edge": 220,
+    "fog": 79,
+    "cloud": 1
+  },
+  "layers": {
+    "edge": 220,
+    "fog": 79,
+    "cloud": 1,
+    "sensor": 700
+  },
+  "sensor_distribution_7s": {
+    "vibration": 120,
+    "temperature": 120,
+    "pressure": 100,
+    "current": 100,
+    "acoustic": 100,
+    "flow_rate": 80,
+    "humidity": 80
+  },
+  "cloud_count_rule": "one centralized cloud node only"
+}

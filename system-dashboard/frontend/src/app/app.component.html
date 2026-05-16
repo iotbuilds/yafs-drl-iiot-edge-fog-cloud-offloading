@@ -1,0 +1,665 @@
+<div class="yafs-app">
+  <aside class="yafs-sidebar">
+    <div class="yafs-logo-row">
+      <img class="yafs-logo-image" src="assets/yafs-private-cloud-logo.png" alt="YAFS private cloud logo" />
+      <div class="min-w-0">
+        <div class="truncate text-sm font-extrabold tracking-tight">IIoT DQN</div>
+        <div class="truncate text-xs text-[#9da1c1]">Private Cloud Dashboard</div>
+      </div>
+    </div>
+    <nav class="yafs-nav space-y-1">
+      <button *ngFor="let item of navItems" type="button" class="yafs-nav-button" [class.active]="selectedPage() === item" (click)="selectPage(item)">
+        <span class="h-2 w-2 rounded-full" [class.bg-white]="selectedPage() === item" [class.bg-[#4b4d7a]="selectedPage() !== item"></span>
+        <span class="truncate">{{ item }}</span>
+      </button>
+    </nav>
+  </aside>
+
+  <main class="yafs-main">
+    <header class="yafs-header">
+      <div class="yafs-status">
+        <span class="yafs-status-dot" [style.background]="active() ? '#10b981' : '#ef4444'"></span>
+        <span>{{ active() ? 'YAFS Simulation Active' : 'YAFS Simulation Inactive' }}</span>
+      </div>
+      <div class="flex items-center gap-2"><button type="button" class="yafs-icon-button" (click)="refresh()" aria-label="Refresh dashboard">↻</button><button type="button" class="yafs-icon-button" (click)="toggleTheme()" aria-label="Toggle theme">{{ isLightMode() ? '☾' : '☀' }}</button></div>
+    </header>
+
+    <section class="yafs-content space-y-6" *ngIf="snapshot(); else loading">
+      <div>
+        <h1 class="yafs-section-title">{{ selectedPage() }}</h1>
+        <p class="yafs-subtitle">Multi-objective DQN task offloading, real API data, simulation-time monitoring</p>
+      </div>
+
+      <ng-container [ngSwitch]="selectedPage()">
+        <section *ngSwitchCase="'Overview'" class="space-y-6">
+          <div class="yafs-kpi-grid">
+            <div class="yafs-kpi-card" *ngFor="let card of view().summary; trackBy: trackByLabel">
+              <div class="yafs-kpi-main">
+                <div class="min-w-0">
+                  <div class="yafs-kpi-title">{{ card.label }}</div>
+                  <div class="yafs-kpi-value">{{ card.value }}<span class="yafs-kpi-suffix" *ngIf="card.suffix">{{ card.suffix }}</span></div>
+                </div>
+                <div class="yafs-kpi-icon" [ngClass]="'is-' + card.colorClass">
+                  <lucide-icon [img]="card.icon" [size]="20"></lucide-icon>
+                </div>
+              </div>
+              <div class="yafs-trend" [class.increasing]="card.trend === 'increasing'" [class.decreasing]="card.trend === 'decreasing'" [class.stable]="card.trend === 'stable'">
+                <span>{{ card.trend === 'increasing' ? '↗' : card.trend === 'decreasing' ? '↘' : '−' }}</span>
+                <span>{{ card.trend === 'increasing' ? 'Increasing' : card.trend === 'decreasing' ? 'Decreasing' : 'Stable' }}</span>
+              </div>
+              <div class="yafs-kpi-glow" [ngClass]="'is-' + card.colorClass"></div>
+            </div>
+          </div>
+          <div class="yafs-grid-2">
+            <app-chart-card title="Latency & Energy Over Time" [config]="charts().latencyEnergy"></app-chart-card>
+            <app-chart-card title="Congestion & Computational Load Over Time" [config]="charts().congestionLoad"></app-chart-card>
+            <app-chart-card title="Offloading Distribution" [config]="charts().offloading"></app-chart-card>
+            <app-chart-card title="Sensor Status Distribution" [config]="charts().sensorStatus"></app-chart-card>
+          </div>
+        </section>
+
+        <section *ngSwitchCase="'Plant View'" class="space-y-4" [class.plant-fullscreen]="plantFullscreen()">
+          <div class="plant-toolbar">
+            <div>
+              <h2 class="plant-heading">Interactive Plant View</h2>
+              <p class="yafs-subtitle">{{ plantNodes().length }} sensor nodes shown - grouped by YAFS zone and edge gateway</p>
+            </div>
+            <div class="plant-controls">
+              <select class="plant-select" [value]="plantZoneFilter()" (change)="setPlantZoneFilter($any($event.target).value)" aria-label="Filter plant zone">
+                <option value="all">All Zones</option>
+                <option *ngFor="let zone of view().plant.zones" [value]="zone.id">{{ zone.name }}</option>
+              </select>
+              <select class="plant-select" [value]="plantStatusFilter()" (change)="setPlantStatusFilter($any($event.target).value)" aria-label="Filter sensor status">
+                <option value="all">All Status</option>
+                <option value="normal">Normal</option>
+                <option value="warning">Warning</option>
+                <option value="critical">Critical</option>
+              </select>
+              <button type="button" class="yafs-icon-button plant-control-button" (click)="zoomPlant(0.1)" aria-label="Zoom in">+</button>
+              <button type="button" class="yafs-icon-button plant-control-button" (click)="zoomPlant(-0.1)" aria-label="Zoom out">−</button>
+              <button type="button" class="yafs-icon-button plant-control-button" (click)="togglePlantFullscreen()" aria-label="Toggle plant fullscreen">{{ plantFullscreen() ? '□' : '⛶' }}</button>
+            </div>
+          </div>
+
+          <div class="plant-shell">
+            <div class="plant-map-card">
+              <div class="plant-map-scroll">
+                <svg class="plant-svg" [attr.height]="800 * plantZoom()" viewBox="0 0 960 800" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Interactive plant map">
+                  <g *ngFor="let zone of plantZones()">
+                    <rect [attr.x]="zone.x" [attr.y]="zone.y" [attr.width]="zone.w" [attr.height]="zone.h" rx="12" [attr.fill]="zone.color + '14'" [attr.stroke]="zone.color + '66'" stroke-width="1.5" stroke-dasharray="6 3"></rect>
+                    <text [attr.x]="zone.x + 12" [attr.y]="zone.y + 22" font-size="12" font-weight="700" [attr.fill]="zone.color">{{ zone.name }}</text>
+                    <text [attr.x]="zone.x + zone.w - 12" [attr.y]="zone.y + 22" font-size="9" text-anchor="end" fill="var(--yafs-muted)">{{ zone.count }}</text>
+                    <text *ngFor="let group of zone.groups.slice(0, 4)" [attr.x]="group.labelX" [attr.y]="zone.y + zone.h - 12" font-size="7" text-anchor="middle" fill="var(--yafs-muted)" opacity="0.75">{{ shortEdge(group.edge) }}</text>
+                  </g>
+
+                  <g *ngFor="let node of plantNodes()" class="plant-node" (mouseenter)="hoveredPlantNode.set(node)" (mouseleave)="hoveredPlantNode.set(null)" (click)="selectedPlantNode.set(node)">
+                    <ng-container [ngSwitch]="node.sensorType">
+                      <rect *ngSwitchCase="'temperature'" [attr.x]="node.mapX - 4" [attr.y]="node.mapY - 4" width="8" height="8" rx="2" [attr.fill]="node.color"></rect>
+                      <rect *ngSwitchCase="'pressure'" [attr.x]="node.mapX - 4" [attr.y]="node.mapY - 4" width="8" height="8" [attr.transform]="'rotate(45 ' + node.mapX + ' ' + node.mapY + ')'" [attr.fill]="node.color"></rect>
+                      <polygon *ngSwitchCase="'current'" [attr.points]="node.mapX + ',' + (node.mapY - 5) + ' ' + (node.mapX + 5) + ',' + (node.mapY + 4) + ' ' + (node.mapX - 5) + ',' + (node.mapY + 4)" [attr.fill]="node.color"></polygon>
+                      <polygon *ngSwitchCase="'acoustic'" [attr.points]="(node.mapX - 5) + ',' + node.mapY + ' ' + (node.mapX - 2) + ',' + (node.mapY - 5) + ' ' + (node.mapX + 3) + ',' + (node.mapY - 5) + ' ' + (node.mapX + 5) + ',' + node.mapY + ' ' + (node.mapX + 2) + ',' + (node.mapY + 5) + ' ' + (node.mapX - 3) + ',' + (node.mapY + 5)" [attr.fill]="node.color"></polygon>
+                      <ellipse *ngSwitchCase="'flow_rate'" [attr.cx]="node.mapX" [attr.cy]="node.mapY" rx="5" ry="3.5" [attr.fill]="node.color"></ellipse>
+                      <path *ngSwitchCase="'humidity'" [attr.d]="'M ' + node.mapX + ' ' + (node.mapY - 6) + ' C ' + (node.mapX + 5) + ' ' + (node.mapY - 1) + ', ' + (node.mapX + 4) + ' ' + (node.mapY + 5) + ', ' + node.mapX + ' ' + (node.mapY + 5) + ' C ' + (node.mapX - 4) + ' ' + (node.mapY + 5) + ', ' + (node.mapX - 5) + ' ' + (node.mapY - 1) + ', ' + node.mapX + ' ' + (node.mapY - 6) + ' Z'" [attr.fill]="node.color"></path>
+                      <circle *ngSwitchDefault [attr.cx]="node.mapX" [attr.cy]="node.mapY" r="4" [attr.fill]="node.color"></circle>
+                    </ng-container>
+                    <g *ngIf="hoveredPlantNode()?.id === node.id" class="plant-tooltip">
+                      <circle [attr.cx]="node.mapX" [attr.cy]="node.mapY" r="9" fill="none" [attr.stroke]="node.color" stroke-width="2" opacity="0.65"></circle>
+                      <rect [attr.x]="node.mapX + 10" [attr.y]="node.mapY - 40" width="164" height="62" rx="6"></rect>
+                      <text [attr.x]="node.mapX + 16" [attr.y]="node.mapY - 23" font-size="10" fill="#fff" font-weight="700">{{ node.id }}</text>
+                      <text [attr.x]="node.mapX + 16" [attr.y]="node.mapY - 8" font-size="9" fill="#94a3b8">{{ node.sensorLabel }}: {{ node.reading ?? 'N/A' }}{{ node.unit }}</text>
+                      <text [attr.x]="node.mapX + 16" [attr.y]="node.mapY + 7" font-size="9" fill="#94a3b8">Route: {{ node.selectedLayer || 'N/A' }}</text>
+                    </g>
+                  </g>
+
+                  <g *ngFor="let edge of view().plant.edgeGateways">
+                    <rect [attr.x]="edge.x" [attr.y]="edge.y" width="36" height="22" rx="6" fill="#3b82f620" stroke="#3b82f680" stroke-width="1"></rect>
+                    <text [attr.x]="edge.x + 4" [attr.y]="edge.y + 15" font-size="7" fill="#3b82f6" font-weight="700">{{ shortEdge(edge.id) }}</text>
+                  </g>
+
+                  <g transform="translate(20, 760)">
+                    <g *ngFor="let item of view().plant.legend; let i = index" [attr.transform]="'translate(' + (i * 112) + ', 0)'">
+                      <circle cx="6" cy="6" r="4" [attr.fill]="item.color"></circle>
+                      <text x="14" y="10" font-size="10" fill="var(--yafs-muted)">{{ item.label }}</text>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <aside class="plant-detail" *ngIf="selectedPlantNode(); else plantHint">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3>{{ selectedPlantNode()?.id }}</h3>
+                  <p>Latest YAFS event from this plant sensor node.</p>
+                </div>
+                <button type="button" class="yafs-icon-button" (click)="selectedPlantNode.set(null)" aria-label="Close node details">×</button>
+              </div>
+              <div class="plant-detail-grid">
+                <div><span>Zone</span><strong>{{ selectedPlantNode()?.zone }}</strong></div>
+                <div><span>Sensor Type</span><strong>{{ selectedPlantNode()?.sensorLabel }}</strong></div>
+                <div><span>Edge Gateway</span><strong>{{ selectedPlantNode()?.edge }}</strong></div>
+                <div><span>Status</span><strong><span class="yafs-pill" [class.normal]="selectedPlantNode()?.status === 'normal'" [class.warning]="selectedPlantNode()?.status === 'warning'" [class.critical]="selectedPlantNode()?.status === 'critical'">{{ selectedPlantNode()?.status }}</span></strong></div>
+              </div>
+              <div class="plant-reading">
+                <span>Latest Reading</span>
+                <strong>{{ selectedPlantNode()?.reading ?? 'N/A' }}{{ selectedPlantNode()?.unit }}</strong>
+                <small>{{ selectedPlantNode()?.event?.event_id || 'No event id received from YAFS' }}</small>
+              </div>
+              <div class="plant-route">
+                <h4>Latest Offloading Event</h4>
+                <div><span>Path selected</span><strong>{{ selectedPlantNode()?.decision?.offloading_scenario || 'N/A' }}</strong></div>
+                <div><span>Destination</span><strong>{{ selectedPlantNode()?.decision?.destination || 'N/A' }}</strong></div>
+                <div><span>Route path</span><strong>{{ selectedPlantNode()?.route }}</strong></div>
+                <div><span>Deadline met</span><strong>{{ selectedPlantNode()?.deadlineMet === true ? 'Yes' : selectedPlantNode()?.deadlineMet === false ? 'No' : 'N/A' }}</strong></div>
+                <div><span>Delay</span><strong>{{ selectedPlantNode()?.delay ?? 'N/A' }}ms</strong></div>
+                <p *ngIf="selectedPlantNode()?.reason">"{{ selectedPlantNode()?.reason }}"</p>
+              </div>
+            </aside>
+
+            <ng-template #plantHint>
+              <aside class="plant-detail plant-empty-detail">
+                <h3>Node Details</h3>
+                <p>Select any marker on the plant map to inspect its latest reading, DQN route, deadline result, and offloading reason.</p>
+              </aside>
+            </ng-template>
+          </div>
+        </section>
+
+        <section *ngSwitchCase="'Network Topology'" class="space-y-4">
+          <div class="topology-toolbar">
+            <div>
+              <h2 class="plant-heading">YAFS Network Topology</h2>
+              <div class="topology-control-row">
+                <div class="topology-layer-legend" aria-label="Topology layers">
+                  <span><i class="topology-dot topology-dot-sensor"></i>{{ view().topology.sensorCount }} Sensors grouped by edge</span>
+                  <span><i class="topology-dot topology-dot-edge"></i>Edge Layer</span>
+                  <span><i class="topology-dot topology-dot-fog"></i>Fog Layer</span>
+                  <span><i class="topology-dot topology-dot-cloud"></i>Cloud Layer</span>
+                </div>
+                <div class="topology-zoom-controls" aria-label="Topology zoom controls">
+                  <button type="button" class="yafs-icon-button plant-control-button" (click)="zoomTopology(-0.1)" aria-label="Zoom topology out">−</button>
+                  <button type="button" class="yafs-icon-button plant-control-button" (click)="zoomTopology(0.1)" aria-label="Zoom topology in">+</button>
+                </div>
+              </div>
+              <p class="yafs-subtitle">{{ view().topology.edgeCount }} edge • {{ view().topology.fogCount }} fog • 1 cloud • {{ view().topology.linkCount }} infrastructure links • {{ view().topology.activeLinkCount }} active • {{ view().topology.inactiveLinkCount }} inactive • {{ view().topology.totalTransmittedLabel }} transmitted</p>
+            </div>
+          </div>
+
+          <div class="topology-shell">
+            <div class="topology-map-card">
+              <div class="topology-map-scroll">
+                <svg class="topology-svg" [attr.height]="500 * topologyZoom()" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="YAFS network topology">
+                  <g *ngFor="let link of view().topology.links" class="topology-link" (click)="selectedTopologyLink.set(link)">
+                    <line [attr.x1]="topologyNodeCenter(link.source).x" [attr.y1]="topologyNodeCenter(link.source).y" [attr.x2]="topologyNodeCenter(link.target).x" [attr.y2]="topologyNodeCenter(link.target).y" [class.active]="link.status === 'active' || link.status === 'healthy'" [class.inactive]="link.status === 'inactive'" [class.congested]="link.status === 'congested'"></line>
+                    <circle *ngIf="link.status !== 'inactive'" r="2.5" [attr.fill]="link.status === 'congested' ? '#ef4444' : '#3b82f6'">
+                      <animateMotion dur="3s" repeatCount="indefinite" [attr.path]="'M' + topologyNodeCenter(link.source).x + ',' + topologyNodeCenter(link.source).y + ' L' + topologyNodeCenter(link.target).x + ',' + topologyNodeCenter(link.target).y"></animateMotion>
+                    </circle>
+                  </g>
+
+                  <g *ngFor="let group of view().topology.sensorGroups" class="topology-sensor-group">
+                    <line [attr.x1]="group.x" [attr.y1]="group.y - 11" [attr.x2]="group.x" [attr.y2]="group.y - 2"></line>
+                    <circle [attr.cx]="group.x" [attr.cy]="group.y" [attr.r]="group.r"></circle>
+                    <text [attr.x]="group.x" [attr.y]="group.y + 3" font-size="6" text-anchor="middle" font-weight="800">{{ group.label }}</text>
+                  </g>
+
+                  <g *ngFor="let edge of view().topology.edges" class="topology-node" (mouseenter)="hoveredTopologyNode.set(edge.id)" (mouseleave)="hoveredTopologyNode.set(null)">
+                    <rect [attr.x]="edge.x" [attr.y]="edge.y" [attr.width]="edge.w" [attr.height]="edge.h" rx="8" class="topology-edge" [class.hovered]="hoveredTopologyNode() === edge.id"></rect>
+                    <text *ngIf="edge.fontSize > 0" [attr.x]="edge.x + 8" [attr.y]="edge.y + 18" [attr.font-size]="edge.fontSize" fill="#3b82f6" font-weight="700">{{ edge.id }}</text>
+                  </g>
+
+                  <g *ngFor="let fog of view().topology.fogs" class="topology-node" (mouseenter)="hoveredTopologyNode.set(fog.id)" (mouseleave)="hoveredTopologyNode.set(null)">
+                    <rect [attr.x]="fog.x" [attr.y]="fog.y" [attr.width]="fog.w" [attr.height]="fog.h" rx="8" class="topology-fog" [class.hovered]="hoveredTopologyNode() === fog.id"></rect>
+                    <text *ngIf="fog.fontSize > 0" [attr.x]="fog.x + 12" [attr.y]="fog.y + 20" [attr.font-size]="fog.fontSize" fill="#8b5cf6" font-weight="700">{{ fog.id }}</text>
+                  </g>
+
+                  <g class="topology-node">
+                    <rect [attr.x]="view().topology.cloud.x" [attr.y]="view().topology.cloud.y" [attr.width]="view().topology.cloud.w" [attr.height]="view().topology.cloud.h" rx="10" class="topology-cloud"></rect>
+                    <text [attr.x]="view().topology.cloud.x + 9" [attr.y]="view().topology.cloud.y + 20" font-size="9" fill="#94a3b8" font-weight="800">{{ view().topology.cloud.id }}</text>
+                  </g>
+
+                </svg>
+              </div>
+            </div>
+
+            <aside class="plant-detail topology-detail" *ngIf="selectedTopologyLink(); else topologyHint">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div class="topology-detail-title">
+                    <h3>Link Details</h3>
+                    <details class="topology-info-popover">
+                      <summary aria-label="Show link details guide">i</summary>
+                      <div class="topology-info-card">
+                        <h4>Link Metrics Guide</h4>
+                        <dl>
+                          <div><dt>Source / Destination</dt><dd>The two YAFS nodes connected by this topology link.</dd></div>
+                          <div><dt>Latency</dt><dd>Delay in ms. Lower is better; high values mean slower transfer.</dd></div>
+                          <div><dt>Bandwidth</dt><dd>Physical link capacity in Mbps from YAFS BW. Higher means more data can move per second.</dd></div>
+                          <div><dt>Bandwidth Cost</dt><dd>DQN cost score: 0.00-0.40 normal, 0.40-0.70 warning, above 0.70 critical.</dd></div>
+                          <div><dt>Congestion</dt><dd>Traffic pressure on the route. Below 40% normal, 40-70% warning, above 70% congested.</dd></div>
+                          <div><dt>Packet Loss</dt><dd>Percent of packets lost if reported by the data source. Lower is better.</dd></div>
+                          <div><dt>Transmitted</dt><dd>Total bytes carried by routed tasks on this link in the current sample.</dd></div>
+                          <div><dt>Routed Tasks</dt><dd>Number of simulation decisions that used this link.</dd></div>
+                          <div><dt>Link State</dt><dd>Active means traffic used it; inactive means available but unused; congested means above the congestion threshold.</dd></div>
+                          <div><dt>Status Source</dt><dd>Shows whether the state is reported by YAFS/API or derived from route traffic.</dd></div>
+                        </dl>
+                      </div>
+                    </details>
+                  </div>
+                  <p>{{ selectedTopologyLink()?.source }} to {{ selectedTopologyLink()?.target }}</p>
+                </div>
+                <button type="button" class="yafs-icon-button" (click)="selectedTopologyLink.set(null)" aria-label="Close link details">×</button>
+              </div>
+              <div class="plant-route">
+                <div><span>Source</span><strong>{{ selectedTopologyLink()?.source }}</strong></div>
+                <div><span>Destination</span><strong>{{ selectedTopologyLink()?.target }}</strong></div>
+                <div><span>Latency</span><strong>{{ selectedTopologyLink()?.latency ?? 'N/A' }} ms</strong></div>
+                <div><span>Bandwidth</span><strong>{{ selectedTopologyLink()?.bandwidth ?? 'N/A' }} Mbps</strong></div>
+                <div><span>Bandwidth Source</span><strong>{{ selectedTopologyLink()?.bandwidthSource }}</strong></div>
+                <div><span>Bandwidth Cost</span><strong>{{ selectedTopologyLink()?.bandwidthCost ?? 'N/A' }} score</strong></div>
+                <div><span>Congestion</span><strong>{{ selectedTopologyLink()?.congestion ?? 'N/A' }}%</strong></div>
+                <div><span>Packet Loss</span><strong>{{ selectedTopologyLink()?.packetLoss ?? 'N/A' }}%</strong></div>
+                <div><span>Transmitted</span><strong>{{ selectedTopologyLink()?.bytesLabel }}</strong></div>
+                <div><span>Routed Tasks</span><strong>{{ selectedTopologyLink()?.taskCount }}</strong></div>
+                <div><span>Info</span><strong>{{ selectedTopologyLink()?.trafficInfo }}</strong></div>
+                <div><span>Link State</span><strong><span class="yafs-pill" [class.normal]="selectedTopologyLink()?.status === 'active' || selectedTopologyLink()?.status === 'healthy'" [class.warning]="selectedTopologyLink()?.status === 'inactive'" [class.critical]="selectedTopologyLink()?.status === 'congested'">{{ selectedTopologyLink()?.statusLabel }}</span></strong></div>
+                <div><span>Status Source</span><strong>{{ selectedTopologyLink()?.statusSource }}</strong></div>
+              </div>
+            </aside>
+
+            <ng-template #topologyHint>
+              <aside class="plant-detail topology-detail plant-empty-detail">
+                <div class="topology-detail-title">
+                  <h3>Link Details</h3>
+                  <details class="topology-info-popover">
+                    <summary aria-label="Show link details guide">i</summary>
+                    <div class="topology-info-card">
+                      <h4>Link Metrics Guide</h4>
+                      <dl>
+                        <div><dt>Source / Destination</dt><dd>The two YAFS nodes connected by this topology link.</dd></div>
+                        <div><dt>Latency</dt><dd>Delay in ms. Lower is better; high values mean slower transfer.</dd></div>
+                        <div><dt>Bandwidth</dt><dd>Physical link capacity in Mbps from YAFS BW. Higher means more data can move per second.</dd></div>
+                        <div><dt>Bandwidth Cost</dt><dd>DQN cost score: 0.00-0.40 normal, 0.40-0.70 warning, above 0.70 critical.</dd></div>
+                        <div><dt>Congestion</dt><dd>Traffic pressure on the route. Below 40% normal, 40-70% warning, above 70% congested.</dd></div>
+                        <div><dt>Packet Loss</dt><dd>Percent of packets lost if reported by the data source. Lower is better.</dd></div>
+                        <div><dt>Transmitted</dt><dd>Total bytes carried by routed tasks on this link in the current sample.</dd></div>
+                        <div><dt>Routed Tasks</dt><dd>Number of simulation decisions that used this link.</dd></div>
+                        <div><dt>Link State</dt><dd>Active means traffic used it; inactive means available but unused; congested means above the congestion threshold.</dd></div>
+                        <div><dt>Status Source</dt><dd>Shows whether the state is reported by YAFS/API or derived from route traffic.</dd></div>
+                      </dl>
+                    </div>
+                  </details>
+                </div>
+                <p>Select any topology link to inspect source, destination, congestion, latency, packet loss, and transmitted bytes.</p>
+              </aside>
+            </ng-template>
+          </div>
+
+          <div class="yafs-card topology-table-card">
+            <div class="yafs-card-body">
+              <div class="topology-table-toolbar">
+                <div>
+                  <h2 class="mb-1 text-sm font-bold">Infrastructure Link Table</h2>
+                  <p class="yafs-subtitle">{{ filteredTopologyLinks().length }} of {{ view().topology.linkCount }} links shown</p>
+                </div>
+                <div class="plant-controls">
+                  <select class="plant-select" [value]="topologyStateFilter()" (change)="setTopologyStateFilter($any($event.target).value)" aria-label="Filter topology link state">
+                    <option value="all">All States</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="congested">Congested</option>
+                  </select>
+                  <select class="plant-select" [value]="topologyTypeFilter()" (change)="setTopologyTypeFilter($any($event.target).value)" aria-label="Filter topology link type">
+                    <option value="all">All Types</option>
+                    <option *ngFor="let type of topologyLinkTypes()" [value]="type">{{ type }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="yafs-table topology-link-table">
+                  <thead>
+                    <tr>
+                      <th>Link ID</th>
+                      <th>Type</th>
+                      <th>Source</th>
+                      <th>Destination</th>
+                      <th>State</th>
+                      <th>Routed Tasks</th>
+                      <th>Transmitted</th>
+                      <th>Bandwidth</th>
+                      <th>Latency</th>
+                      <th>Congestion</th>
+                      <th>Bandwidth Cost</th>
+                      <th>Status Source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let link of filteredTopologyLinks(); trackBy: trackByLinkId" (click)="selectedTopologyLink.set(link)" [class.selected]="selectedTopologyLink()?.id === link.id">
+                      <td>{{ link.id }}</td>
+                      <td>{{ link.typeLabel }}</td>
+                      <td>{{ link.source }}</td>
+                      <td>{{ link.target }}</td>
+                      <td><span class="yafs-pill" [class.normal]="link.status === 'active' || link.status === 'healthy'" [class.warning]="link.status === 'inactive'" [class.critical]="link.status === 'congested'">{{ link.statusLabel }}</span></td>
+                      <td>{{ link.taskCount }}</td>
+                      <td>{{ link.bytesLabel }}</td>
+                      <td>{{ link.bandwidth ?? 'N/A' }} Mbps</td>
+                      <td>{{ link.latency ?? 'N/A' }} ms</td>
+                      <td>{{ link.congestion ?? 'N/A' }}%</td>
+                      <td>{{ link.bandwidthCost ?? 'N/A' }}</td>
+                      <td>{{ link.statusSource }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section *ngSwitchCase="'Node Details'" class="space-y-4">
+          <div class="node-details-toolbar">
+            <div>
+              <p class="yafs-subtitle">Click any node to inspect compute, energy, routing role, and latest update</p>
+            </div>
+            <label class="node-search">
+              <span>⌕</span>
+              <input type="search" placeholder="Search by ID, equipment, zone..." [value]="nodeSearch()" (input)="setNodeSearch($any($event.target).value)" aria-label="Search nodes" />
+            </label>
+          </div>
+
+          <div class="node-filter-row">
+            <select class="plant-select" [value]="nodeLayerFilter()" (change)="setNodeLayerFilter($any($event.target).value)" aria-label="Filter by layer">
+              <option value="all">All Layers</option>
+              <option *ngFor="let layer of nodeFilterOptions('layer')" [value]="layer">{{ layer }}</option>
+            </select>
+            <select class="plant-select" [value]="nodeZoneFilter()" (change)="setNodeZoneFilter($any($event.target).value)" aria-label="Filter by zone">
+              <option value="all">All Zones</option>
+              <option *ngFor="let zone of nodeFilterOptions('zone')" [value]="zone">{{ zone }}</option>
+            </select>
+            <select class="plant-select" [value]="nodeStatusFilter()" (change)="setNodeStatusFilter($any($event.target).value)" aria-label="Filter by status">
+              <option value="all">All Statuses</option>
+              <option *ngFor="let status of nodeFilterOptions('status')" [value]="status">{{ status }}</option>
+            </select>
+            <select class="plant-select" [value]="nodeDecisionFilter()" (change)="setNodeDecisionFilter($any($event.target).value)" aria-label="Filter by decision">
+              <option value="all">All Decisions</option>
+              <option *ngFor="let decision of nodeFilterOptions('decisionKey')" [value]="decision">{{ decision }}</option>
+            </select>
+          </div>
+
+          <div class="node-details-shell">
+            <div class="yafs-card">
+              <div class="yafs-card-body p-0">
+                <div class="overflow-x-auto">
+                  <table class="yafs-table node-details-table">
+                    <thead>
+                      <tr>
+                        <th>Node ID</th>
+                        <th>Layer</th>
+                        <th>Zone</th>
+                        <th>Equipment</th>
+                        <th>Status</th>
+                        <th>Edge</th>
+                        <th>Decision</th>
+                        <th>Compute</th>
+                        <th>IPT Capacity</th>
+                        <th>Task CPU Cycles</th>
+                        <th>CPU Demand</th>
+                        <th>Energy</th>
+                        <th>Transmitted</th>
+                        <th>Last Update</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let node of pagedNodeDetails(); trackBy: trackByNodeId" (click)="selectNodeDetails(node)" [class.selected]="selectedNodeDetails()?.node_id === node.node_id">
+                        <td class="font-mono text-[#93c5fd]">{{ node.node_id }}</td>
+                        <td>{{ node.layer }}</td>
+                        <td>{{ node.zone || 'N/A' }}</td>
+                        <td>{{ node.equipment }}</td>
+                        <td><span class="yafs-pill" [class.normal]="node.status === 'active'" [class.warning]="node.status !== 'active'">{{ node.statusLabel }}</span></td>
+                        <td class="font-mono text-xs">{{ node.edgeServer }}</td>
+                        <td>{{ node.decisionType }}</td>
+                        <td>{{ node.computeDisplay }}</td>
+                        <td>{{ node.iptDisplay }}</td>
+                        <td>{{ node.taskCpuCyclesLabel }}</td>
+                        <td>{{ node.computeDemandRatioLabel }}</td>
+                        <td>{{ node.energyDisplay }}</td>
+                        <td>{{ node.transmittedLabel }}</td>
+                        <td>{{ node.lastUpdateLabel }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <aside class="plant-detail node-detail-panel" *ngIf="selectedNodeDetails(); else nodeDetailsHint">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3>{{ selectedNodeDetails()?.node_id }}</h3>
+                  <p>{{ selectedNodeDetails()?.equipment }} in {{ selectedNodeDetails()?.zone || 'N/A' }}</p>
+                </div>
+                <button type="button" class="yafs-icon-button" (click)="selectedNodeDetails.set(null)" aria-label="Close node details">×</button>
+              </div>
+              <div class="plant-route">
+                <div><span>Layer</span><strong>{{ selectedNodeDetails()?.layer }}</strong></div>
+                <div><span>Status</span><strong><span class="yafs-pill" [class.normal]="selectedNodeDetails()?.status === 'active'" [class.warning]="selectedNodeDetails()?.status !== 'active'">{{ selectedNodeDetails()?.statusLabel }}</span></strong></div>
+                <div><span>Edge</span><strong>{{ selectedNodeDetails()?.edgeServer }}</strong></div>
+                <div><span>Decision</span><strong>{{ selectedNodeDetails()?.decisionType }}</strong></div>
+                <div><span>Decision Count</span><strong>{{ selectedNodeDetails()?.decisionCount }}</strong></div>
+                <div><span>Compute Capacity</span><strong>{{ selectedNodeDetails()?.computeDisplay }}</strong></div>
+                <div><span>IPT Capacity</span><strong>{{ selectedNodeDetails()?.iptDisplay }}</strong></div>
+                <div><span>Task CPU Cycles</span><strong>{{ selectedNodeDetails()?.taskCpuCyclesLabel }}</strong></div>
+                <div><span>CPU Demand vs Node Capacity</span><strong>{{ selectedNodeDetails()?.computeDemandRatioLabel }}</strong></div>
+                <div *ngFor="let item of selectedNodeDetails()?.computeStages"><span>{{ item.label }}</span><strong>{{ item.value }}</strong></div>
+                <div><span>Energy</span><strong>{{ selectedNodeDetails()?.energyDisplay }}</strong></div>
+                <div><span>Event Payload</span><strong>{{ selectedNodeDetails()?.eventPayloadLabel }}</strong></div>
+                <div *ngFor="let item of selectedNodeDetails()?.payloadComponents"><span>{{ item.label }}</span><strong>{{ item.value }}</strong></div>
+                <div><span>Protocol/Security Overhead</span><strong>{{ selectedNodeDetails()?.protocolOverheadLabel }}</strong></div>
+                <div><span>Task Size Used by DRL</span><strong>{{ selectedNodeDetails()?.transmittedLabel }}</strong></div>
+                <div><span>Decision Metadata</span><strong>{{ selectedNodeDetails()?.decisionMetadataLabel }}</strong></div>
+                <div><span>Total Transfer</span><strong>{{ selectedNodeDetails()?.totalTransferLabel }}</strong></div>
+                <div><span>Last Update</span><strong>{{ selectedNodeDetails()?.lastUpdateLabel }}</strong></div>
+              </div>
+            </aside>
+
+            <ng-template #nodeDetailsHint>
+              <aside class="plant-detail node-detail-panel plant-empty-detail">
+                <h3>Node Details</h3>
+                <p>Select a node row to view its layer, routing role, compute capacity, energy, and latest update.</p>
+              </aside>
+            </ng-template>
+          </div>
+
+          <div class="node-pagination">
+            <p>Showing {{ nodeRangeStart() }}-{{ nodeRangeEnd() }} of {{ filteredNodeDetails().length }}</p>
+            <div class="flex gap-1">
+              <button type="button" class="node-page-button" (click)="previousNodePage()" [disabled]="nodePage() === 0">Prev</button>
+              <button type="button" class="node-page-button" (click)="nextNodePage()" [disabled]="nodePage() >= nodeTotalPages() - 1">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <section *ngSwitchCase="'7F Factors'" class="yafs-grid-2">
+          <app-chart-card title="Congestion & Computational Load" [config]="charts().congestionLoad"></app-chart-card>
+          <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">7F Factor Ranges</h2><div class="overflow-x-auto"><table class="yafs-table"><thead><tr><th>Factor</th><th>Average</th><th>Normal</th><th>Warning</th><th>Critical</th></tr></thead><tbody><tr *ngFor="let factor of view().factors"><td>{{ factor.label }}</td><td><span class="yafs-pill" [class.normal]="factor.status === 'normal'" [class.warning]="factor.status === 'warning'" [class.critical]="factor.status === 'critical'">{{ factor.display }}</span></td><td>{{ factor.normal }}</td><td>{{ factor.warning }}</td><td>{{ factor.critical }}</td></tr></tbody></table></div></div></div>
+        </section>
+
+        <section *ngSwitchCase="'7S Sensors'" class="yafs-grid-2">
+          <app-chart-card title="Sensor Status Distribution" [config]="charts().sensorStatus"></app-chart-card>
+          <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Latest Sensor Readings</h2><div class="overflow-x-auto"><table class="yafs-table"><thead><tr><th>Sensor</th><th>Type</th><th>Status</th><th>Latest Reading</th></tr></thead><tbody><tr *ngFor="let sensor of view().latestSensors"><td>{{ sensor.node_id }}</td><td>{{ sensor.sensor_type }}</td><td><span class="yafs-pill" [class.normal]="sensor.severity === 'normal'" [class.warning]="sensor.severity === 'warning'" [class.critical]="sensor.severity === 'critical'">{{ sensor.severity }}</span></td><td><span class="mr-3 whitespace-nowrap text-[#9da1c1]" *ngFor="let r of sensor.readings">{{ r.label }}: {{ r.value }} {{ r.unit }}</span></td></tr></tbody></table></div></div></div>
+        </section>
+
+        <section *ngSwitchCase="'Offloading Decisions'" class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Recent DQN Offloading Decisions</h2><div class="overflow-x-auto"><table class="yafs-table"><thead><tr><th>Event</th><th>Source</th><th>Destination</th><th>Path</th><th>Latency</th><th>Reward</th><th>Deadline</th></tr></thead><tbody><tr *ngFor="let row of view().decisions"><td>{{ row.event_id }}</td><td>{{ row.source_sensor }}</td><td>{{ row.destination }}</td><td>{{ row.offloading_scenario }}</td><td>{{ row.estimated_delay }} ms</td><td>{{ row.reward }}</td><td><span class="yafs-pill" [class.normal]="row.deadline_met" [class.critical]="!row.deadline_met">{{ row.deadline_met ? 'Met' : 'Missed' }}</span></td></tr></tbody></table></div></div></section>
+
+        <section *ngSwitchCase="'Analytics'" class="yafs-grid-2">
+          <app-chart-card title="Severity Distribution" [config]="charts().severity"></app-chart-card>
+          <app-chart-card title="Policy Behavior" [config]="charts().policy"></app-chart-card>
+          <app-chart-card title="Spike, Trend & Anomaly Scores" [config]="charts().anomalyTrend"></app-chart-card>
+          <app-chart-card title="History Anomaly Risk Levels" [config]="charts().anomalyRisk"></app-chart-card>
+          <app-chart-card title="Dynamic Node & Link Load" [config]="charts().dynamicResources"></app-chart-card>
+          <app-chart-card title="Latency & Energy" [config]="charts().latencyEnergy"></app-chart-card>
+          <app-chart-card title="Offloading Path Distribution" [config]="charts().offloading"></app-chart-card>
+        </section>
+
+        <section *ngSwitchCase="'Tables & Logs'" class="space-y-4">
+          <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Events</h2><div class="overflow-x-auto"><table class="yafs-table"><thead><tr><th>Event</th><th>Sensor</th><th>Type</th><th>Reading</th><th>Severity</th><th>Timestamp</th></tr></thead><tbody><tr *ngFor="let event of view().events"><td>{{ event.event_id }}</td><td>{{ event.node_id }}</td><td>{{ event.sensor_type }}</td><td>{{ event.reading_value }} {{ event.unit }}</td><td>{{ event.severity }}</td><td>{{ event.timestamp }}</td></tr></tbody></table></div></div></div>
+          <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Cloud Records</h2><div class="overflow-x-auto"><table class="yafs-table"><thead><tr><th>Record</th><th>Sensor</th><th>Type</th><th>Layer</th><th>Deadline</th></tr></thead><tbody><tr *ngFor="let record of view().cloudRecords"><td>{{ record.record_id || record.event_id }}</td><td>{{ record.node_id || record.source_sensor }}</td><td>{{ record.record_type || record.severity }}</td><td>{{ record.selected_layer }}</td><td>{{ record.deadline_met }}</td></tr></tbody></table></div></div></div>
+        </section>
+
+        <section *ngSwitchCase="'Reports'" class="space-y-4">
+          <div class="yafs-grid-3">
+            <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Report Summary</h2><div class="space-y-3"><div class="flex justify-between" *ngFor="let item of view().report"><span class="text-[#9da1c1]">{{ item.label }}</span><span class="font-bold">{{ item.value }}</span></div></div></div></div>
+            <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Policy Modes</h2><div class="space-y-3"><div class="flex justify-between" *ngFor="let item of view().policyModes"><span class="text-[#9da1c1]">{{ item.label }}</span><span class="font-bold text-yafs-blue">{{ item.count }}</span></div></div></div></div>
+            <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Payload Averages</h2><div class="space-y-3"><div class="flex justify-between gap-3" *ngFor="let item of view().payloadReport.averages"><span class="text-[#9da1c1]">{{ item.label }}</span><span class="font-bold text-right">{{ item.value }}</span></div></div></div></div>
+          </div>
+
+          <div class="yafs-grid-4">
+            <div class="yafs-card" *ngFor="let item of view().payloadReport.algorithmCards">
+              <div class="yafs-card-body">
+                <p class="text-xs font-bold uppercase text-[#9da1c1]">{{ item.label }}</p>
+                <p class="mt-2 text-2xl font-extrabold text-[#f5f7ff]">{{ item.value }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-card">
+            <div class="yafs-card-body">
+              <h2 class="mb-4 text-sm font-bold">Real Algorithm Outputs</h2>
+              <div class="overflow-x-auto">
+                <table class="yafs-table">
+                  <thead><tr><th>Stage</th><th>Calculated Outputs</th><th>Meaning</th></tr></thead>
+                  <tbody>
+                    <tr *ngFor="let item of view().payloadReport.algorithmOutputs">
+                      <td>{{ item.stage }}</td>
+                      <td class="font-mono text-xs text-[#93c5fd]">{{ item.outputs }}</td>
+                      <td>{{ item.meaning }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-card">
+            <div class="yafs-card-body">
+              <h2 class="mb-4 text-sm font-bold">Payload Model Details</h2>
+              <div class="overflow-x-auto">
+                <table class="yafs-table">
+                  <thead><tr><th>Variable</th><th>How It Is Simulated</th><th>Used For</th></tr></thead>
+                  <tbody>
+                    <tr *ngFor="let item of view().payloadReport.formulas">
+                      <td class="font-mono text-[#93c5fd]">{{ item.label }}</td>
+                      <td>{{ item.formula }}</td>
+                      <td>{{ item.usedFor }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-card">
+            <div class="yafs-card-body">
+              <h2 class="mb-4 text-sm font-bold">Literature Review Mapping</h2>
+              <div class="overflow-x-auto">
+                <table class="yafs-table">
+                  <thead><tr><th>LR Concept</th><th>Implemented As</th><th>How It Maps</th></tr></thead>
+                  <tbody>
+                    <tr *ngFor="let item of view().payloadReport.literatureAlignment">
+                      <td>{{ item.concept }}</td>
+                      <td class="font-mono text-xs text-[#93c5fd]">{{ item.implementedAs }}</td>
+                      <td>{{ item.mapping }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-card">
+            <div class="yafs-card-body">
+              <h2 class="mb-4 text-sm font-bold">LR Paper Examples</h2>
+              <div class="overflow-x-auto">
+                <table class="yafs-table">
+                  <thead><tr><th>Paper Theme</th><th>Supports</th><th>Used In This Work</th></tr></thead>
+                  <tbody>
+                    <tr *ngFor="let item of view().payloadReport.literatureReferences">
+                      <td>{{ item.paper }}</td>
+                      <td>{{ item.supports }}</td>
+                      <td>{{ item.mapping }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-card">
+            <div class="yafs-card-body">
+              <h2 class="mb-4 text-sm font-bold">Event Payload Sub-Items</h2>
+              <div class="overflow-x-auto">
+                <table class="yafs-table">
+                  <thead><tr><th>Sub-Item</th><th>What It Counts</th><th>Average</th><th>Total</th><th>Counted Into</th></tr></thead>
+                  <tbody>
+                    <tr *ngFor="let item of view().payloadReport.components">
+                      <td>{{ item.label }}</td>
+                      <td>{{ item.what }}</td>
+                      <td>{{ item.avgKb }}</td>
+                      <td>{{ item.total }}</td>
+                      <td class="font-mono text-xs">{{ item.countedIn }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-card">
+            <div class="yafs-card-body">
+              <h2 class="mb-4 text-sm font-bold">Computation Stage Details</h2>
+              <div class="overflow-x-auto">
+                <table class="yafs-table">
+                  <thead><tr><th>Stage</th><th>What It Simulates</th><th>Average Cycles</th><th>Total Cycles</th><th>Counted Into</th></tr></thead>
+                  <tbody>
+                    <tr *ngFor="let item of view().payloadReport.computeStages">
+                      <td>{{ item.label }}</td>
+                      <td>{{ item.what }}</td>
+                      <td>{{ item.avgCycles }}</td>
+                      <td>{{ item.totalCycles }}</td>
+                      <td class="font-mono text-xs">{{ item.countedIn }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="yafs-grid-2">
+            <div class="yafs-card">
+              <div class="yafs-card-body">
+                <h2 class="mb-4 text-sm font-bold">Severity Examples</h2>
+                <div class="overflow-x-auto">
+                  <table class="yafs-table">
+                    <thead><tr><th>Severity</th><th>Events</th><th>Avg Event Payload</th><th>Avg Task Size</th><th>Avg CPU Cycles</th></tr></thead>
+                    <tbody>
+                      <tr *ngFor="let item of view().payloadReport.severityExamples">
+                        <td>{{ item.severity }}</td>
+                        <td>{{ item.events }}</td>
+                        <td>{{ item.eventPayload }}</td>
+                        <td>{{ item.taskSize }}</td>
+                        <td>{{ item.cpuCycles }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="yafs-card"><div class="yafs-card-body"><h2 class="mb-4 text-sm font-bold">Top Risky Nodes</h2><div class="space-y-2"><div class="flex justify-between" *ngFor="let item of view().topNodes"><span class="text-[#9da1c1]">{{ item.id }}</span><span class="yafs-pill warning">{{ item.count }}</span></div></div></div></div>
+          </div>
+        </section>
+      </ng-container>
+    </section>
+  </main>
+</div>
+
+<ng-template #loading>
+  <div class="yafs-app"><main class="yafs-main"><div class="yafs-content"><div class="yafs-card"><div class="yafs-card-body">Loading YAFS DQN API data...</div></div></div></main></div>
+</ng-template>

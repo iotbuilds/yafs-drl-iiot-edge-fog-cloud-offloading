@@ -1,0 +1,96 @@
+{
+  "drl_10p": {
+    "latency": 3.153626,
+    "energy_consumption": 0.159761,
+    "deadline_success_rate": 0.9978,
+    "throughput": 9978,
+    "offloading_ratio_path_distribution": {
+      "edge_to_edge": 0.5875,
+      "local_edge": 0.2089,
+      "edge_to_fog": 0.1242,
+      "fog_to_fog": 0.077,
+      "cloud_escalation": 0.0024
+    },
+    "congestion_score": 0.167216,
+    "decision_efficiency_score": 0.105915
+  },
+  "baseline_10b": {
+    "cloud_only": {
+      "baseline_latency": 15.481212,
+      "baseline_energy_consumption": 0.0001,
+      "baseline_deadline_success_rate": 0.8589,
+      "baseline_throughput": 8589,
+      "baseline_network_overhead_bytes": 404932897,
+      "baseline_offloading_ratio_path_distribution": {
+        "cloud_escalation": 1.0
+      },
+      "baseline_congestion_score": 0.284442,
+      "baseline_decision_efficiency": 15.481212,
+      "baseline_scalability_performance": "see scalability_validation.json",
+      "baseline_fairness_load_balancing": 1.0
+    },
+    "edge_only": {
+      "baseline_latency": 3.094847,
+      "baseline_energy_consumption": 0.279068,
+      "baseline_deadline_success_rate": 1.0,
+      "baseline_throughput": 10000,
+      "baseline_network_overhead_bytes": 404932897,
+      "baseline_offloading_ratio_path_distribution": {
+        "edge_to_edge": 1.0
+      },
+      "baseline_congestion_score": 0.302103,
+      "baseline_decision_efficiency": 3.094847,
+      "baseline_scalability_performance": "see scalability_validation.json",
+      "baseline_fairness_load_balancing": 0.01193
+    },
+    "local_only": {
+      "baseline_latency": 0.8,
+      "baseline_energy_consumption": 0.254374,
+      "baseline_deadline_success_rate": 1.0,
+      "baseline_throughput": 10000,
+      "baseline_network_overhead_bytes": 404932897,
+      "baseline_offloading_ratio_path_distribution": {
+        "local_edge": 1.0
+      },
+      "baseline_congestion_score": 0.05,
+      "baseline_decision_efficiency": 0.8,
+      "baseline_scalability_performance": "see scalability_validation.json",
+      "baseline_fairness_load_balancing": 0.006151
+    },
+    "random": {
+      "baseline_latency": 6.549434,
+      "baseline_energy_consumption": 0.230902,
+      "baseline_deadline_success_rate": 0.9953,
+      "baseline_throughput": 9953,
+      "baseline_network_overhead_bytes": 404932897,
+      "baseline_offloading_ratio_path_distribution": {
+        "edge_to_edge": 0.5517,
+        "fog_to_fog": 0.2831,
+        "edge_to_fog": 0.1364,
+        "local_edge": 0.0153,
+        "cloud_escalation": 0.0135
+      },
+      "baseline_congestion_score": 0.295144,
+      "baseline_decision_efficiency": 6.549434,
+      "baseline_scalability_performance": "see scalability_validation.json",
+      "baseline_fairness_load_balancing": 0.013895
+    },
+    "rule_based_static_cloud_fog": {
+      "baseline_latency": 4.037678,
+      "baseline_energy_consumption": 0.189577,
+      "baseline_deadline_success_rate": 0.8589,
+      "baseline_throughput": 8589,
+      "baseline_network_overhead_bytes": 404932897,
+      "baseline_offloading_ratio_path_distribution": {
+        "local_edge": 0.5898,
+        "edge_to_fog": 0.2511,
+        "cloud_escalation": 0.1591
+      },
+      "baseline_congestion_score": 0.150482,
+      "baseline_decision_efficiency": 4.037678,
+      "baseline_scalability_performance": "see scalability_validation.json",
+      "baseline_fairness_load_balancing": 0.029086
+    }
+  },
+  "latency_improvement_percent_vs_rule_based": 21.895
+}

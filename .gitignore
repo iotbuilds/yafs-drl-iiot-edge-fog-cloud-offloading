@@ -25,6 +25,10 @@ venv/
 # Packaging / build artifacts
 build/
 dist/
+node_modules/
+.angular/
+bin/
+obj/
 *.egg-info/
 .eggs/
 src/yafs.egg-info/
@@ -42,3 +46,4 @@ test-results/
 
 # Results
 results/
+local_cloud_storage/

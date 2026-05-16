@@ -1,0 +1,203 @@
+{
+  "total_events": 10000,
+  "confirmed_10p": {
+    "latency": 3.153626,
+    "energy_consumption": 0.159761,
+    "deadline_success_rate": 0.9978,
+    "throughput": 9978,
+    "network_overhead_bytes": 785357327,
+    "event_payload_bytes": 347042724,
+    "protocol_security_overhead_bytes": 57890165,
+    "payload_component_bytes": {
+      "event_metadata": 11181675,
+      "sensor_sample_window": 160775952,
+      "waveform_fault_window": 63729664,
+      "diagnostic_logs": 34497223,
+      "machine_context": 28826854,
+      "calculated_features": 31087221,
+      "device_security_metadata": 16944133
+    },
+    "compute_stage_cycles": {
+      "intake_validation": 35713022317,
+      "threshold_classification": 87633460448,
+      "feature_extraction": 162940626356,
+      "history_analysis": 93403724434,
+      "aggregation": 44635547082,
+      "cloud_analytics": 44427138850,
+      "decision_packaging": 86976199575
+    },
+    "algorithm_metrics": {
+      "validation_pass_rate": 1.0,
+      "avg_feature_severity_score": 0.275671,
+      "avg_history_anomaly_score": 0.293467,
+      "avg_correlation_score": 0.293467,
+      "avg_abnormal_sensor_count": 0.4071,
+      "history_anomaly_distribution": {
+        "low": 6844,
+        "medium": 2773,
+        "high": 383
+      },
+      "correlation_risk_distribution": {
+        "low": 6844,
+        "medium": 2773,
+        "high": 383
+      },
+      "max_deviation_sensor_distribution": {
+        "temperature": 1812,
+        "vibration": 1715,
+        "pressure": 1446,
+        "current": 1426,
+        "acoustic": 1331,
+        "humidity": 1146,
+        "flow_rate": 1124
+      }
+    },
+    "dynamic_resource_metrics": {
+      "avg_node_load_before": 0.018028,
+      "avg_node_load_after": 0.08801,
+      "avg_available_compute_before": 831739203.923,
+      "avg_available_compute_after": 776172034.377,
+      "avg_processing_time": 7.444669,
+      "avg_link_load_before": 8e-06,
+      "avg_link_load_after": 0.000127
+    },
+    "decision_metadata_bytes": 44079872,
+    "total_transfer_bytes_est": 449012762,
+    "offloading_ratio_path_distribution": {
+      "edge_to_edge": 0.5875,
+      "local_edge": 0.2089,
+      "edge_to_fog": 0.1242,
+      "fog_to_fog": 0.077,
+      "cloud_escalation": 0.0024
+    },
+    "congestion_score": 0.167216,
+    "drl_model_efficiency": {
+      "avg_reward": 0.236115,
+      "avg_score": 0.105915,
+      "policy_modes": {
+        "dqn_policy_exploitation": 9232,
+        "dqn_epsilon_exploration": 768
+      },
+      "model_types": {
+        "DQN": 10000
+      },
+      "avg_dqn_q_value": 1.443643,
+      "avg_dqn_loss": 0.046557,
+      "avg_reliability_risk_support": 0.048027,
+      "avg_compute_demand_ratio": 0.071947,
+      "avg_task_cpu_cycles": 55572971.906
+    },
+    "scalability_performance": "see dashboard_exports/scalability_validation.json",
+    "fairness_load_balancing": 0.540194
+  },
+  "severity_counts_3l": {
+    "normal": 5898,
+    "warning": 2511,
+    "critical": 1591
+  },
+  "offloading_ratios": {
+    "edge": 0.7964,
+    "fog": 0.2012,
+    "cloud": 0.0024
+  },
+  "path_distribution": {
+    "edge_to_edge": 5875,
+    "local_edge": 2089,
+    "edge_to_fog": 1242,
+    "fog_to_fog": 770,
+    "cloud_escalation": 24
+  },
+  "avg_latency_by_status": {
+    "critical": 4.2128,
+    "normal": 2.8273,
+    "warning": 3.249
+  },
+  "deadline_success_by_status": {
+    "critical": 0.9862,
+    "normal": 1.0,
+    "warning": 1.0
+  },
+  "network_bytes_transmitted_est": 785357327,
+  "event_payload_bytes_est": 347042724,
+  "protocol_security_overhead_bytes_est": 57890165,
+  "payload_component_bytes_est": {
+    "event_metadata": 11181675,
+    "sensor_sample_window": 160775952,
+    "waveform_fault_window": 63729664,
+    "diagnostic_logs": 34497223,
+    "machine_context": 28826854,
+    "calculated_features": 31087221,
+    "device_security_metadata": 16944133
+  },
+  "compute_stage_cycles_est": {
+    "intake_validation": 35713022317,
+    "threshold_classification": 87633460448,
+    "feature_extraction": 162940626356,
+    "history_analysis": 93403724434,
+    "aggregation": 44635547082,
+    "cloud_analytics": 44427138850,
+    "decision_packaging": 86976199575
+  },
+  "algorithm_metrics": {
+    "validation_pass_rate": 1.0,
+    "avg_feature_severity_score": 0.275671,
+    "avg_history_anomaly_score": 0.293467,
+    "avg_correlation_score": 0.293467,
+    "avg_abnormal_sensor_count": 0.4071,
+    "history_anomaly_distribution": {
+      "low": 6844,
+      "medium": 2773,
+      "high": 383
+    },
+    "correlation_risk_distribution": {
+      "low": 6844,
+      "medium": 2773,
+      "high": 383
+    },
+    "max_deviation_sensor_distribution": {
+      "temperature": 1812,
+      "vibration": 1715,
+      "pressure": 1446,
+      "current": 1426,
+      "acoustic": 1331,
+      "humidity": 1146,
+      "flow_rate": 1124
+    }
+  },
+  "dynamic_resource_metrics": {
+    "avg_node_load_before": 0.018028,
+    "avg_node_load_after": 0.08801,
+    "avg_available_compute_before": 831739203.923,
+    "avg_available_compute_after": 776172034.377,
+    "avg_processing_time": 7.444669,
+    "avg_link_load_before": 8e-06,
+    "avg_link_load_after": 0.000127
+  },
+  "decision_metadata_bytes_est": 44079872,
+  "total_transfer_bytes_est": 449012762,
+  "avg_congestion_score": 0.167216,
+  "avg_energy_cost": 0.159761,
+  "failure_reasons": {
+    "none": 6049,
+    "edge-to-edge reroute; dominant 7F factor=network_condition/congestion": 2610,
+    "edge-to-fog processing; dominant 7F factor=network_condition/congestion": 499,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=delay": 373,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=hop_count": 203,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=network_condition/congestion": 188,
+    "local edge processing; dominant 7F factor=network_condition/congestion": 72,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=dynamic_node_load": 4,
+    "fog-to-fog reroute for load balancing/congestion; dominant 7F factor=energy": 2
+  },
+  "top_risky_nodes": {
+    "sensor_0347": 24,
+    "sensor_0194": 23,
+    "sensor_0014": 23,
+    "sensor_0177": 21,
+    "sensor_0073": 20,
+    "sensor_0008": 20,
+    "sensor_0027": 19,
+    "sensor_0143": 19,
+    "sensor_0314": 19,
+    "sensor_0207": 19
+  }
+}
