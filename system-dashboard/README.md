@@ -1,36 +1,29 @@
-# Cloud
+# System Dashboard
 
-ASP.NET Core and Angular cloud dashboard implementation for the YAFS IIoT DQN offloading simulation.
+ASP.NET Core and Angular dashboard for the YAFS IIoT DQN edge-fog-cloud offloading simulation.
+
+The dashboard visualizes the exported simulation data from `../yafs-drl`, including KPIs, topology, offloading decisions, cloud records, status traces, path distribution, baseline comparison, and validation reports.
 
 ## Structure
 
 ```text
-Cloud/
+system-dashboard/
   backend/    ASP.NET Core Web API
   frontend/   Angular + Tailwind CSS + daisyUI dashboard
 ```
 
-The backend reads real simulation outputs from the YAFS data folder. It does not hardcode metrics.
+## Data Source
 
-## Required Data
-
-The API expects a YAFS DQN data folder containing:
+The backend expects the DRL data folder to contain:
 
 ```text
-dashboard_exports/
-results/
-topology/
-local_cloud_storage/latest/
-graphs/
+yafs-drl/
+  dashboard_exports/
+  topology/
+  local_cloud_storage/
 ```
 
-If this `Cloud` folder is stored beside `DRL` inside `YAFS/examples`, the default backend setting already points to:
-
-```text
-../../DRL
-```
-
-If the evaluator uses the GitHub folder names `Cloud`, `yafs-drl`, and `system-dashboard`, run the API with:
+Use this environment variable so the API reads from the GitHub folder layout:
 
 ```bash
 export YAFS_DATA_ROOT=../../yafs-drl
@@ -39,7 +32,8 @@ export YAFS_DATA_ROOT=../../yafs-drl
 ## Run Backend API
 
 ```bash
-cd Cloud/backend
+cd system-dashboard/backend
+export YAFS_DATA_ROOT=../../yafs-drl
 dotnet restore
 dotnet run
 ```
@@ -50,16 +44,28 @@ Default API URL:
 http://127.0.0.1:8002
 ```
 
+Useful endpoints:
+
+```text
+GET /api/health
+GET /api/kpis
+GET /api/events
+GET /api/decisions
+GET /api/nodes
+GET /api/topology
+GET /api/status-metrics
+GET /api/comparison
+GET /api/paths
+GET /api/cloud-records
+GET /api/status-trace
+GET /api/report
+```
+
 Swagger/OpenAPI:
 
 ```text
+http://127.0.0.1:8002/swagger
 http://127.0.0.1:8002/openapi/v1.json
-```
-
-Health check:
-
-```text
-http://127.0.0.1:8002/api/health
 ```
 
 ## Run Frontend Dashboard
@@ -67,7 +73,7 @@ http://127.0.0.1:8002/api/health
 Open a second terminal while the API is running:
 
 ```bash
-cd Cloud/frontend
+cd system-dashboard/frontend
 npm install
 npm start
 ```
@@ -84,46 +90,11 @@ The Angular API base URL is configured in:
 frontend/src/environments/environment.ts
 ```
 
-## Change Ports
-
-Backend default port is `8002`. If it is busy, edit the last line of `backend/Program.cs` or run ASP.NET with another URL.
-
-Frontend default port is `4200`. If it is busy, run:
-
-```bash
-npx ng serve --host 127.0.0.1 --port 4201
-```
-
-## API Endpoints
-
-```text
-GET /api/health
-GET /api/kpis
-GET /api/events
-GET /api/decisions
-GET /api/nodes
-GET /api/topology
-GET /api/status-metrics
-GET /api/comparison
-GET /api/paths
-GET /api/summary
-GET /api/scenarios
-GET /api/scalability
-GET /api/drl-efficiency
-GET /api/final-demo-readiness
-GET /api/requirements-validation
-GET /api/shift-report
-GET /api/report
-GET /api/cloud-records
-GET /api/status-trace
-GET /api/graphs
-GET /api/graphs/{filename}
-```
-
 ## Dashboard Notes
 
 - Uses DQN wording throughout.
-- Uses Computational Load instead of CPU.
-- Uses Sensor Status Distribution instead of Node Status Distribution.
+- Shows the confirmed 1000-node model: 700 sensors, 220 edge nodes, 79 fog nodes, and 1 cloud node.
+- Uses a simplified 2D/stacked network view to avoid clutter from all 1000 nodes.
+- Uses grouped link/route visualization so the view stays readable.
 - Charts are generated from API data and simulation timestamps.
 - If the API is stopped, the dashboard status indicator changes to inactive.
