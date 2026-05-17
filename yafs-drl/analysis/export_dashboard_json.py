@@ -253,7 +253,7 @@ def _literature_reference_examples() -> list[dict]:
             "paper": "Reliable and efficient computation offloading for dependency-aware tasks in IIoT using evolutionary multi-objective optimization",
             "source_file": "PAPERS L10/1-s2.0-S0167739X25002183-main.pdf",
             "supports": "IIoT computation offloading with multi-objective optimization over delay, network, energy, task, bandwidth, and compute capacity factors.",
-            "implemented_mapping": "Deadline success and compute-capacity-aware offloading are reported; reliability is not used as a DRL scoring factor.",
+            "implemented_mapping": "Deadline success and compute-capacity-aware offloading are reported through the true 7F decision model.",
         },
         {
             "paper": "Dynamic offloading strategy for computational energy efficiency of wireless power transfer based MEC networks in industry 5.0",

@@ -247,7 +247,6 @@ def link_metrics(edge_type, rng):
         "BW": round(rng.uniform(bw_min, bw_max), 3),
         "PR": round(rng.uniform(pr_min, pr_max), 3),
         "congestion": round(rng.uniform(0.03, 0.55), 3),
-        "reliability": round(rng.uniform(0.88, 0.999), 3),
     }
 
 
@@ -276,8 +275,7 @@ def export_topology_json(G, pos):
             "bandwidth": round(float(attrs.get("BW", 0.0)), 3),
             "bandwidth_mbps": round(float(attrs.get("BW", 0.0)), 3),
             "latency": round(float(attrs.get("PR", 0.0)), 3),
-            "congestion": round(float(attrs.get("congestion", 0.0)), 3),
-            "reliability": round(float(attrs.get("reliability", 0.0)), 3)
+            "congestion": round(float(attrs.get("congestion", 0.0)), 3)
         })
 
     data = {

@@ -4225,7 +4225,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6288,
+    "energy": 0.3415,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4240,7 +4240,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5715,
+    "energy": 0.4859,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4255,7 +4255,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5075,
+    "energy": 0.8556,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4270,7 +4270,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6002,
+    "energy": 0.5521,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4285,7 +4285,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7601,
+    "energy": 0.9156,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4300,7 +4300,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4688,
+    "energy": 0.7601,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4315,7 +4315,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5733,
+    "energy": 0.4433,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4330,7 +4330,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2554,
+    "energy": 0.3313,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4345,7 +4345,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.486,
+    "energy": 0.3915,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4360,7 +4360,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9302,
+    "energy": 0.6792,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4375,7 +4375,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7667,
+    "energy": 0.4692,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4390,7 +4390,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4213,
+    "energy": 0.2368,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4405,7 +4405,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9081,
+    "energy": 0.3426,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4420,7 +4420,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8343,
+    "energy": 0.2296,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4435,7 +4435,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6789,
+    "energy": 0.2991,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4450,7 +4450,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5482,
+    "energy": 0.8049,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4465,7 +4465,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5402,
+    "energy": 0.4981,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4480,7 +4480,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2245,
+    "energy": 0.3966,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4495,7 +4495,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4986,
+    "energy": 0.8864,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4510,7 +4510,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9416,
+    "energy": 0.9097,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4525,7 +4525,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2021,
+    "energy": 0.7224,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4540,7 +4540,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3307,
+    "energy": 0.9043,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4555,7 +4555,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9091,
+    "energy": 0.4755,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4570,7 +4570,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8823,
+    "energy": 0.3591,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4585,7 +4585,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5403,
+    "energy": 0.8224,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4600,7 +4600,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3714,
+    "energy": 0.408,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4615,7 +4615,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2684,
+    "energy": 0.3784,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4630,7 +4630,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4652,
+    "energy": 0.7835,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4645,7 +4645,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3682,
+    "energy": 0.5911,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4660,7 +4660,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6602,
+    "energy": 0.8823,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4675,7 +4675,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2046,
+    "energy": 0.946,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4690,7 +4690,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3181,
+    "energy": 0.7767,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4705,7 +4705,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6965,
+    "energy": 0.5201,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4720,7 +4720,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7003,
+    "energy": 0.2724,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4735,7 +4735,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2058,
+    "energy": 0.699,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4750,7 +4750,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5272,
+    "energy": 0.3682,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4765,7 +4765,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.801,
+    "energy": 0.9309,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4780,7 +4780,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4327,
+    "energy": 0.727,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4795,7 +4795,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8142,
+    "energy": 0.9289,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4810,7 +4810,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.548,
+    "energy": 0.6257,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4825,7 +4825,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5517,
+    "energy": 0.6553,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4840,7 +4840,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6835,
+    "energy": 0.5952,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4855,7 +4855,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3412,
+    "energy": 0.7731,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4870,7 +4870,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2294,
+    "energy": 0.619,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4885,7 +4885,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6855,
+    "energy": 0.6318,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4900,7 +4900,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6371,
+    "energy": 0.6636,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4915,7 +4915,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4464,
+    "energy": 0.7594,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4930,7 +4930,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4316,
+    "energy": 0.4633,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4945,7 +4945,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8263,
+    "energy": 0.3329,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4960,7 +4960,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.877,
+    "energy": 0.9399,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4975,7 +4975,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4321,
+    "energy": 0.464,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -4990,7 +4990,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8127,
+    "energy": 0.2677,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5005,7 +5005,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2629,
+    "energy": 0.6287,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5020,7 +5020,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5112,
+    "energy": 0.9368,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5035,7 +5035,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3095,
+    "energy": 0.4729,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5050,7 +5050,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3617,
+    "energy": 0.2709,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5065,7 +5065,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6671,
+    "energy": 0.6371,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5080,7 +5080,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4646,
+    "energy": 0.6192,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5095,7 +5095,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2153,
+    "energy": 0.6845,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5110,7 +5110,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7786,
+    "energy": 0.3699,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5125,7 +5125,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8086,
+    "energy": 0.6964,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5140,7 +5140,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.555,
+    "energy": 0.7409,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5155,7 +5155,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7575,
+    "energy": 0.3755,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5170,7 +5170,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6518,
+    "energy": 0.5304,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5185,7 +5185,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5353,
+    "energy": 0.2391,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5200,7 +5200,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7096,
+    "energy": 0.4046,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5215,7 +5215,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2243,
+    "energy": 0.5112,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5230,7 +5230,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9204,
+    "energy": 0.736,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5245,7 +5245,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8874,
+    "energy": 0.5365,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5260,7 +5260,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4397,
+    "energy": 0.7821,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5275,7 +5275,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3682,
+    "energy": 0.5749,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5290,7 +5290,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2493,
+    "energy": 0.628,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5305,7 +5305,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4584,
+    "energy": 0.5807,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5320,7 +5320,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3215,
+    "energy": 0.2507,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5335,7 +5335,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6608,
+    "energy": 0.8101,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5350,7 +5350,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2309,
+    "energy": 0.5433,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5365,7 +5365,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6704,
+    "energy": 0.6073,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5380,7 +5380,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5632,
+    "energy": 0.2934,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5395,7 +5395,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6212,
+    "energy": 0.5731,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5410,7 +5410,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.849,
+    "energy": 0.4409,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5425,7 +5425,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2675,
+    "energy": 0.2318,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5440,7 +5440,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4143,
+    "energy": 0.4725,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5455,7 +5455,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6149,
+    "energy": 0.7839,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5470,7 +5470,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7962,
+    "energy": 0.2577,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5485,7 +5485,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5553,
+    "energy": 0.5883,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5500,7 +5500,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4523,
+    "energy": 0.5684,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5515,7 +5515,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8741,
+    "energy": 0.8341,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5530,7 +5530,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5932,
+    "energy": 0.8955,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5545,7 +5545,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7179,
+    "energy": 0.2197,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5560,7 +5560,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6967,
+    "energy": 0.9497,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5575,7 +5575,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.72,
+    "energy": 0.5494,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5590,7 +5590,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7287,
+    "energy": 0.5771,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5605,7 +5605,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8138,
+    "energy": 0.5892,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5620,7 +5620,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4033,
+    "energy": 0.5769,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5635,7 +5635,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.51,
+    "energy": 0.6227,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5650,7 +5650,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6879,
+    "energy": 0.6792,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5665,7 +5665,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8911,
+    "energy": 0.5402,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5680,7 +5680,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2281,
+    "energy": 0.7506,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5695,7 +5695,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5782,
+    "energy": 0.3859,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5710,7 +5710,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7058,
+    "energy": 0.4456,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5725,7 +5725,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5581,
+    "energy": 0.2675,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5740,7 +5740,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7196,
+    "energy": 0.8321,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5755,7 +5755,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8871,
+    "energy": 0.5024,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5770,7 +5770,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5531,
+    "energy": 0.6124,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5785,7 +5785,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8879,
+    "energy": 0.4742,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5800,7 +5800,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7377,
+    "energy": 0.5895,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5815,7 +5815,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4311,
+    "energy": 0.832,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5830,7 +5830,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8707,
+    "energy": 0.4484,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5845,7 +5845,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5364,
+    "energy": 0.9253,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5860,7 +5860,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7459,
+    "energy": 0.3108,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5875,7 +5875,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3163,
+    "energy": 0.7179,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5890,7 +5890,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5348,
+    "energy": 0.3555,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5905,7 +5905,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3756,
+    "energy": 0.7069,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5920,7 +5920,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4064,
+    "energy": 0.9061,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5935,7 +5935,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7894,
+    "energy": 0.4158,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5950,7 +5950,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5473,
+    "energy": 0.2315,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5965,7 +5965,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4783,
+    "energy": 0.6215,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5980,7 +5980,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3628,
+    "energy": 0.3746,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -5995,7 +5995,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7217,
+    "energy": 0.3185,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6010,7 +6010,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.573,
+    "energy": 0.2671,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6025,7 +6025,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.615,
+    "energy": 0.3318,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6040,7 +6040,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7725,
+    "energy": 0.4238,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6055,7 +6055,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9427,
+    "energy": 0.3006,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6070,7 +6070,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7304,
+    "energy": 0.2106,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6085,7 +6085,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6137,
+    "energy": 0.5865,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6100,7 +6100,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8885,
+    "energy": 0.3766,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6115,7 +6115,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3824,
+    "energy": 0.2887,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6130,7 +6130,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2421,
+    "energy": 0.8871,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6145,7 +6145,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3723,
+    "energy": 0.5119,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6160,7 +6160,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2117,
+    "energy": 0.7905,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6175,7 +6175,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7078,
+    "energy": 0.3516,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6190,7 +6190,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3741,
+    "energy": 0.8742,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6205,7 +6205,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3711,
+    "energy": 0.7425,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6220,7 +6220,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3157,
+    "energy": 0.9456,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6235,7 +6235,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3405,
+    "energy": 0.5153,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6250,7 +6250,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4189,
+    "energy": 0.6902,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6265,7 +6265,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4013,
+    "energy": 0.2171,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6280,7 +6280,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6625,
+    "energy": 0.4067,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6295,7 +6295,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8177,
+    "energy": 0.2757,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6310,7 +6310,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7212,
+    "energy": 0.363,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6325,7 +6325,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3349,
+    "energy": 0.7044,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6340,7 +6340,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5069,
+    "energy": 0.9114,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6355,7 +6355,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5006,
+    "energy": 0.5933,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6370,7 +6370,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6932,
+    "energy": 0.3083,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6385,7 +6385,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2079,
+    "energy": 0.685,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6400,7 +6400,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5753,
+    "energy": 0.8552,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6415,7 +6415,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7882,
+    "energy": 0.2115,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6430,7 +6430,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4573,
+    "energy": 0.3795,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6445,7 +6445,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7983,
+    "energy": 0.274,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6460,7 +6460,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3611,
+    "energy": 0.3956,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6475,7 +6475,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9244,
+    "energy": 0.9076,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6490,7 +6490,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.889,
+    "energy": 0.4641,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6505,7 +6505,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6311,
+    "energy": 0.835,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6520,7 +6520,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8315,
+    "energy": 0.5793,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6535,7 +6535,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5688,
+    "energy": 0.6137,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6550,7 +6550,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6242,
+    "energy": 0.9048,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6565,7 +6565,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.531,
+    "energy": 0.7962,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6580,7 +6580,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5293,
+    "energy": 0.2605,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6595,7 +6595,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8101,
+    "energy": 0.5749,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6610,7 +6610,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9391,
+    "energy": 0.3586,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6625,7 +6625,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3097,
+    "energy": 0.3345,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6640,7 +6640,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8601,
+    "energy": 0.3218,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6655,7 +6655,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7495,
+    "energy": 0.9414,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6670,7 +6670,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8213,
+    "energy": 0.6604,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6685,7 +6685,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5447,
+    "energy": 0.6148,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6700,7 +6700,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8995,
+    "energy": 0.2551,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6715,7 +6715,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3756,
+    "energy": 0.9072,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6730,7 +6730,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8128,
+    "energy": 0.2775,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6745,7 +6745,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.81,
+    "energy": 0.7844,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6760,7 +6760,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3135,
+    "energy": 0.2475,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6775,7 +6775,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4359,
+    "energy": 0.6454,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6790,7 +6790,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6938,
+    "energy": 0.4472,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6805,7 +6805,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2846,
+    "energy": 0.3506,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6820,7 +6820,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4741,
+    "energy": 0.3818,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6835,7 +6835,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.792,
+    "energy": 0.7113,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6850,7 +6850,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4324,
+    "energy": 0.8142,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6865,7 +6865,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5281,
+    "energy": 0.2555,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6880,7 +6880,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2095,
+    "energy": 0.9263,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6895,7 +6895,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4016,
+    "energy": 0.2332,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6910,7 +6910,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2416,
+    "energy": 0.3665,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6925,7 +6925,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8472,
+    "energy": 0.5753,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6940,7 +6940,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5145,
+    "energy": 0.4612,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6955,7 +6955,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8033,
+    "energy": 0.2504,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6970,7 +6970,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6229,
+    "energy": 0.587,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -6985,7 +6985,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3129,
+    "energy": 0.693,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7000,7 +7000,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7454,
+    "energy": 0.4088,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7015,7 +7015,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.873,
+    "energy": 0.847,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7030,7 +7030,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6259,
+    "energy": 0.3294,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7045,7 +7045,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.404,
+    "energy": 0.48,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7060,7 +7060,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7778,
+    "energy": 0.8894,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7075,7 +7075,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8424,
+    "energy": 0.9139,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7090,7 +7090,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.841,
+    "energy": 0.7326,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7105,7 +7105,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5004,
+    "energy": 0.4165,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7120,7 +7120,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.807,
+    "energy": 0.8175,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7135,7 +7135,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.52,
+    "energy": 0.8226,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7150,7 +7150,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8621,
+    "energy": 0.288,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7165,7 +7165,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2146,
+    "energy": 0.3044,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7180,7 +7180,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.222,
+    "energy": 0.6296,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7195,7 +7195,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6003,
+    "energy": 0.6919,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7210,7 +7210,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7536,
+    "energy": 0.6743,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7225,7 +7225,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5692,
+    "energy": 0.721,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7240,7 +7240,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2979,
+    "energy": 0.5438,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7255,7 +7255,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7284,
+    "energy": 0.4421,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7270,7 +7270,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.438,
+    "energy": 0.2345,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7285,7 +7285,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9116,
+    "energy": 0.9468,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7300,7 +7300,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2781,
+    "energy": 0.6984,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7315,7 +7315,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.747,
+    "energy": 0.2714,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7330,7 +7330,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5147,
+    "energy": 0.2904,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7345,7 +7345,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.322,
+    "energy": 0.4244,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7360,7 +7360,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8736,
+    "energy": 0.4634,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7375,7 +7375,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2759,
+    "energy": 0.305,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7390,7 +7390,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8299,
+    "energy": 0.3861,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7405,7 +7405,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4189,
+    "energy": 0.5821,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7420,7 +7420,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8641,
+    "energy": 0.6786,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7435,7 +7435,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2643,
+    "energy": 0.5156,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7450,7 +7450,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9023,
+    "energy": 0.3618,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7465,7 +7465,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6652,
+    "energy": 0.6024,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7480,7 +7480,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.948,
+    "energy": 0.493,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7495,7 +7495,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4072,
+    "energy": 0.8935,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7510,7 +7510,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9047,
+    "energy": 0.3029,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7525,7 +7525,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5548,
+    "energy": 0.7623,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7540,7 +7540,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5564,
+    "energy": 0.6325,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7555,7 +7555,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3008,
+    "energy": 0.2772,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7570,7 +7570,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8504,
+    "energy": 0.5538,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7585,7 +7585,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8564,
+    "energy": 0.3684,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7600,7 +7600,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2929,
+    "energy": 0.2395,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7615,7 +7615,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7617,
+    "energy": 0.4455,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7630,7 +7630,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6887,
+    "energy": 0.6438,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7645,7 +7645,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6563,
+    "energy": 0.6062,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7660,7 +7660,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6384,
+    "energy": 0.5974,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7675,7 +7675,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4522,
+    "energy": 0.873,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7690,7 +7690,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2426,
+    "energy": 0.815,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7705,7 +7705,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2265,
+    "energy": 0.8006,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7720,7 +7720,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3275,
+    "energy": 0.3233,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7735,7 +7735,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4517,
+    "energy": 0.2899,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7750,7 +7750,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5529,
+    "energy": 0.7334,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7765,7 +7765,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8531,
+    "energy": 0.5392,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7780,7 +7780,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4495,
+    "energy": 0.3667,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7795,7 +7795,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.266,
+    "energy": 0.2164,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7810,7 +7810,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4417,
+    "energy": 0.232,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7825,7 +7825,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4296,
+    "energy": 0.3296,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7840,7 +7840,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.876,
+    "energy": 0.5742,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7855,7 +7855,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5785,
+    "energy": 0.6731,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7870,7 +7870,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2811,
+    "energy": 0.5768,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7885,7 +7885,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4258,
+    "energy": 0.9436,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7900,7 +7900,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2855,
+    "energy": 0.8122,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7915,7 +7915,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5723,
+    "energy": 0.3774,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7930,7 +7930,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5838,
+    "energy": 0.3412,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7945,7 +7945,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4702,
+    "energy": 0.2005,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7960,7 +7960,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8709,
+    "energy": 0.3108,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7975,7 +7975,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.838,
+    "energy": 0.2758,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -7990,7 +7990,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.562,
+    "energy": 0.3307,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8005,7 +8005,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5623,
+    "energy": 0.2955,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8020,7 +8020,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7428,
+    "energy": 0.9256,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8035,7 +8035,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6811,
+    "energy": 0.3259,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8050,7 +8050,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7636,
+    "energy": 0.3925,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8065,7 +8065,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6298,
+    "energy": 0.4634,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8080,7 +8080,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2682,
+    "energy": 0.7994,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8095,7 +8095,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5408,
+    "energy": 0.2563,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8110,7 +8110,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6752,
+    "energy": 0.8673,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8125,7 +8125,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6581,
+    "energy": 0.3989,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8140,7 +8140,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8281,
+    "energy": 0.2657,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8155,7 +8155,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9015,
+    "energy": 0.8328,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8170,7 +8170,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6546,
+    "energy": 0.4861,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8185,7 +8185,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8036,
+    "energy": 0.7224,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8200,7 +8200,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.363,
+    "energy": 0.4903,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8215,7 +8215,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6777,
+    "energy": 0.4961,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8230,7 +8230,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5168,
+    "energy": 0.5368,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8245,7 +8245,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3098,
+    "energy": 0.6704,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8260,7 +8260,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6853,
+    "energy": 0.8425,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8275,7 +8275,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7139,
+    "energy": 0.3122,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8290,7 +8290,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6857,
+    "energy": 0.5082,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8305,7 +8305,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7513,
+    "energy": 0.7202,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8320,7 +8320,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.23,
+    "energy": 0.2152,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8335,7 +8335,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4384,
+    "energy": 0.7578,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8350,7 +8350,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4483,
+    "energy": 0.5633,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8365,7 +8365,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3803,
+    "energy": 0.8385,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8380,7 +8380,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.743,
+    "energy": 0.4703,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8395,7 +8395,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9112,
+    "energy": 0.5666,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8410,7 +8410,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8216,
+    "energy": 0.8232,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8425,7 +8425,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3889,
+    "energy": 0.3688,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8440,7 +8440,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2044,
+    "energy": 0.2992,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8455,7 +8455,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2649,
+    "energy": 0.4065,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8470,7 +8470,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9201,
+    "energy": 0.2055,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8485,7 +8485,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2924,
+    "energy": 0.4074,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8500,7 +8500,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6844,
+    "energy": 0.8748,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8515,7 +8515,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8993,
+    "energy": 0.5139,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8530,7 +8530,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7035,
+    "energy": 0.6787,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8545,7 +8545,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6251,
+    "energy": 0.5531,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8560,7 +8560,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4487,
+    "energy": 0.7582,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8575,7 +8575,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8685,
+    "energy": 0.8498,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8590,7 +8590,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7769,
+    "energy": 0.2405,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8605,7 +8605,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7499,
+    "energy": 0.3353,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8620,7 +8620,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3244,
+    "energy": 0.7802,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8635,7 +8635,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3641,
+    "energy": 0.924,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8650,7 +8650,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2348,
+    "energy": 0.3429,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8665,7 +8665,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4839,
+    "energy": 0.6415,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8680,7 +8680,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7945,
+    "energy": 0.866,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8695,7 +8695,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.738,
+    "energy": 0.2143,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8710,7 +8710,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2168,
+    "energy": 0.4814,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8725,7 +8725,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9187,
+    "energy": 0.2362,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8740,7 +8740,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5613,
+    "energy": 0.207,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8755,7 +8755,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5401,
+    "energy": 0.5837,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8770,7 +8770,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2722,
+    "energy": 0.9298,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8785,7 +8785,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2009,
+    "energy": 0.2021,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8800,7 +8800,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4629,
+    "energy": 0.7427,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8815,7 +8815,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2041,
+    "energy": 0.8556,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8830,7 +8830,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.639,
+    "energy": 0.839,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8845,7 +8845,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4777,
+    "energy": 0.8112,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8860,7 +8860,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5349,
+    "energy": 0.6866,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8875,7 +8875,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.204,
+    "energy": 0.562,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8890,7 +8890,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5005,
+    "energy": 0.7455,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8905,7 +8905,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8981,
+    "energy": 0.7284,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8920,7 +8920,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9317,
+    "energy": 0.5923,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8935,7 +8935,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4134,
+    "energy": 0.8198,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8950,7 +8950,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5054,
+    "energy": 0.7636,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8965,7 +8965,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7206,
+    "energy": 0.2591,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8980,7 +8980,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3934,
+    "energy": 0.277,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -8995,7 +8995,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3975,
+    "energy": 0.5813,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9010,7 +9010,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3371,
+    "energy": 0.6201,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9025,7 +9025,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.317,
+    "energy": 0.4664,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9040,7 +9040,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5693,
+    "energy": 0.7569,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9055,7 +9055,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5587,
+    "energy": 0.3429,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9070,7 +9070,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2089,
+    "energy": 0.543,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9085,7 +9085,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4744,
+    "energy": 0.5622,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9100,7 +9100,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3714,
+    "energy": 0.4414,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9115,7 +9115,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5161,
+    "energy": 0.5396,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9130,7 +9130,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.245,
+    "energy": 0.7526,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9145,7 +9145,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5088,
+    "energy": 0.7328,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9160,7 +9160,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5656,
+    "energy": 0.907,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9175,7 +9175,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6287,
+    "energy": 0.219,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9190,7 +9190,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9041,
+    "energy": 0.8295,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9205,7 +9205,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.26,
+    "energy": 0.8486,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9220,7 +9220,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3968,
+    "energy": 0.4862,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9235,7 +9235,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2214,
+    "energy": 0.8526,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9250,7 +9250,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7232,
+    "energy": 0.9232,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9265,7 +9265,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6048,
+    "energy": 0.5214,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9280,7 +9280,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6013,
+    "energy": 0.3153,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9295,7 +9295,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4961,
+    "energy": 0.4686,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9310,7 +9310,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7135,
+    "energy": 0.269,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9325,7 +9325,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4041,
+    "energy": 0.621,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9340,7 +9340,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7453,
+    "energy": 0.2299,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9355,7 +9355,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4477,
+    "energy": 0.8166,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9370,7 +9370,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9309,
+    "energy": 0.9112,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9385,7 +9385,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5546,
+    "energy": 0.8267,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9400,7 +9400,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4703,
+    "energy": 0.7145,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9415,7 +9415,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2067,
+    "energy": 0.8162,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9430,7 +9430,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8981,
+    "energy": 0.6811,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9445,7 +9445,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7675,
+    "energy": 0.7902,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9460,7 +9460,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5676,
+    "energy": 0.6001,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9475,7 +9475,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.537,
+    "energy": 0.924,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9490,7 +9490,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3791,
+    "energy": 0.4956,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9505,7 +9505,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4415,
+    "energy": 0.5844,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9520,7 +9520,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6813,
+    "energy": 0.7633,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9535,7 +9535,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6918,
+    "energy": 0.9137,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9550,7 +9550,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3994,
+    "energy": 0.4463,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9565,7 +9565,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6927,
+    "energy": 0.4349,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9580,7 +9580,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5203,
+    "energy": 0.4691,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9595,7 +9595,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6126,
+    "energy": 0.604,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9610,7 +9610,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7584,
+    "energy": 0.5039,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9625,7 +9625,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4253,
+    "energy": 0.4744,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9640,7 +9640,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.316,
+    "energy": 0.697,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9655,7 +9655,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8884,
+    "energy": 0.9258,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9670,7 +9670,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7481,
+    "energy": 0.5884,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9685,7 +9685,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.37,
+    "energy": 0.591,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9700,7 +9700,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7233,
+    "energy": 0.5875,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9715,7 +9715,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.311,
+    "energy": 0.5764,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9730,7 +9730,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5607,
+    "energy": 0.738,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9745,7 +9745,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7136,
+    "energy": 0.3209,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9760,7 +9760,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4623,
+    "energy": 0.3101,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9775,7 +9775,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2409,
+    "energy": 0.746,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9790,7 +9790,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6035,
+    "energy": 0.307,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9805,7 +9805,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6976,
+    "energy": 0.2516,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9820,7 +9820,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4035,
+    "energy": 0.2722,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9835,7 +9835,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4366,
+    "energy": 0.8765,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9850,7 +9850,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5674,
+    "energy": 0.5974,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9865,7 +9865,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.859,
+    "energy": 0.2733,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9880,7 +9880,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8545,
+    "energy": 0.3418,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9895,7 +9895,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6358,
+    "energy": 0.2799,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9910,7 +9910,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8998,
+    "energy": 0.4981,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9925,7 +9925,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9297,
+    "energy": 0.6332,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9940,7 +9940,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7718,
+    "energy": 0.3608,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9955,7 +9955,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8346,
+    "energy": 0.8033,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9970,7 +9970,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4024,
+    "energy": 0.4882,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -9985,7 +9985,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4437,
+    "energy": 0.5708,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10000,7 +10000,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6021,
+    "energy": 0.7238,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10015,7 +10015,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6183,
+    "energy": 0.4996,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10030,7 +10030,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8893,
+    "energy": 0.7446,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10045,7 +10045,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4948,
+    "energy": 0.6312,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10060,7 +10060,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7336,
+    "energy": 0.9175,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10075,7 +10075,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3199,
+    "energy": 0.7817,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10090,7 +10090,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2385,
+    "energy": 0.3653,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10105,7 +10105,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.574,
+    "energy": 0.4992,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10120,7 +10120,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6105,
+    "energy": 0.7596,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10135,7 +10135,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8285,
+    "energy": 0.8273,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10150,7 +10150,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7905,
+    "energy": 0.8428,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10165,7 +10165,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8325,
+    "energy": 0.3372,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10180,7 +10180,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6285,
+    "energy": 0.2244,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10195,7 +10195,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.594,
+    "energy": 0.2063,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10210,7 +10210,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4179,
+    "energy": 0.4021,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10225,7 +10225,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4622,
+    "energy": 0.4097,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10240,7 +10240,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7144,
+    "energy": 0.5242,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10255,7 +10255,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7979,
+    "energy": 0.9467,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10270,7 +10270,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8263,
+    "energy": 0.2742,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10285,7 +10285,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9272,
+    "energy": 0.4702,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10300,7 +10300,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4312,
+    "energy": 0.6874,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10315,7 +10315,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4807,
+    "energy": 0.2588,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10330,7 +10330,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5927,
+    "energy": 0.6592,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10345,7 +10345,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8486,
+    "energy": 0.4966,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10360,7 +10360,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7592,
+    "energy": 0.376,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10375,7 +10375,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4045,
+    "energy": 0.7782,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10390,7 +10390,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.803,
+    "energy": 0.7532,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10405,7 +10405,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4877,
+    "energy": 0.8482,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10420,7 +10420,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3486,
+    "energy": 0.5424,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10435,7 +10435,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4328,
+    "energy": 0.2672,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10450,7 +10450,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4477,
+    "energy": 0.4151,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10465,7 +10465,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.581,
+    "energy": 0.6478,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10480,7 +10480,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9304,
+    "energy": 0.4923,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10495,7 +10495,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.697,
+    "energy": 0.7135,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10510,7 +10510,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6487,
+    "energy": 0.6777,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10525,7 +10525,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6771,
+    "energy": 0.3395,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10540,7 +10540,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7958,
+    "energy": 0.4564,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10555,7 +10555,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8357,
+    "energy": 0.242,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10570,7 +10570,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3764,
+    "energy": 0.9309,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10585,7 +10585,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8325,
+    "energy": 0.5909,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10600,7 +10600,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5276,
+    "energy": 0.6122,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10615,7 +10615,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5181,
+    "energy": 0.377,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10630,7 +10630,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6096,
+    "energy": 0.6358,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10645,7 +10645,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9377,
+    "energy": 0.9272,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10660,7 +10660,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6044,
+    "energy": 0.9363,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10675,7 +10675,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4647,
+    "energy": 0.874,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10690,7 +10690,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2387,
+    "energy": 0.5513,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10705,7 +10705,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3927,
+    "energy": 0.7819,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10720,7 +10720,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7995,
+    "energy": 0.2475,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10735,7 +10735,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6955,
+    "energy": 0.4415,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10750,7 +10750,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.426,
+    "energy": 0.3437,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10765,7 +10765,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7089,
+    "energy": 0.3655,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10780,7 +10780,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4027,
+    "energy": 0.2455,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10795,7 +10795,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7177,
+    "energy": 0.8258,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10810,7 +10810,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4125,
+    "energy": 0.3866,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10825,7 +10825,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.29,
+    "energy": 0.7269,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10840,7 +10840,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6954,
+    "energy": 0.5323,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10855,7 +10855,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.408,
+    "energy": 0.4426,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10870,7 +10870,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4945,
+    "energy": 0.9199,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10885,7 +10885,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2528,
+    "energy": 0.3664,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10900,7 +10900,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4935,
+    "energy": 0.6287,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10915,7 +10915,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4883,
+    "energy": 0.4252,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10930,7 +10930,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.601,
+    "energy": 0.8743,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10945,7 +10945,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4926,
+    "energy": 0.7782,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10960,7 +10960,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3789,
+    "energy": 0.2086,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10975,7 +10975,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4533,
+    "energy": 0.3149,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -10990,7 +10990,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8936,
+    "energy": 0.311,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11005,7 +11005,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8785,
+    "energy": 0.7234,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11020,7 +11020,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.352,
+    "energy": 0.3847,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11035,7 +11035,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3301,
+    "energy": 0.4612,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11050,7 +11050,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7933,
+    "energy": 0.5317,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11065,7 +11065,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4128,
+    "energy": 0.2843,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11080,7 +11080,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5749,
+    "energy": 0.2835,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11095,7 +11095,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.847,
+    "energy": 0.5623,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11110,7 +11110,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5558,
+    "energy": 0.7919,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11125,7 +11125,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2783,
+    "energy": 0.6951,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11140,7 +11140,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3491,
+    "energy": 0.8779,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11155,7 +11155,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6388,
+    "energy": 0.3855,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11170,7 +11170,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3517,
+    "energy": 0.3772,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11185,7 +11185,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6527,
+    "energy": 0.6162,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11200,7 +11200,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5551,
+    "energy": 0.6593,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11215,7 +11215,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8853,
+    "energy": 0.6067,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11230,7 +11230,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.816,
+    "energy": 0.5929,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11245,7 +11245,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.268,
+    "energy": 0.618,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11260,7 +11260,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.504,
+    "energy": 0.5084,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11275,7 +11275,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4023,
+    "energy": 0.659,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11290,7 +11290,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.473,
+    "energy": 0.5575,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11305,7 +11305,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3038,
+    "energy": 0.3697,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11320,7 +11320,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4403,
+    "energy": 0.3328,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11335,7 +11335,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7087,
+    "energy": 0.7515,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11350,7 +11350,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2655,
+    "energy": 0.2289,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11365,7 +11365,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6705,
+    "energy": 0.2294,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11380,7 +11380,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8538,
+    "energy": 0.4144,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11395,7 +11395,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5339,
+    "energy": 0.2678,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11410,7 +11410,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4648,
+    "energy": 0.2187,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11425,7 +11425,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3209,
+    "energy": 0.7336,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11440,7 +11440,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.311,
+    "energy": 0.9314,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11455,7 +11455,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.317,
+    "energy": 0.3126,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11470,7 +11470,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6239,
+    "energy": 0.3355,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11485,7 +11485,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5345,
+    "energy": 0.656,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11500,7 +11500,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5341,
+    "energy": 0.8616,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11515,7 +11515,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.737,
+    "energy": 0.309,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11530,7 +11530,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7561,
+    "energy": 0.321,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11545,7 +11545,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3558,
+    "energy": 0.4701,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11560,7 +11560,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6169,
+    "energy": 0.2487,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11575,7 +11575,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7549,
+    "energy": 0.2436,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11590,7 +11590,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3345,
+    "energy": 0.5203,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11605,7 +11605,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3934,
+    "energy": 0.6739,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11620,7 +11620,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5458,
+    "energy": 0.7975,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11635,7 +11635,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5854,
+    "energy": 0.3509,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11650,7 +11650,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7235,
+    "energy": 0.456,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11665,7 +11665,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3223,
+    "energy": 0.5559,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11680,7 +11680,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7267,
+    "energy": 0.8106,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11695,7 +11695,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8673,
+    "energy": 0.7997,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11710,7 +11710,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3699,
+    "energy": 0.6282,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11725,7 +11725,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2809,
+    "energy": 0.5104,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11740,7 +11740,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6513,
+    "energy": 0.228,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11755,7 +11755,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5755,
+    "energy": 0.7493,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11770,7 +11770,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7655,
+    "energy": 0.2995,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11785,7 +11785,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8261,
+    "energy": 0.8539,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11800,7 +11800,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7285,
+    "energy": 0.6791,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11815,7 +11815,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5055,
+    "energy": 0.3181,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11830,7 +11830,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4973,
+    "energy": 0.9075,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11845,7 +11845,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4728,
+    "energy": 0.5531,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11860,7 +11860,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6452,
+    "energy": 0.8271,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11875,7 +11875,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.567,
+    "energy": 0.8921,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11890,7 +11890,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4452,
+    "energy": 0.7327,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11905,7 +11905,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5786,
+    "energy": 0.7247,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11920,7 +11920,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8397,
+    "energy": 0.5459,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11935,7 +11935,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5656,
+    "energy": 0.4444,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11950,7 +11950,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.571,
+    "energy": 0.9304,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11965,7 +11965,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.638,
+    "energy": 0.6084,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11980,7 +11980,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2637,
+    "energy": 0.5472,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -11995,7 +11995,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2153,
+    "energy": 0.7785,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12010,7 +12010,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5725,
+    "energy": 0.6771,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12025,7 +12025,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3606,
+    "energy": 0.8581,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12040,7 +12040,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.405,
+    "energy": 0.9427,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12055,7 +12055,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3501,
+    "energy": 0.9259,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12070,7 +12070,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3597,
+    "energy": 0.4957,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12085,7 +12085,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4732,
+    "energy": 0.8325,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12100,7 +12100,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5093,
+    "energy": 0.741,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12115,7 +12115,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.564,
+    "energy": 0.7917,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12130,7 +12130,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2317,
+    "energy": 0.5186,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12145,7 +12145,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8643,
+    "energy": 0.2251,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12160,7 +12160,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5723,
+    "energy": 0.5948,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12175,7 +12175,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3635,
+    "energy": 0.7015,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12190,7 +12190,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6093,
+    "energy": 0.5405,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12205,7 +12205,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8789,
+    "energy": 0.8921,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12220,7 +12220,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8774,
+    "energy": 0.753,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12235,7 +12235,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9022,
+    "energy": 0.4064,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12250,7 +12250,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8498,
+    "energy": 0.3315,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12265,7 +12265,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5157,
+    "energy": 0.8163,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12280,7 +12280,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6712,
+    "energy": 0.4588,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12295,7 +12295,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7945,
+    "energy": 0.7643,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12310,7 +12310,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3364,
+    "energy": 0.8954,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12325,7 +12325,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7259,
+    "energy": 0.9171,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12340,7 +12340,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5264,
+    "energy": 0.4934,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12355,7 +12355,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5235,
+    "energy": 0.6107,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12370,7 +12370,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3766,
+    "energy": 0.4125,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12385,7 +12385,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.735,
+    "energy": 0.6786,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12400,7 +12400,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9254,
+    "energy": 0.872,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12415,7 +12415,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3345,
+    "energy": 0.7192,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12430,7 +12430,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9339,
+    "energy": 0.3937,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12445,7 +12445,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8695,
+    "energy": 0.3079,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12460,7 +12460,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2269,
+    "energy": 0.7457,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12475,7 +12475,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5697,
+    "energy": 0.725,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12490,7 +12490,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3593,
+    "energy": 0.8092,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12505,7 +12505,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.936,
+    "energy": 0.9437,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12520,7 +12520,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6713,
+    "energy": 0.455,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12535,7 +12535,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7978,
+    "energy": 0.8723,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12550,7 +12550,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3914,
+    "energy": 0.9473,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12565,7 +12565,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5681,
+    "energy": 0.9249,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12580,7 +12580,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4014,
+    "energy": 0.5923,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12595,7 +12595,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7073,
+    "energy": 0.5534,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12610,7 +12610,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4253,
+    "energy": 0.273,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12625,7 +12625,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5187,
+    "energy": 0.2473,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12640,7 +12640,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3347,
+    "energy": 0.6094,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12655,7 +12655,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.456,
+    "energy": 0.7222,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12670,7 +12670,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3288,
+    "energy": 0.7832,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12685,7 +12685,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7054,
+    "energy": 0.7201,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12700,7 +12700,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5608,
+    "energy": 0.2282,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12715,7 +12715,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2873,
+    "energy": 0.3439,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12730,7 +12730,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2059,
+    "energy": 0.3561,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12745,7 +12745,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6433,
+    "energy": 0.892,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12760,7 +12760,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6862,
+    "energy": 0.2783,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12775,7 +12775,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3741,
+    "energy": 0.6445,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12790,7 +12790,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9199,
+    "energy": 0.7533,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12805,7 +12805,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2968,
+    "energy": 0.6571,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12820,7 +12820,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8607,
+    "energy": 0.2241,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12835,7 +12835,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3681,
+    "energy": 0.4214,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12850,7 +12850,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2781,
+    "energy": 0.5913,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12865,7 +12865,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6219,
+    "energy": 0.5257,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12880,7 +12880,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8529,
+    "energy": 0.7501,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12895,7 +12895,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5552,
+    "energy": 0.2623,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12910,7 +12910,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7904,
+    "energy": 0.4286,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12925,7 +12925,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2075,
+    "energy": 0.7924,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12940,7 +12940,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8769,
+    "energy": 0.2245,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12955,7 +12955,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7412,
+    "energy": 0.4518,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12970,7 +12970,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7913,
+    "energy": 0.4742,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -12985,7 +12985,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7438,
+    "energy": 0.2852,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13000,7 +13000,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7974,
+    "energy": 0.5777,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13015,7 +13015,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4659,
+    "energy": 0.5989,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13030,7 +13030,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.736,
+    "energy": 0.3413,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13045,7 +13045,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5897,
+    "energy": 0.7228,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13060,7 +13060,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2466,
+    "energy": 0.299,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13075,7 +13075,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6773,
+    "energy": 0.9106,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13090,7 +13090,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5969,
+    "energy": 0.8314,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13105,7 +13105,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6288,
+    "energy": 0.4161,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13120,7 +13120,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2365,
+    "energy": 0.9299,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13135,7 +13135,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5393,
+    "energy": 0.3539,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13150,7 +13150,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8498,
+    "energy": 0.8903,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13165,7 +13165,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7519,
+    "energy": 0.5806,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13180,7 +13180,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3443,
+    "energy": 0.6239,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13195,7 +13195,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3348,
+    "energy": 0.5012,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13210,7 +13210,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2337,
+    "energy": 0.7753,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13225,7 +13225,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.308,
+    "energy": 0.5678,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13240,7 +13240,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2741,
+    "energy": 0.4796,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13255,7 +13255,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5815,
+    "energy": 0.9444,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13270,7 +13270,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.214,
+    "energy": 0.6485,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13285,7 +13285,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3526,
+    "energy": 0.4818,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13300,7 +13300,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9208,
+    "energy": 0.3494,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13315,7 +13315,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8318,
+    "energy": 0.5476,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13330,7 +13330,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7438,
+    "energy": 0.5129,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13345,7 +13345,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4048,
+    "energy": 0.6358,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13360,7 +13360,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8761,
+    "energy": 0.6314,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13375,7 +13375,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2232,
+    "energy": 0.4709,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13390,7 +13390,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2063,
+    "energy": 0.7735,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13405,7 +13405,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6601,
+    "energy": 0.7163,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13420,7 +13420,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8158,
+    "energy": 0.4552,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13435,7 +13435,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.249,
+    "energy": 0.9144,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13450,7 +13450,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9274,
+    "energy": 0.7183,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13465,7 +13465,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4422,
+    "energy": 0.8109,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13480,7 +13480,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5993,
+    "energy": 0.7181,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13495,7 +13495,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8877,
+    "energy": 0.6449,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13510,7 +13510,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8304,
+    "energy": 0.6513,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13525,7 +13525,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5289,
+    "energy": 0.4609,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13540,7 +13540,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2465,
+    "energy": 0.5966,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13555,7 +13555,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.764,
+    "energy": 0.8385,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13570,7 +13570,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7068,
+    "energy": 0.5181,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13585,7 +13585,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2945,
+    "energy": 0.4709,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13600,7 +13600,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5848,
+    "energy": 0.7153,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13615,7 +13615,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6398,
+    "energy": 0.5568,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13630,7 +13630,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7889,
+    "energy": 0.2638,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13645,7 +13645,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.514,
+    "energy": 0.9314,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13660,7 +13660,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3793,
+    "energy": 0.7351,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13675,7 +13675,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3458,
+    "energy": 0.9406,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13690,7 +13690,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3339,
+    "energy": 0.2223,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13705,7 +13705,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4288,
+    "energy": 0.6674,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13720,7 +13720,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3083,
+    "energy": 0.3962,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13735,7 +13735,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3418,
+    "energy": 0.4359,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13750,7 +13750,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3569,
+    "energy": 0.5686,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13765,7 +13765,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3342,
+    "energy": 0.6292,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13780,7 +13780,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3646,
+    "energy": 0.4646,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13795,7 +13795,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3007,
+    "energy": 0.7739,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13810,7 +13810,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8034,
+    "energy": 0.376,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13825,7 +13825,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6827,
+    "energy": 0.228,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13840,7 +13840,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7127,
+    "energy": 0.4833,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13855,7 +13855,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8167,
+    "energy": 0.7737,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13870,7 +13870,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3574,
+    "energy": 0.8303,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13885,7 +13885,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9064,
+    "energy": 0.269,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13900,7 +13900,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6941,
+    "energy": 0.2575,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13915,7 +13915,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2242,
+    "energy": 0.5399,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13930,7 +13930,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4898,
+    "energy": 0.8179,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13945,7 +13945,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6525,
+    "energy": 0.6701,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13960,7 +13960,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2083,
+    "energy": 0.439,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13975,7 +13975,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8528,
+    "energy": 0.5044,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -13990,7 +13990,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3513,
+    "energy": 0.6852,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14005,7 +14005,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.753,
+    "energy": 0.8394,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14020,7 +14020,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3869,
+    "energy": 0.8726,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14035,7 +14035,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4053,
+    "energy": 0.2905,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14050,7 +14050,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9465,
+    "energy": 0.805,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14065,7 +14065,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7067,
+    "energy": 0.3606,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14080,7 +14080,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5482,
+    "energy": 0.6093,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14095,7 +14095,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6552,
+    "energy": 0.4311,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14110,7 +14110,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7358,
+    "energy": 0.3897,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14125,7 +14125,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4312,
+    "energy": 0.5318,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14140,7 +14140,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.942,
+    "energy": 0.8446,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14155,7 +14155,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5844,
+    "energy": 0.8174,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14170,7 +14170,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2112,
+    "energy": 0.3957,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14185,7 +14185,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5083,
+    "energy": 0.681,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14200,7 +14200,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9361,
+    "energy": 0.2831,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14215,7 +14215,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2506,
+    "energy": 0.9046,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14230,7 +14230,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7692,
+    "energy": 0.2633,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14245,7 +14245,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6815,
+    "energy": 0.6189,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14260,7 +14260,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5112,
+    "energy": 0.6635,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14275,7 +14275,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7222,
+    "energy": 0.78,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14290,7 +14290,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.944,
+    "energy": 0.7598,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14305,7 +14305,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7413,
+    "energy": 0.3353,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14320,7 +14320,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9294,
+    "energy": 0.5436,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14335,7 +14335,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5205,
+    "energy": 0.7521,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14350,7 +14350,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.254,
+    "energy": 0.9045,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14365,7 +14365,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.496,
+    "energy": 0.8692,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14380,7 +14380,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3457,
+    "energy": 0.7327,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14395,7 +14395,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.518,
+    "energy": 0.4704,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14410,7 +14410,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7108,
+    "energy": 0.3237,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14425,7 +14425,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6396,
+    "energy": 0.3374,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14440,7 +14440,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6396,
+    "energy": 0.9416,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14455,7 +14455,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.2048,
+    "energy": 0.4131,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14470,7 +14470,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.728,
+    "energy": 0.7751,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14485,7 +14485,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3945,
+    "energy": 0.936,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14500,7 +14500,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6392,
+    "energy": 0.7308,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14515,7 +14515,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7938,
+    "energy": 0.5398,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14530,7 +14530,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4573,
+    "energy": 0.9139,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14545,7 +14545,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7237,
+    "energy": 0.3222,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14560,7 +14560,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.5564,
+    "energy": 0.8913,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14575,7 +14575,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.4441,
+    "energy": 0.5573,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14590,7 +14590,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8428,
+    "energy": 0.2303,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14605,7 +14605,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.7976,
+    "energy": 0.263,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14620,7 +14620,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.3278,
+    "energy": 0.3865,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14635,7 +14635,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.6994,
+    "energy": 0.5485,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14650,7 +14650,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.8929,
+    "energy": 0.7896,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14665,7 +14665,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.375,
+    "energy": 0.6679,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14680,7 +14680,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.435,
+    "energy": 0.8537,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"
@@ -14695,7 +14695,7 @@
     "has_7s": true,
     "IPT": 0,
     "compute_capacity": 0.05,
-    "energy": 0.9004,
+    "energy": 0.8516,
     "status": "active",
     "failure_reason": "none",
     "role": "7s_event_source"

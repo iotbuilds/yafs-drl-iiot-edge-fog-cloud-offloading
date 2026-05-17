@@ -1,7 +1,8 @@
-"""Legacy 7F severity-aware DRL offloading selector.
+"""Shared 7F offloading environment model.
 
-State = confirmed 7F factors plus routing context.
-Action = one of: local_edge, edge_to_edge, edge_to_fog, fog_to_fog, cloud_escalation.
+This module contains routing, candidate scoring, reward shaping, and dynamic
+resource-load updates. The PyTorch DQN selector uses this environment model
+for candidate evaluation and environment feedback.
 """
 from __future__ import annotations
 import math
@@ -12,53 +13,23 @@ import networkx as nx
 
 from config import SEED, SEVERITY_WEIGHTS
 
-class DRLQSelector:
-    def __init__(self, graph: nx.Graph, epsilon: float = 0.08, alpha: float = 0.25, gamma: float = 0.85, seed: int = SEED):
+class OffloadingDecisionCore:
+    def __init__(
+        self,
+        graph: nx.Graph,
+        epsilon: float = 0.08,
+        gamma: float = 0.85,
+        seed: int = SEED,
+    ):
         self.graph = graph
         self.epsilon = epsilon
-        self.alpha = alpha
         self.gamma = gamma
         self.rng = random.Random(seed)
-        self.q = defaultdict(float)
         self.reward_trace: list[dict] = []
         self.action_counts = defaultdict(int)
         self._path_cache = {}
         self.node_loads = defaultdict(list)
         self.link_loads = defaultdict(list)
-
-    def select(self, event: dict) -> dict:
-        self._release_completed_loads(float(event.get("timestamp", 0.0)))
-        source_edge = event["edge_gateway"]
-        severity = event["severity"]
-        candidates = self._candidate_nodes(source_edge, severity)
-        scored = [self._score_candidate(event, source_edge, dst) for dst in candidates]
-        scored = [s for s in scored if not math.isinf(s["score"])]
-        if event.get("stress_scenario") == "force_fog_to_fog":
-            f2f = [s for s in scored if s.get("offloading_scenario") == "fog_to_fog"]
-            if f2f:
-                scored = f2f
-        if not scored:
-            raise RuntimeError("No valid offloading candidate found")
-
-        state = self._state(event, source_edge)
-        if self.rng.random() < self.epsilon:
-            decision = self.rng.choice(scored)
-            decision["policy_mode"] = "epsilon_exploration"
-        else:
-            decision = min(scored, key=lambda x: x["score"] - self.q[(state, x["destination"])] * 0.01)
-            decision["policy_mode"] = "q_policy_exploitation"
-
-        reward = self._reward(event, decision)
-        key = (state, decision["destination"])
-        future = max([0.0] + [self.q[(state, s["destination"])] for s in scored])
-        self.q[key] = (1 - self.alpha) * self.q[key] + self.alpha * (reward + self.gamma * future)
-        decision["reward"] = round(reward, 6)
-        decision["q_value"] = round(self.q[key], 6)
-        decision["state_7f"] = state
-        self.reward_trace.append({"event_id": event["event_id"], "reward": decision["reward"], "score": decision["score"], "action": decision["offloading_scenario"]})
-        self.action_counts[decision["offloading_scenario"]] += 1
-        self._reserve_dynamic_load(event, decision)
-        return decision
 
     def _path(self, src: str, dst: str) -> List[str]:
         if src == dst:
@@ -167,7 +138,6 @@ class DRLQSelector:
             avg_congestion = 0.05
             avg_dynamic_link_load = 0.0
             min_bw = 1_000.0
-            reliability_risk = 0.01
         else:
             edges = list(zip(path[:-1], path[1:]))
             delay = sum(float(self.graph.edges[e].get("PR", 1.0)) for e in edges)
@@ -185,8 +155,6 @@ class DRLQSelector:
             avg_dynamic_link_load = sum(dynamic_link_loads) / max(hops, 1)
             avg_congestion = sum(congestion_values) / max(hops, 1)
             min_bw = min(float(self.graph.edges[e].get("BW", 1.0)) for e in edges)
-            reliability = min(float(self.graph.edges[e].get("reliability", 0.95)) for e in edges)
-            reliability_risk = 1.0 - reliability
         nd = self.graph.nodes[dst]
         task_size = float(event["task_size_kb"])
         task_cpu_cycles = float(event.get("task_cpu_cycles", 0.0))
@@ -213,7 +181,6 @@ class DRLQSelector:
             "compute_demand_ratio": compute_demand_ratio,
             "task_cpu_cycles": task_cpu_cycles / 1_000_000_000.0,
             "target_compute_capacity_cycles": target_compute_capacity / 1_000_000_000.0,
-            "reliability_risk": reliability_risk,
             "estimated_delay": estimated_delay,
         }
 
@@ -330,5 +297,5 @@ class DRLQSelector:
         })
 
     def _state(self, event: dict, edge: str) -> tuple:
-        # Discretized state used by the Q-policy. The 7F values are logged in the decision row.
+        # Compact state label kept for dashboard/API compatibility.
         return (edge, event["severity"], event["dominant_sensor_type"], int(event["task_size_kb"] // 64))

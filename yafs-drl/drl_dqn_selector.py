@@ -1,22 +1,21 @@
-"""PyTorch DQN-based 7S/7F topology-aware offloading selector.
+"""PyTorch DQN-based 7F topology-aware offloading selector.
 
-The selector keeps the same dashboard/API decision schema as ``DRLQSelector``,
-but uses a real PyTorch neural Q-network, replay memory, Bellman targets,
-Adam optimization, and a target network for DQN-style learning.
+The selector uses a PyTorch neural Q-network, replay memory, Bellman
+targets, Adam optimization, and a target network for DQN-style learning.
 """
 from __future__ import annotations
 
+import math
 import random
 from collections import deque
 from dataclasses import dataclass
 
 import networkx as nx
-import numpy as np
 import torch
 from torch import nn
 
 from config import DEADLINES, DRL_ACTIONS, EVENT_LEVELS, SEED, SENSOR_TYPES
-from drl_q_selector import DRLQSelector
+from offloading_decision_core import OffloadingDecisionCore
 
 
 @dataclass
@@ -47,8 +46,8 @@ class _TorchQNetwork(nn.Module):
         return self.net(x)
 
 
-class DRLDQNSelector(DRLQSelector):
-    """PyTorch DQN selector with the same output contract as DRLQSelector."""
+class DRLDQNSelector(OffloadingDecisionCore):
+    """PyTorch neural-network DQN selector."""
 
     def __init__(
         self,
@@ -60,12 +59,10 @@ class DRLDQNSelector(DRLQSelector):
         super().__init__(
             graph=graph,
             epsilon=self.params.epsilon,
-            alpha=self.params.learning_rate,
             gamma=self.params.gamma,
             seed=seed,
         )
         random.seed(seed)
-        np.random.seed(seed)
         torch.manual_seed(seed)
         torch.set_num_threads(1)
 
@@ -73,7 +70,7 @@ class DRLDQNSelector(DRLQSelector):
         self.index_to_action = {i: action for action, i in self.action_to_index.items()}
         self.device = torch.device("cpu")
         self.replay = deque(maxlen=self.params.replay_capacity)
-        self.previous_transition: tuple[np.ndarray, int, float] | None = None
+        self.previous_transition: tuple[torch.Tensor, int, float] | None = None
         self.training_steps = 0
         self.last_loss = 0.0
         self.input_size = self._state_vector_size()
@@ -90,7 +87,7 @@ class DRLDQNSelector(DRLQSelector):
         severity = event["severity"]
         candidates = self._candidate_nodes(source_edge, severity)
         scored = [self._score_candidate(event, source_edge, dst) for dst in candidates]
-        scored = [s for s in scored if not np.isinf(s["score"])]
+        scored = [s for s in scored if not math.isinf(s["score"])]
         if event.get("stress_scenario") == "force_fog_to_fog":
             f2f = [s for s in scored if s.get("offloading_scenario") == "fog_to_fog"]
             if f2f:
@@ -107,9 +104,9 @@ class DRLDQNSelector(DRLQSelector):
             action_index = self.rng.choice(valid_actions)
             policy_mode = "pytorch_dqn_epsilon_exploration"
         else:
-            masked = np.full(len(DRL_ACTIONS), -1e9)
+            masked = torch.full((len(DRL_ACTIONS),), -1e9, dtype=torch.float32, device=self.device)
             masked[valid_actions] = q_values[valid_actions]
-            action_index = int(np.argmax(masked))
+            action_index = int(torch.argmax(masked).item())
             policy_mode = "pytorch_dqn_policy_exploitation"
 
         action_name = self.index_to_action[action_index]
@@ -121,7 +118,7 @@ class DRLDQNSelector(DRLQSelector):
         self.previous_transition = (state_vector, action_index, reward)
 
         decision["reward"] = round(reward, 6)
-        decision["q_value"] = round(float(q_values[action_index]), 6)
+        decision["q_value"] = round(float(q_values[action_index].item()), 6)
         decision["dqn_q_value"] = decision["q_value"]
         decision["dqn_action"] = action_name
         decision["model_type"] = "PyTorch-DQN"
@@ -138,15 +135,14 @@ class DRLDQNSelector(DRLQSelector):
         self._reserve_dynamic_load(event, decision)
         return decision
 
-    def _predict_q_values(self, state_vector: np.ndarray) -> np.ndarray:
+    def _predict_q_values(self, state_vector: torch.Tensor) -> torch.Tensor:
         self.online.eval()
         with torch.no_grad():
-            state = torch.as_tensor(state_vector, dtype=torch.float32, device=self.device).unsqueeze(0)
-            q_values = self.online(state).squeeze(0).cpu().numpy()
+            q_values = self.online(state_vector.unsqueeze(0)).squeeze(0)
         self.online.train()
         return q_values
 
-    def _learn_from_previous(self, next_state: np.ndarray) -> None:
+    def _learn_from_previous(self, next_state: torch.Tensor) -> None:
         if self.previous_transition is not None:
             prev_state, prev_action, prev_reward = self.previous_transition
             self.replay.append((prev_state, prev_action, prev_reward, next_state))
@@ -156,10 +152,10 @@ class DRLDQNSelector(DRLQSelector):
 
         batch_size = min(self.params.batch_size, len(self.replay))
         batch = self.rng.sample(list(self.replay), batch_size)
-        states = torch.as_tensor(np.vstack([row[0] for row in batch]), dtype=torch.float32, device=self.device)
+        states = torch.stack([row[0] for row in batch]).to(self.device)
         actions = torch.as_tensor([row[1] for row in batch], dtype=torch.long, device=self.device).unsqueeze(1)
         rewards = torch.as_tensor([row[2] for row in batch], dtype=torch.float32, device=self.device)
-        next_states = torch.as_tensor(np.vstack([row[3] for row in batch]), dtype=torch.float32, device=self.device)
+        next_states = torch.stack([row[3] for row in batch]).to(self.device)
 
         q_selected = self.online(states).gather(1, actions).squeeze(1)
         with torch.no_grad():
@@ -186,7 +182,7 @@ class DRLDQNSelector(DRLQSelector):
                 best[action] = candidate
         return best
 
-    def _encode_state(self, event: dict, source_edge: str, action_options: dict[str, dict]) -> np.ndarray:
+    def _encode_state(self, event: dict, source_edge: str, action_options: dict[str, dict]) -> torch.Tensor:
         values: list[float] = []
         values.extend(1.0 if event["severity"] == level else 0.0 for level in EVENT_LEVELS)
         values.extend(1.0 if event["dominant_sensor_type"] == sensor else 0.0 for sensor in SENSOR_TYPES)
@@ -218,7 +214,7 @@ class DRLDQNSelector(DRLQSelector):
                 float(candidate.get("factor_task_cpu_cycles", 0.0)),
                 float(candidate.get("factor_target_compute_capacity_cycles", 0.0)),
             ])
-        return np.array(values, dtype=np.float32)
+        return torch.tensor(values, dtype=torch.float32, device=self.device)
 
     def _state_vector_size(self) -> int:
         event_features = len(EVENT_LEVELS) + len(SENSOR_TYPES) + 2

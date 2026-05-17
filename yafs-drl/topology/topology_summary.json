@@ -1,6 +1,6 @@
 {
   "nodes": 1000,
-  "edges": 3057,
+  "edges": 3059,
   "confirmed_distribution": {
     "sensor": 700,
     "edge": 220,

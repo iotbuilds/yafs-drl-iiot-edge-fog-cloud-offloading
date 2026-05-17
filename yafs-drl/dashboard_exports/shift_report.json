@@ -3,12 +3,12 @@
   "normal_count": 5898,
   "warning_count": 2511,
   "critical_count": 1591,
-  "deadline_compliance": 0.9978,
+  "deadline_compliance": 0.9976,
   "offloading_performance": {
-    "local_edge": 5623,
-    "edge_to_edge": 2066,
-    "edge_to_fog": 1336,
-    "fog_to_fog": 951,
+    "local_edge": 5263,
+    "edge_to_edge": 2372,
+    "edge_to_fog": 1457,
+    "fog_to_fog": 884,
     "cloud_escalation": 24
   },
   "cloud_role": "one centralized cloud node for analytics/API/dashboard/storage/reporting/escalation",
@@ -295,7 +295,7 @@
         "paper": "Reliable and efficient computation offloading for dependency-aware tasks in IIoT using evolutionary multi-objective optimization",
         "source_file": "PAPERS L10/1-s2.0-S0167739X25002183-main.pdf",
         "supports": "IIoT computation offloading with multi-objective optimization over delay, network, energy, task, bandwidth, and compute capacity factors.",
-        "implemented_mapping": "Deadline success and compute-capacity-aware offloading are reported; reliability is not used as a DRL scoring factor."
+        "implemented_mapping": "Deadline success and compute-capacity-aware offloading are reported through the true 7F decision model."
       },
       {
         "paper": "Dynamic offloading strategy for computational energy efficiency of wireless power transfer based MEC networks in industry 5.0",
@@ -306,20 +306,20 @@
     ],
     "dynamic_resource_allocation": {
       "purpose": "Show that resource state is updated after each offloading decision, so later DRL decisions see changed node load and link traffic.",
-      "avg_node_load_before": 0.015648,
-      "avg_node_load_after": 0.096906,
-      "avg_link_load_before": 2e-06,
-      "avg_link_load_after": 4.7e-05,
-      "avg_processing_time": 7.450243
+      "avg_node_load_before": 0.015963,
+      "avg_node_load_after": 0.097457,
+      "avg_link_load_before": 1e-06,
+      "avg_link_load_after": 3.8e-05,
+      "avg_processing_time": 7.380996
     },
     "averages": {
       "event_payload_kb": 33.891,
       "protocol_security_overhead_kb": 5.653,
       "task_size_kb": 39.544,
       "task_cpu_cycles": 55572971.906,
-      "compute_demand_ratio": 0.083536,
-      "decision_metadata_kb": 4.187,
-      "total_transfer_kb": 43.732
+      "compute_demand_ratio": 0.083545,
+      "decision_metadata_kb": 4.198,
+      "total_transfer_kb": 43.742
     },
     "severity_examples": {
       "critical": {

@@ -3,35 +3,35 @@
     "path": "cloud_escalation",
     "count": 24,
     "ratio": 0.0024,
-    "avg_latency": 14.708512,
-    "deadline_success_rate": 0.083333
+    "avg_latency": 17.456592,
+    "deadline_success_rate": 0.0
   },
   {
     "path": "edge_to_edge",
-    "count": 2066,
-    "ratio": 0.2066,
-    "avg_latency": 3.05986,
+    "count": 2372,
+    "ratio": 0.2372,
+    "avg_latency": 2.876569,
     "deadline_success_rate": 1.0
   },
   {
     "path": "edge_to_fog",
-    "count": 1336,
-    "ratio": 0.1336,
-    "avg_latency": 3.658167,
+    "count": 1457,
+    "ratio": 0.1457,
+    "avg_latency": 3.888849,
     "deadline_success_rate": 1.0
   },
   {
     "path": "fog_to_fog",
-    "count": 951,
-    "ratio": 0.0951,
-    "avg_latency": 6.360886,
+    "count": 884,
+    "ratio": 0.0884,
+    "avg_latency": 6.386542,
     "deadline_success_rate": 1.0
   },
   {
     "path": "local_edge",
-    "count": 5623,
-    "ratio": 0.5623,
-    "avg_latency": 1.235557,
+    "count": 5263,
+    "ratio": 0.5263,
+    "avg_latency": 1.266929,
     "deadline_success_rate": 1.0
   }
 ]

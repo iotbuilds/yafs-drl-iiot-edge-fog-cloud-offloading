@@ -98,8 +98,7 @@ def _add_link(g: nx.Graph, a: str, b: str, rng: random.Random, kind: str) -> Non
     g.add_edge(a, b, kind=kind,
                BW=round(rng.uniform(bw_min, bw_max), 3),
                PR=round(rng.uniform(pr_min, pr_max), 3),
-               congestion=round(rng.uniform(0.03, 0.55), 3),
-               reliability=round(rng.uniform(0.88, 0.999), 3))
+               congestion=round(rng.uniform(0.03, 0.55), 3))
 
 def save_topology(g: nx.Graph, out_dir: Path = TOPOLOGY_DIR) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
